@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>YuGothM.ttc</string>
+		<string>YuGothL.ttc</string>
+		<string>YuGothB.ttc</string>
+		<string>yugothib.ttf</string>
+		<string>yu-gothic-regular.ttf</string>
+		<string>yugothil.ttf</string>
+	</array>
+</dict>
+</plist>
