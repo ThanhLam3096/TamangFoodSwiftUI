@@ -13,7 +13,8 @@ struct CSpace: View {
     var color: Color = .clear
 
     var body: some View {
-        Color(color)
+        Spacer()
             .frame(width: width, height: height)
+            .background(color)
     }
 }
