@@ -22,6 +22,7 @@ extension Color {
     static let blackColor = Color(hex: "#000000")
     static let cacuColor = Color(hex: "#F8F8F8")
     static let titleColor = Color(hex: "#3A3A3A")
+    static let lineView = Color(hex: "#F6F6F6")
 }
 
 extension Color {
