@@ -37,6 +37,7 @@ struct IntroducePage: View {
                     .frame(height: screenSize.scaleWidth(75))
                     CSpace(height: screenSize.scaleHeight(64))
                     Image(imageIntroduce)
+                        .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: screenSize.scaleWidth(264), height: screenSize.scaleWidth(264))
                     CSpace(height: screenSize.scaleHeight(20))

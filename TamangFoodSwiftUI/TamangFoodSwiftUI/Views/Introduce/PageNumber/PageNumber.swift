@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PageNumber: View {
     @StateObject private var viewModel = PageNumberViewModel()
-    @State private var path: [SignInRoute] = []
+//    @State private var path: [SignInRoute] = []
 
     var body: some View {
         IntroducePage(
@@ -22,7 +22,7 @@ struct PageNumber: View {
             }
         )
         .navigationDestination(isPresented: $viewModel.navigateToSignIn) {
-            SignIn(path: $path)
+            SignIn()
         }
         .navigationBarHidden(true)
     }

@@ -17,6 +17,7 @@
 		0447E1662DC760A900697677 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447E1652DC760A900697677 /* ForgotPassword.swift */; };
 		0447E1682DC7623F00697677 /* PageNumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447E1672DC7623F00697677 /* PageNumberViewModel.swift */; };
 		0447E16C2DC7678F00697677 /* SignInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447E16B2DC7678F00697677 /* SignInRouter.swift */; };
+		0447E16E2DC78B0500697677 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447E16D2DC78B0500697677 /* SignInViewModel.swift */; };
 		04502AE72DC5ABDA00A41735 /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04502AE62DC5ABDA00A41735 /* SocialButton.swift */; };
 		04502AE92DC5AC2D00A41735 /* SocialType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04502AE82DC5AC2D00A41735 /* SocialType.swift */; };
 		04502AED2DC5ADC600A41735 /* SocialButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04502AEC2DC5ADC600A41735 /* SocialButtonViewModel.swift */; };
@@ -71,6 +72,7 @@
 		0447E1652DC760A900697677 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
 		0447E1672DC7623F00697677 /* PageNumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNumberViewModel.swift; sourceTree = "<group>"; };
 		0447E16B2DC7678F00697677 /* SignInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRouter.swift; sourceTree = "<group>"; };
+		0447E16D2DC78B0500697677 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		04502AE62DC5ABDA00A41735 /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
 		04502AE82DC5AC2D00A41735 /* SocialType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialType.swift; sourceTree = "<group>"; };
 		04502AEC2DC5ADC600A41735 /* SocialButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButtonViewModel.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				044138922DBE61AC0050F863 /* SignIn.swift */,
+				0447E16D2DC78B0500697677 /* SignInViewModel.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				044138932DBE61AC0050F863 /* SignIn.swift in Sources */,
 				04EE7B202DA7CF4100BA8EE1 /* Color.swift in Sources */,
 				0447E1682DC7623F00697677 /* PageNumberViewModel.swift in Sources */,
+				0447E16E2DC78B0500697677 /* SignInViewModel.swift in Sources */,
 				04EE7AD92DA521DB00BA8EE1 /* TamangFoodSwiftUIApp.swift in Sources */,
 				042E0EC52DBB2CBE008CFC7F /* PageNumber.swift in Sources */,
 				042E0EC72DBB3809008CFC7F /* AppText.swift in Sources */,
