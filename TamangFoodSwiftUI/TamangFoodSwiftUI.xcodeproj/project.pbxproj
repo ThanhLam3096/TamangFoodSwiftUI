@@ -14,6 +14,9 @@
 		044138932DBE61AC0050F863 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044138922DBE61AC0050F863 /* SignIn.swift */; };
 		0443D0522DC1A9FB002139FE /* TextFieldFormInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443D0512DC1A9FB002139FE /* TextFieldFormInfo.swift */; };
 		0446CF822DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446CF812DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift */; };
+		0447E1662DC760A900697677 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447E1652DC760A900697677 /* ForgotPassword.swift */; };
+		0447E1682DC7623F00697677 /* PageNumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447E1672DC7623F00697677 /* PageNumberViewModel.swift */; };
+		0447E16C2DC7678F00697677 /* SignInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447E16B2DC7678F00697677 /* SignInRouter.swift */; };
 		04502AE72DC5ABDA00A41735 /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04502AE62DC5ABDA00A41735 /* SocialButton.swift */; };
 		04502AE92DC5AC2D00A41735 /* SocialType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04502AE82DC5AC2D00A41735 /* SocialType.swift */; };
 		04502AED2DC5ADC600A41735 /* SocialButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04502AEC2DC5ADC600A41735 /* SocialButtonViewModel.swift */; };
@@ -65,6 +68,9 @@
 		044138922DBE61AC0050F863 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		0443D0512DC1A9FB002139FE /* TextFieldFormInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormInfo.swift; sourceTree = "<group>"; };
 		0446CF812DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormInfoViewModel.swift; sourceTree = "<group>"; };
+		0447E1652DC760A900697677 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
+		0447E1672DC7623F00697677 /* PageNumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNumberViewModel.swift; sourceTree = "<group>"; };
+		0447E16B2DC7678F00697677 /* SignInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRouter.swift; sourceTree = "<group>"; };
 		04502AE62DC5ABDA00A41735 /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
 		04502AE82DC5AC2D00A41735 /* SocialType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialType.swift; sourceTree = "<group>"; };
 		04502AEC2DC5ADC600A41735 /* SocialButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButtonViewModel.swift; sourceTree = "<group>"; };
@@ -134,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				042E0EC42DBB2CBE008CFC7F /* PageNumber.swift */,
+				0447E1672DC7623F00697677 /* PageNumberViewModel.swift */,
 			);
 			path = PageNumber;
 			sourceTree = "<group>";
@@ -161,6 +168,14 @@
 				0446CF812DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift */,
 			);
 			path = TextFieldFormEnterInfo;
+			sourceTree = "<group>";
+		};
+		0447E1642DC7605E00697677 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				0447E1652DC760A900697677 /* ForgotPassword.swift */,
+			);
+			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
 		04502AE52DC5AA1200A41735 /* SocialButton */ = {
@@ -264,6 +279,7 @@
 		04EE7B022DA5221900BA8EE1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0447E1642DC7605E00697677 /* ForgotPassword */,
 				044138912DBE619C0050F863 /* SignIn */,
 				042E0EC22DBB2CA0008CFC7F /* Introduce */,
 				04EE7B032DA5223100BA8EE1 /* WelcomeView */,
@@ -286,6 +302,7 @@
 				042E0EC62DBB3809008CFC7F /* AppText.swift */,
 				04502AE82DC5AC2D00A41735 /* SocialType.swift */,
 				04502AEE2DC5B41800A41735 /* KeyboardResponder.swift */,
+				0447E16B2DC7678F00697677 /* SignInRouter.swift */,
 			);
 			path = Defines;
 			sourceTree = "<group>";
@@ -460,12 +477,15 @@
 				0446CF822DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift in Sources */,
 				04707C812DA922C300CD6066 /* Spacer.swift in Sources */,
 				04EE7B052DA5225200BA8EE1 /* Welcome.swift in Sources */,
+				0447E1662DC760A900697677 /* ForgotPassword.swift in Sources */,
 				04EE7B082DA5242100BA8EE1 /* ScreenSize.swift in Sources */,
+				0447E16C2DC7678F00697677 /* SignInRouter.swift in Sources */,
 				04502AF12DC5BD8700A41735 /* View.swift in Sources */,
 				046EDAE42DBE6643005E5F42 /* NavigationBarView.swift in Sources */,
 				042E0ECA2DBCE474008CFC7F /* PageIndicator.swift in Sources */,
 				044138932DBE61AC0050F863 /* SignIn.swift in Sources */,
 				04EE7B202DA7CF4100BA8EE1 /* Color.swift in Sources */,
+				0447E1682DC7623F00697677 /* PageNumberViewModel.swift in Sources */,
 				04EE7AD92DA521DB00BA8EE1 /* TamangFoodSwiftUIApp.swift in Sources */,
 				042E0EC52DBB2CBE008CFC7F /* PageNumber.swift in Sources */,
 				042E0EC72DBB3809008CFC7F /* AppText.swift in Sources */,

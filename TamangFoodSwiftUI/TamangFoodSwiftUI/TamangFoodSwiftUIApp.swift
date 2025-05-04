@@ -12,8 +12,8 @@ struct TamangFoodSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack{
-//                Welcome()
-                SignIn()
+                Welcome()
+//                SignIn()
             }
         }
     }

@@ -8,32 +8,22 @@
 import SwiftUI
 
 struct PageNumber: View {
-    @State private var imageIntroduce = AppText.imagePageOne
-    @State private var titleIntroduce = AppText.titlePageOne
-    @State private var descriptionIntroduce = AppText.onboardingPageOneDescription
-    @State private var page = 0
+    @StateObject private var viewModel = PageNumberViewModel()
+    @State private var path: [SignInRoute] = []
+
     var body: some View {
         IntroducePage(
-            imageIntroduce: imageIntroduce,
-            titleIntroduce: titleIntroduce,
-            descriptionIntroduce: descriptionIntroduce,
-            page: page,
+            imageIntroduce: viewModel.imageIntroduce,
+            titleIntroduce: viewModel.titleIntroduce,
+            descriptionIntroduce: viewModel.descriptionIntroduce,
+            page: viewModel.page,
             onTapButton: {
-                if page == 0 {
-                    page = page + 1
-                    imageIntroduce = AppText.imagePageTwo
-                    titleIntroduce = AppText.titlePageTwo
-                    descriptionIntroduce = AppText.onboardingPageTwoDescription
-                } else if page == 1 {
-                    page = page + 1
-                    imageIntroduce = AppText.imagePageThree
-                    titleIntroduce = AppText.titlePageThree
-                    descriptionIntroduce = AppText.onboardingPageThreeDescription
-                } else {
-                    print("Move New Screen")
-                }
+                viewModel.nextPage()
             }
         )
+        .navigationDestination(isPresented: $viewModel.navigateToSignIn) {
+            SignIn(path: $path)
+        }
         .navigationBarHidden(true)
     }
 }

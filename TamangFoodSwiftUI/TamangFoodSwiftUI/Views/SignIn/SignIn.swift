@@ -11,22 +11,36 @@ struct SignIn: View {
     @StateObject private var emailViewModel = TextFieldFormInfoViewModel()
     @StateObject private var passwordViewModel = TextFieldFormInfoViewModel()
     @StateObject private var screenSizeManager = ScreenSizeManager()
+//    @State private var path: [SignInRoute] = []
+    @Binding var path: [SignInRoute]
     
     var body: some View {
-        GeometryReader { geometry in
-            let size = geometry.size
-            Color.clear.onAppear {
-                if screenSizeManager.screenSize == .zero {
-                    screenSizeManager.updateScreenSize(size: size)
+        NavigationStack(path: $path) {
+            GeometryReader { geometry in
+                let size = geometry.size
+                Color.clear.onAppear {
+                    if screenSizeManager.screenSize == .zero {
+                        screenSizeManager.updateScreenSize(size: size)
+                    }
+                }
+                SignInContent(
+                    screenSize: ScreenSize(from: screenSizeManager.screenSize == .zero ? size : screenSizeManager.screenSize),
+                    emailViewModel: emailViewModel,
+                    passwordViewModel: passwordViewModel,
+                    path: $path
+                )
+            }
+            .ignoresSafeArea(.keyboard)
+            .navigationBarHidden(true)
+            .navigationDestination(for: SignInRoute.self) { route in
+                switch route {
+                case .forgetPassword:
+                    ForgotPassword()
+                case .createAccount:
+                    CreateAccountView()
                 }
             }
-            SignInContent(
-                screenSize: ScreenSize(from: screenSizeManager.screenSize == .zero ? size : screenSizeManager.screenSize),
-                emailViewModel: emailViewModel,
-                passwordViewModel: passwordViewModel
-            )
         }
-        .ignoresSafeArea(.keyboard)
     }
 }
 
@@ -35,6 +49,7 @@ struct SignInContent: View {
     @ObservedObject var emailViewModel: TextFieldFormInfoViewModel
     @ObservedObject var passwordViewModel: TextFieldFormInfoViewModel
     @ObservedObject private var keyboard = KeyboardResponder()
+    @Binding var path: [SignInRoute]
     
     var body: some View {
 //        ScrollViewReader { proxy in
@@ -60,7 +75,8 @@ struct SignInContent: View {
                         TextFieldFormInfo(title: AppText.passwordTitleTextField, screenSize: screenSize, isPasswordForm: true, viewModel: passwordViewModel)
                         CSpace(height: screenSize.scaleHeight(25))
                         Button(action: {
-                            print("Go To ForgetPassword Screen")
+                            print("Go next ForGotPassowrd")
+                            path.append(.forgetPassword)
                         }) {
                             Text(AppText.forgetPassword)
                                 .font(.yuGothicUILight(size: screenSize.scaleHeight(12)))
@@ -77,7 +93,7 @@ struct SignInContent: View {
                                 .foregroundStyle(Color.mainColor)
                             CSpace(width: screenSize.scaleWidth(20))
                             Button {
-                                print("Go To Screen Create Account")
+                                path.append(.createAccount)
                             } label: {
                                 Text(AppText.createNewAccountText)
                                     .font(.yuGothicUILight(size: screenSize.scaleHeight(12)))
@@ -117,7 +133,14 @@ struct SignInContent: View {
     }
 }
 
+struct CreateAccountView: View {
+//    let screenSize: ScreenSize
+
+    var body: some View {
+        Text("Create Account Screen")
+    }
+}
 
 #Preview {
-    SignIn()
+    SignIn(path: .constant([]))
 }

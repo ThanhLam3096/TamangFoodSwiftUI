@@ -11,10 +11,10 @@ import Combine
 
 final class KeyboardResponder: ObservableObject {
     @Published var keyboardHeight: CGFloat = 0
-//    @Published var isKeyboardVisible: Bool = false
+    @Published var isKeyboardVisible: Bool = false
     
     private var cancellableSet: Set<AnyCancellable> = []
-//    private var cancellables = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
     
     init() {
         let willShow = NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)
@@ -35,16 +35,16 @@ final class KeyboardResponder: ObservableObject {
             }
             .store(in: &cancellableSet)
         
-//        NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)
-//            .sink { [weak self] _ in
-//                self?.isKeyboardVisible = true
-//            }
-//            .store(in: &cancellables)
-//        
-//        NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)
-//            .sink { [weak self] _ in
-//                self?.isKeyboardVisible = false
-//            }
-//            .store(in: &cancellables)
+        NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)
+            .sink { [weak self] _ in
+                self?.isKeyboardVisible = true
+            }
+            .store(in: &cancellables)
+        
+        NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)
+            .sink { [weak self] _ in
+                self?.isKeyboardVisible = false
+            }
+            .store(in: &cancellables)
     }
 }
