@@ -16,6 +16,7 @@ struct CreateAccountView: View {
     @State private var textWidth: CGFloat = 0
     @ObservedObject private var keyboard = KeyboardResponder()
     @Environment(\.presentationMode) var presentationMode
+    @State private var isSuccessSignUp: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -34,7 +35,8 @@ struct CreateAccountView: View {
                 textWidthViewModel: textWidthViewModel,
                 keyboard: keyboard,
                 textWidth: $textWidth,
-                presentationMode: presentationMode
+                presentationMode: presentationMode,
+                isSuccessSignUp: $isSuccessSignUp
             )
         }
         .ignoresSafeArea(.keyboard)
@@ -44,13 +46,14 @@ struct CreateAccountView: View {
 
 struct CreateAccountViewContent: View {
     let screenSize: ScreenSize
-        @ObservedObject var fullNameViewModel: TextFieldFormInfoViewModel
-        @ObservedObject var emailViewModel: TextFieldFormInfoViewModel
-        @ObservedObject var passwordViewModel: TextFieldFormInfoViewModel
-        @ObservedObject var textWidthViewModel: TextWidthViewModel
-        @ObservedObject var keyboard: KeyboardResponder
-        @Binding var textWidth: CGFloat
-        var presentationMode: Binding<PresentationMode>
+    @ObservedObject var fullNameViewModel: TextFieldFormInfoViewModel
+    @ObservedObject var emailViewModel: TextFieldFormInfoViewModel
+    @ObservedObject var passwordViewModel: TextFieldFormInfoViewModel
+    @ObservedObject var textWidthViewModel: TextWidthViewModel
+    @ObservedObject var keyboard: KeyboardResponder
+    @Binding var textWidth: CGFloat
+    var presentationMode: Binding<PresentationMode>
+    @Binding var isSuccessSignUp: Bool
     
     
     var body: some View {
@@ -94,7 +97,10 @@ struct CreateAccountViewContent: View {
                     TextFieldFormInfo(title: AppText.passwordTitleTextField, screenSize: screenSize, isPasswordForm: true, viewModel: passwordViewModel)
                     CSpace(height: screenSize.scaleHeight(39))
                     OrangeButton(titleButton: AppText.signUpText, screenSize: screenSize) {
-                        print("Go next Screen")
+                        isSuccessSignUp = true
+                    }
+                    .navigationDestination(isPresented: $isSuccessSignUp) {
+                        DefinePhoneNumberView()
                     }
                     CSpace(height: screenSize.scaleHeight(20))
                     Text(AppText.conditionText)

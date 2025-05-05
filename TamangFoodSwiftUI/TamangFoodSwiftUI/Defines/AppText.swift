@@ -41,4 +41,8 @@ struct AppText {
     static let createNewAccountText = "Create new account"
     static let orText = "Or"
     static let imageResetCoffe = "reset-coffee"
+    static let titleDefinePhoneNumber = "Login to Tamang Food\nService"
+    static let title2DefinePhoneNumber = "Get started with Foodly"
+    static let descriptionDefinePhoneNumber = "Enter your phone number to use foodly and enjoy your food :)"
+    static let titlePhoneNumberTextField = "PHONE NUMBER"
 }
