@@ -11,22 +11,38 @@ struct SignIn: View {
     @StateObject private var emailViewModel = TextFieldFormInfoViewModel()
     @StateObject private var passwordViewModel = TextFieldFormInfoViewModel()
     @StateObject private var screenSizeManager = ScreenSizeManager()
+//    @State private var path: [SignInRoute] = []
+    @StateObject private var viewModel = SignInViewModel()
+//    @Binding var path: [SignInRoute]
     
     var body: some View {
-        GeometryReader { geometry in
-            let size = geometry.size
-            Color.clear.onAppear {
-                if screenSizeManager.screenSize == .zero {
-                    screenSizeManager.updateScreenSize(size: size)
+//        NavigationStack(path: $path) {
+            GeometryReader { geometry in
+                let size = geometry.size
+                Color.clear.onAppear {
+                    if screenSizeManager.screenSize == .zero {
+                        screenSizeManager.updateScreenSize(size: size)
+                    }
                 }
+                SignInContent(
+                    screenSize: ScreenSize(from: screenSizeManager.screenSize == .zero ? size : screenSizeManager.screenSize),
+                    emailViewModel: emailViewModel,
+                    passwordViewModel: passwordViewModel,
+                    viewModel: viewModel
+//                    path: $path
+                )
             }
-            SignInContent(
-                screenSize: ScreenSize(from: screenSizeManager.screenSize == .zero ? size : screenSizeManager.screenSize),
-                emailViewModel: emailViewModel,
-                passwordViewModel: passwordViewModel
-            )
-        }
-        .ignoresSafeArea(.keyboard)
+            .ignoresSafeArea(.keyboard)
+            .navigationBarHidden(true)
+//            .navigationDestination(for: SignInRoute.self) { route in
+//                switch route {
+//                case .forgetPassword:
+//                    ForgotPassword()
+//                case .createAccount:
+//                    CreateAccountView()
+//                }
+//            }
+//        }
     }
 }
 
@@ -35,6 +51,8 @@ struct SignInContent: View {
     @ObservedObject var emailViewModel: TextFieldFormInfoViewModel
     @ObservedObject var passwordViewModel: TextFieldFormInfoViewModel
     @ObservedObject private var keyboard = KeyboardResponder()
+    @ObservedObject var viewModel: SignInViewModel
+//    @Binding var path: [SignInRoute]
     
     var body: some View {
 //        ScrollViewReader { proxy in
@@ -48,48 +66,56 @@ struct SignInContent: View {
                             .font(.yuGothicUILight(size: screenSize.scaleHeight(33)))
                             .foregroundStyle(Color.mainColor)
                             .frame(width: screenSize.scaleWidth(338), alignment: .leading)
-                        CSpace(height: screenSize.scaleHeight(35))
+                        CSpace(height: screenSize.scaleHeight(20))
                         Text(AppText.descriptionSignIn)
                             .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
                             .lineSpacing(5)
                             .foregroundStyle(Color.bodyTextColor)
                             .frame(width: screenSize.scaleWidth(338), alignment: .leading)
-                        CSpace(height: screenSize.scaleHeight(35))
+                        CSpace(height: screenSize.scaleHeight(20))
                         TextFieldFormInfo(title: AppText.emailTitleTextField, screenSize: screenSize, isPasswordForm: false, viewModel: emailViewModel)
-                        CSpace(height: screenSize.scaleHeight(33))
+                        CSpace(height: screenSize.scaleHeight(18))
                         TextFieldFormInfo(title: AppText.passwordTitleTextField, screenSize: screenSize, isPasswordForm: true, viewModel: passwordViewModel)
                         CSpace(height: screenSize.scaleHeight(25))
                         Button(action: {
-                            print("Go To ForgetPassword Screen")
+//                            path.append(.forgetPassword)
+                            viewModel.moveToScreenForgotPassword()
                         }) {
                             Text(AppText.forgetPassword)
                                 .font(.yuGothicUILight(size: screenSize.scaleHeight(12)))
                                 .foregroundStyle(Color.bodyTextColor)
                         }
+                        .navigationDestination(isPresented: $viewModel.moveToForgotPassword) {
+                            ForgotPassword()
+                        }
                         CSpace(height: screenSize.scaleHeight(39))
                         OrangeButton(titleButton: AppText.signInText, screenSize: screenSize) {
                             print("Go next Screen")
                         }
-                        CSpace(height: screenSize.scaleHeight(35))
+                        CSpace(height: screenSize.scaleHeight(20))
                         HStack {
                             Text(AppText.dontHaveAccountText)
                                 .font(.yuGothicUILight(size: screenSize.scaleHeight(12)))
                                 .foregroundStyle(Color.mainColor)
                             CSpace(width: screenSize.scaleWidth(20))
                             Button {
-                                print("Go To Screen Create Account")
+//                                path.append(.createAccount)
+                                viewModel.moveToScreenCreateAccount()
                             } label: {
                                 Text(AppText.createNewAccountText)
                                     .font(.yuGothicUILight(size: screenSize.scaleHeight(12)))
                                     .foregroundStyle(Color.activeColor)
                             }
                         }
+                        .navigationDestination(isPresented: $viewModel.moveToCreateAccount) {
+                            CreateAccountView()
+                        }
                         .frame(width: screenSize.scaleWidth(249))
-                        CSpace(height: screenSize.scaleHeight(35))
+                        CSpace(height: screenSize.scaleHeight(20))
                         Text(AppText.orText)
                             .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
                             .foregroundStyle(Color.mainColor)
-                        CSpace(height: screenSize.scaleHeight(35))
+                        CSpace(height: screenSize.scaleHeight(20))
                         SocialButton(socialType: .facebook, screenSize: screenSize)
                         CSpace(height: screenSize.scaleHeight(15))
                         SocialButton(socialType: .google, screenSize: screenSize)
@@ -117,6 +143,13 @@ struct SignInContent: View {
     }
 }
 
+struct CreateAccountView: View {
+//    let screenSize: ScreenSize
+
+    var body: some View {
+        Text("Create Account Screen")
+    }
+}
 
 #Preview {
     SignIn()

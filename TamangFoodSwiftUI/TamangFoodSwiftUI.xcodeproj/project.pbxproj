@@ -14,6 +14,10 @@
 		044138932DBE61AC0050F863 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044138922DBE61AC0050F863 /* SignIn.swift */; };
 		0443D0522DC1A9FB002139FE /* TextFieldFormInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443D0512DC1A9FB002139FE /* TextFieldFormInfo.swift */; };
 		0446CF822DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446CF812DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift */; };
+		0447E1662DC760A900697677 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447E1652DC760A900697677 /* ForgotPassword.swift */; };
+		0447E1682DC7623F00697677 /* PageNumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447E1672DC7623F00697677 /* PageNumberViewModel.swift */; };
+		0447E16C2DC7678F00697677 /* SignInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447E16B2DC7678F00697677 /* SignInRouter.swift */; };
+		0447E16E2DC78B0500697677 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447E16D2DC78B0500697677 /* SignInViewModel.swift */; };
 		04502AE72DC5ABDA00A41735 /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04502AE62DC5ABDA00A41735 /* SocialButton.swift */; };
 		04502AE92DC5AC2D00A41735 /* SocialType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04502AE82DC5AC2D00A41735 /* SocialType.swift */; };
 		04502AED2DC5ADC600A41735 /* SocialButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04502AEC2DC5ADC600A41735 /* SocialButtonViewModel.swift */; };
@@ -22,6 +26,8 @@
 		046EDAE42DBE6643005E5F42 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046EDAE32DBE6643005E5F42 /* NavigationBarView.swift */; };
 		04707C812DA922C300CD6066 /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04707C802DA922C300CD6066 /* Spacer.swift */; };
 		04707C842DAA167100CD6066 /* OrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04707C832DAA167100CD6066 /* OrangeButton.swift */; };
+		0481284A2DC857B300342B70 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048128492DC857B300342B70 /* ForgotPasswordViewModel.swift */; };
+		04D7918D2DC7A9EB0091BFEE /* TextWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D7918C2DC7A9EB0091BFEE /* TextWidth.swift */; };
 		04EE7AD92DA521DB00BA8EE1 /* TamangFoodSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE7AD82DA521DB00BA8EE1 /* TamangFoodSwiftUIApp.swift */; };
 		04EE7ADD2DA521DC00BA8EE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04EE7ADC2DA521DC00BA8EE1 /* Assets.xcassets */; };
 		04EE7AE02DA521DC00BA8EE1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04EE7ADF2DA521DC00BA8EE1 /* Preview Assets.xcassets */; };
@@ -65,6 +71,10 @@
 		044138922DBE61AC0050F863 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		0443D0512DC1A9FB002139FE /* TextFieldFormInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormInfo.swift; sourceTree = "<group>"; };
 		0446CF812DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormInfoViewModel.swift; sourceTree = "<group>"; };
+		0447E1652DC760A900697677 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
+		0447E1672DC7623F00697677 /* PageNumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNumberViewModel.swift; sourceTree = "<group>"; };
+		0447E16B2DC7678F00697677 /* SignInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRouter.swift; sourceTree = "<group>"; };
+		0447E16D2DC78B0500697677 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		04502AE62DC5ABDA00A41735 /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
 		04502AE82DC5AC2D00A41735 /* SocialType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialType.swift; sourceTree = "<group>"; };
 		04502AEC2DC5ADC600A41735 /* SocialButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButtonViewModel.swift; sourceTree = "<group>"; };
@@ -73,6 +83,8 @@
 		046EDAE32DBE6643005E5F42 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 		04707C802DA922C300CD6066 /* Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
 		04707C832DAA167100CD6066 /* OrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButton.swift; sourceTree = "<group>"; };
+		048128492DC857B300342B70 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		04D7918C2DC7A9EB0091BFEE /* TextWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextWidth.swift; sourceTree = "<group>"; };
 		04EE7AD52DA521DB00BA8EE1 /* TamangFoodSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TamangFoodSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EE7AD82DA521DB00BA8EE1 /* TamangFoodSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamangFoodSwiftUIApp.swift; sourceTree = "<group>"; };
 		04EE7ADC2DA521DC00BA8EE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				042E0EC42DBB2CBE008CFC7F /* PageNumber.swift */,
+				0447E1672DC7623F00697677 /* PageNumberViewModel.swift */,
 			);
 			path = PageNumber;
 			sourceTree = "<group>";
@@ -150,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				044138922DBE61AC0050F863 /* SignIn.swift */,
+				0447E16D2DC78B0500697677 /* SignInViewModel.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -161,6 +175,15 @@
 				0446CF812DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift */,
 			);
 			path = TextFieldFormEnterInfo;
+			sourceTree = "<group>";
+		};
+		0447E1642DC7605E00697677 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				0447E1652DC760A900697677 /* ForgotPassword.swift */,
+				048128492DC857B300342B70 /* ForgotPasswordViewModel.swift */,
+			);
+			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
 		04502AE52DC5AA1200A41735 /* SocialButton */ = {
@@ -264,6 +287,7 @@
 		04EE7B022DA5221900BA8EE1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0447E1642DC7605E00697677 /* ForgotPassword */,
 				044138912DBE619C0050F863 /* SignIn */,
 				042E0EC22DBB2CA0008CFC7F /* Introduce */,
 				04EE7B032DA5223100BA8EE1 /* WelcomeView */,
@@ -286,6 +310,8 @@
 				042E0EC62DBB3809008CFC7F /* AppText.swift */,
 				04502AE82DC5AC2D00A41735 /* SocialType.swift */,
 				04502AEE2DC5B41800A41735 /* KeyboardResponder.swift */,
+				0447E16B2DC7678F00697677 /* SignInRouter.swift */,
+				04D7918C2DC7A9EB0091BFEE /* TextWidth.swift */,
 			);
 			path = Defines;
 			sourceTree = "<group>";
@@ -451,21 +477,27 @@
 			files = (
 				042E0ECC2DBD1206008CFC7F /* IntroducePage.swift in Sources */,
 				04502AEF2DC5B41800A41735 /* KeyboardResponder.swift in Sources */,
+				04D7918D2DC7A9EB0091BFEE /* TextWidth.swift in Sources */,
 				0443D0522DC1A9FB002139FE /* TextFieldFormInfo.swift in Sources */,
 				04707C842DAA167100CD6066 /* OrangeButton.swift in Sources */,
 				04502AED2DC5ADC600A41735 /* SocialButtonViewModel.swift in Sources */,
+				0481284A2DC857B300342B70 /* ForgotPasswordViewModel.swift in Sources */,
 				04EE7B1E2DA7C1A500BA8EE1 /* Font.swift in Sources */,
 				04502AE72DC5ABDA00A41735 /* SocialButton.swift in Sources */,
 				04502AE92DC5AC2D00A41735 /* SocialType.swift in Sources */,
 				0446CF822DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift in Sources */,
 				04707C812DA922C300CD6066 /* Spacer.swift in Sources */,
 				04EE7B052DA5225200BA8EE1 /* Welcome.swift in Sources */,
+				0447E1662DC760A900697677 /* ForgotPassword.swift in Sources */,
 				04EE7B082DA5242100BA8EE1 /* ScreenSize.swift in Sources */,
+				0447E16C2DC7678F00697677 /* SignInRouter.swift in Sources */,
 				04502AF12DC5BD8700A41735 /* View.swift in Sources */,
 				046EDAE42DBE6643005E5F42 /* NavigationBarView.swift in Sources */,
 				042E0ECA2DBCE474008CFC7F /* PageIndicator.swift in Sources */,
 				044138932DBE61AC0050F863 /* SignIn.swift in Sources */,
 				04EE7B202DA7CF4100BA8EE1 /* Color.swift in Sources */,
+				0447E1682DC7623F00697677 /* PageNumberViewModel.swift in Sources */,
+				0447E16E2DC78B0500697677 /* SignInViewModel.swift in Sources */,
 				04EE7AD92DA521DB00BA8EE1 /* TamangFoodSwiftUIApp.swift in Sources */,
 				042E0EC52DBB2CBE008CFC7F /* PageNumber.swift in Sources */,
 				042E0EC72DBB3809008CFC7F /* AppText.swift in Sources */,
