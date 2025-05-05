@@ -27,6 +27,7 @@
 		04707C812DA922C300CD6066 /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04707C802DA922C300CD6066 /* Spacer.swift */; };
 		04707C842DAA167100CD6066 /* OrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04707C832DAA167100CD6066 /* OrangeButton.swift */; };
 		0481284A2DC857B300342B70 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048128492DC857B300342B70 /* ForgotPasswordViewModel.swift */; };
+		0481284D2DC865A100342B70 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481284C2DC865A100342B70 /* CreateAccountView.swift */; };
 		04D7918D2DC7A9EB0091BFEE /* TextWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D7918C2DC7A9EB0091BFEE /* TextWidth.swift */; };
 		04EE7AD92DA521DB00BA8EE1 /* TamangFoodSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE7AD82DA521DB00BA8EE1 /* TamangFoodSwiftUIApp.swift */; };
 		04EE7ADD2DA521DC00BA8EE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04EE7ADC2DA521DC00BA8EE1 /* Assets.xcassets */; };
@@ -84,6 +85,7 @@
 		04707C802DA922C300CD6066 /* Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
 		04707C832DAA167100CD6066 /* OrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButton.swift; sourceTree = "<group>"; };
 		048128492DC857B300342B70 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		0481284C2DC865A100342B70 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		04D7918C2DC7A9EB0091BFEE /* TextWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextWidth.swift; sourceTree = "<group>"; };
 		04EE7AD52DA521DB00BA8EE1 /* TamangFoodSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TamangFoodSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EE7AD82DA521DB00BA8EE1 /* TamangFoodSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamangFoodSwiftUIApp.swift; sourceTree = "<group>"; };
@@ -223,6 +225,14 @@
 			path = OrangeButton;
 			sourceTree = "<group>";
 		};
+		0481284B2DC8658500342B70 /* CreateAccount */ = {
+			isa = PBXGroup;
+			children = (
+				0481284C2DC865A100342B70 /* CreateAccountView.swift */,
+			);
+			path = CreateAccount;
+			sourceTree = "<group>";
+		};
 		04EE7ACC2DA521DB00BA8EE1 = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +297,7 @@
 		04EE7B022DA5221900BA8EE1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0481284B2DC8658500342B70 /* CreateAccount */,
 				0447E1642DC7605E00697677 /* ForgotPassword */,
 				044138912DBE619C0050F863 /* SignIn */,
 				042E0EC22DBB2CA0008CFC7F /* Introduce */,
@@ -496,6 +507,7 @@
 				042E0ECA2DBCE474008CFC7F /* PageIndicator.swift in Sources */,
 				044138932DBE61AC0050F863 /* SignIn.swift in Sources */,
 				04EE7B202DA7CF4100BA8EE1 /* Color.swift in Sources */,
+				0481284D2DC865A100342B70 /* CreateAccountView.swift in Sources */,
 				0447E1682DC7623F00697677 /* PageNumberViewModel.swift in Sources */,
 				0447E16E2DC78B0500697677 /* SignInViewModel.swift in Sources */,
 				04EE7AD92DA521DB00BA8EE1 /* TamangFoodSwiftUIApp.swift in Sources */,

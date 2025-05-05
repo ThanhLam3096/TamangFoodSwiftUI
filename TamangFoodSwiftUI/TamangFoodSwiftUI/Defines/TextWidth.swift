@@ -37,9 +37,16 @@ struct TextWidthReader: UIViewRepresentable {
 
     func updateUIView(_ uiView: UILabel, context: Context) {
         uiView.text = text
+        uiView.font = font
+        uiView.sizeToFit()
+        uiView.layoutIfNeeded()
+        
+        let width = uiView.intrinsicContentSize.width
         // Cập nhật chiều rộng văn bản khi label thay đổi
         DispatchQueue.main.async {
-            self.textWidth = uiView.intrinsicContentSize.width
+            self.textWidth = width
         }
+        print("===> TExt === \(text)")
+        print("===> \(textWidth)")
     }
 }
