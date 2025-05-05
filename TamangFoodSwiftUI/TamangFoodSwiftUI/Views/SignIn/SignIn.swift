@@ -143,14 +143,6 @@ struct SignInContent: View {
     }
 }
 
-struct CreateAccountView: View {
-//    let screenSize: ScreenSize
-
-    var body: some View {
-        Text("Create Account Screen")
-    }
-}
-
 #Preview {
     SignIn()
 }
