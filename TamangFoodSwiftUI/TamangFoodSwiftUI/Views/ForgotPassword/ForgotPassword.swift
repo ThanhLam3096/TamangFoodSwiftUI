@@ -24,7 +24,7 @@ struct ForgotPassword: View {
             let resolvedSize = ScreenSize(from: screenSizeManager.screenSize == .zero ? size : screenSizeManager.screenSize)
             VStack {
                 NavigationBarView(screenSize: resolvedSize, title: AppText.titleNaviForgotPassword) {
-                    presentationMode.wrappedValue.dismiss()
+                    dismissView(presentationMode)
                 }
                 ZStack(alignment: .top) {
                     if viewModel.isResendEmail {
