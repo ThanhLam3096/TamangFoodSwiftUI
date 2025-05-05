@@ -15,7 +15,7 @@ struct NavigationBarView: View {
     var body: some View {
         HStack {
             Button(action: {
-                print("Button tapped")
+                action()
             }) {
                 Image("back")
                 //     .resizable()

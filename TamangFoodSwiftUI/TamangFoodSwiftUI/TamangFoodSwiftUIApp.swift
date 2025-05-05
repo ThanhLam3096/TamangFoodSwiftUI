@@ -13,7 +13,7 @@ struct TamangFoodSwiftUIApp: App {
         WindowGroup {
             NavigationStack{
                 Welcome()
-//                SignIn()
+//                ForgotPassword()
             }
         }
     }
