@@ -21,7 +21,7 @@ struct Welcome: View {
                     .ignoresSafeArea()
                     .zIndex(-1)
                 VStack {
-                    CSpace(height: screenSize.scaleHeight(95))
+                    CSpace(height: screenSize.scaleHeight(75))
                     HStack(alignment: .top) {
                         CSpace(width: screenSize.scaleWidth(20))
                         Image("icon-tamago")
@@ -65,7 +65,3 @@ struct Welcome: View {
         }
     }
 }
-
-//#Preview {
-//    Welcome()
-//}

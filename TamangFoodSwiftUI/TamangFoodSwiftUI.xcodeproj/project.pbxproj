@@ -23,6 +23,7 @@
 		04502AED2DC5ADC600A41735 /* SocialButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04502AEC2DC5ADC600A41735 /* SocialButtonViewModel.swift */; };
 		04502AEF2DC5B41800A41735 /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04502AEE2DC5B41800A41735 /* KeyboardResponder.swift */; };
 		04502AF12DC5BD8700A41735 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04502AF02DC5BD8700A41735 /* View.swift */; };
+		046C44A32DC8BE1C00D479E9 /* DefinePhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C44A22DC8BE1C00D479E9 /* DefinePhoneNumberView.swift */; };
 		046EDAE42DBE6643005E5F42 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046EDAE32DBE6643005E5F42 /* NavigationBarView.swift */; };
 		04707C812DA922C300CD6066 /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04707C802DA922C300CD6066 /* Spacer.swift */; };
 		04707C842DAA167100CD6066 /* OrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04707C832DAA167100CD6066 /* OrangeButton.swift */; };
@@ -81,6 +82,7 @@
 		04502AEC2DC5ADC600A41735 /* SocialButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButtonViewModel.swift; sourceTree = "<group>"; };
 		04502AEE2DC5B41800A41735 /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
 		04502AF02DC5BD8700A41735 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		046C44A22DC8BE1C00D479E9 /* DefinePhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinePhoneNumberView.swift; sourceTree = "<group>"; };
 		046EDAE32DBE6643005E5F42 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 		04707C802DA922C300CD6066 /* Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
 		04707C832DAA167100CD6066 /* OrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButton.swift; sourceTree = "<group>"; };
@@ -197,6 +199,14 @@
 			path = SocialButton;
 			sourceTree = "<group>";
 		};
+		046C44A12DC8BE0200D479E9 /* DefinePhoneNumber */ = {
+			isa = PBXGroup;
+			children = (
+				046C44A22DC8BE1C00D479E9 /* DefinePhoneNumberView.swift */,
+			);
+			path = DefinePhoneNumber;
+			sourceTree = "<group>";
+		};
 		046EDAE22DBE6625005E5F42 /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +307,7 @@
 		04EE7B022DA5221900BA8EE1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				046C44A12DC8BE0200D479E9 /* DefinePhoneNumber */,
 				0481284B2DC8658500342B70 /* CreateAccount */,
 				0447E1642DC7605E00697677 /* ForgotPassword */,
 				044138912DBE619C0050F863 /* SignIn */,
@@ -513,6 +524,7 @@
 				04EE7AD92DA521DB00BA8EE1 /* TamangFoodSwiftUIApp.swift in Sources */,
 				042E0EC52DBB2CBE008CFC7F /* PageNumber.swift in Sources */,
 				042E0EC72DBB3809008CFC7F /* AppText.swift in Sources */,
+				046C44A32DC8BE1C00D479E9 /* DefinePhoneNumberView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

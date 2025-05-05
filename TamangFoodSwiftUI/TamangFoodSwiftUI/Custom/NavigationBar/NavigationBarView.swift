@@ -28,6 +28,8 @@ struct NavigationBarView: View {
             Text(title)
                 .font(.headline)
                 .foregroundColor(Color.mainColor)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity, alignment: .center)
             
             Spacer()
             Color.clear
