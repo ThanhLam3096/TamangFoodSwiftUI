@@ -12,7 +12,8 @@ struct DefinePhoneNumberView: View {
     @State private var screenSizeManager = ScreenSizeManager()
     @Environment(\.presentationMode) var presentationMode
     @State private var phoneNumber: String = ""
-    @State private var isSuccessSignUp: Bool = false
+    @ObservedObject private var keyboard = KeyboardResponder()
+    @State private var isMoveVerifyPhoneNumber: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -27,48 +28,60 @@ struct DefinePhoneNumberView: View {
                 NavigationBarView(screenSize: screenSize, title: AppText.titleDefinePhoneNumber) {
                     dismissView(presentationMode)
                 }
-                VStack {
-                    Text(AppText.title2DefinePhoneNumber)
-                        .font(.yuGothicUISemibold(size: screenSize.scaleHeight(24)))
-                        .foregroundStyle(Color.mainColor)
-                    CSpace(height: screenSize.scaleHeight(20))
-                    Text(AppText.descriptionDefinePhoneNumber)
-                        .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
-                        .foregroundStyle(Color.bodyTextColor)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, screenSize.scaleWidth(10))
-                    CSpace(height: screenSize.scaleHeight(20))
-                    Text(AppText.titlePhoneNumberTextField)
-                        .font(.yuGothicUILight(size: screenSize.scaleHeight(12)))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    CSpace(height: screenSize.scaleHeight(8))
-                    HStack {
-                        Image("VietNam")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: screenSize.scaleWidth(32), height: screenSize.scaleHeight(24))
-                        Button {
-                            print("Show all flags")
-                        } label: {
-                            Image("pathDown")
-                        }
-                        TextField("", text: $phoneNumber)
-                            .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
+                ScrollView {
+                    VStack {
+                        Text(AppText.title2DefinePhoneNumber)
+                            .font(.yuGothicUISemibold(size: screenSize.scaleHeight(24)))
                             .foregroundStyle(Color.mainColor)
-                            .tint(Color.accentColor)
+                        CSpace(height: screenSize.scaleHeight(20))
+                        Text(AppText.descriptionDefinePhoneNumber)
+                            .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
+                            .foregroundStyle(Color.bodyTextColor)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, screenSize.scaleWidth(10))
+                        CSpace(height: screenSize.scaleHeight(20))
+                        Text(AppText.titlePhoneNumberTextField)
+                            .font(.yuGothicUILight(size: screenSize.scaleHeight(12)))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        CSpace(height: screenSize.scaleHeight(8))
+                        HStack {
+                            Image("VietNam")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: screenSize.scaleWidth(32), height: screenSize.scaleHeight(24))
+                            Button {
+                                print("Show all flags")
+                            } label: {
+                                Image("pathDown")
+                            }
+                            TextField("", text: $phoneNumber)
+                                .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
+                                .foregroundStyle(Color.mainColor)
+                                .tint(Color.accentColor)
+                        }
+                        CSpace(height: screenSize.scaleHeight(10))
+                        Color(hex: "#F6F6F6")
+                            .frame(height: 1)
+                        if keyboard.isKeyboardVisible {
+                            CSpace(height: screenSize.scaleHeight(100))
+                        } else {
+                            CSpace(height: screenSize.scaleHeight(460))
+                        }
+                        OrangeButton(titleButton: AppText.signUpText, screenSize: screenSize) {
+                            isMoveVerifyPhoneNumber = true
+                        }
+                        .navigationDestination(isPresented: $isMoveVerifyPhoneNumber) {
+                            VerifyPhoneNumberView()
+                        }
                     }
-                    CSpace(height: screenSize.scaleHeight(10))
-                    Color(hex: "#F6F6F6")
-                        .frame(height: 1)
-                    CSpace(height: screenSize.scaleHeight(400))
-                    OrangeButton(titleButton: AppText.signUpText, screenSize: screenSize) {
-                        isSuccessSignUp = true
-                    }
-                    .navigationDestination(isPresented: $isSuccessSignUp) {
-                        DefinePhoneNumberView()
-                    }
+                    .padding(.horizontal, screenSize.scaleWidth(20))
                 }
-                .padding(.horizontal, screenSize.scaleWidth(20))
+                .padding(.bottom, keyboard.keyboardHeight)
+                .animation(.easeOut(duration: 0.3), value: keyboard.keyboardHeight)
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                hideKeyboard()
             }
         }
         .ignoresSafeArea(.keyboard)

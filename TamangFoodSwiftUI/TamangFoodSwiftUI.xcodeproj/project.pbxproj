@@ -11,6 +11,7 @@
 		042E0EC72DBB3809008CFC7F /* AppText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E0EC62DBB3809008CFC7F /* AppText.swift */; };
 		042E0ECA2DBCE474008CFC7F /* PageIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E0EC92DBCE474008CFC7F /* PageIndicator.swift */; };
 		042E0ECC2DBD1206008CFC7F /* IntroducePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E0ECB2DBD1206008CFC7F /* IntroducePage.swift */; };
+		043352372DC9A0E20003707A /* VerifyPhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043352362DC9A0E20003707A /* VerifyPhoneNumberView.swift */; };
 		044138932DBE61AC0050F863 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044138922DBE61AC0050F863 /* SignIn.swift */; };
 		0443D0522DC1A9FB002139FE /* TextFieldFormInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443D0512DC1A9FB002139FE /* TextFieldFormInfo.swift */; };
 		0446CF822DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446CF812DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift */; };
@@ -70,6 +71,7 @@
 		042E0EC62DBB3809008CFC7F /* AppText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppText.swift; sourceTree = "<group>"; };
 		042E0EC92DBCE474008CFC7F /* PageIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageIndicator.swift; sourceTree = "<group>"; };
 		042E0ECB2DBD1206008CFC7F /* IntroducePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroducePage.swift; sourceTree = "<group>"; };
+		043352362DC9A0E20003707A /* VerifyPhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneNumberView.swift; sourceTree = "<group>"; };
 		044138922DBE61AC0050F863 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		0443D0512DC1A9FB002139FE /* TextFieldFormInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormInfo.swift; sourceTree = "<group>"; };
 		0446CF812DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormInfoViewModel.swift; sourceTree = "<group>"; };
@@ -161,6 +163,14 @@
 				042E0EC92DBCE474008CFC7F /* PageIndicator.swift */,
 			);
 			path = PageView;
+			sourceTree = "<group>";
+		};
+		043352352DC9A0CC0003707A /* VerifyPhoneNumber */ = {
+			isa = PBXGroup;
+			children = (
+				043352362DC9A0E20003707A /* VerifyPhoneNumberView.swift */,
+			);
+			path = VerifyPhoneNumber;
 			sourceTree = "<group>";
 		};
 		044138912DBE619C0050F863 /* SignIn */ = {
@@ -307,6 +317,7 @@
 		04EE7B022DA5221900BA8EE1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				043352352DC9A0CC0003707A /* VerifyPhoneNumber */,
 				046C44A12DC8BE0200D479E9 /* DefinePhoneNumber */,
 				0481284B2DC8658500342B70 /* CreateAccount */,
 				0447E1642DC7605E00697677 /* ForgotPassword */,
@@ -498,6 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				042E0ECC2DBD1206008CFC7F /* IntroducePage.swift in Sources */,
+				043352372DC9A0E20003707A /* VerifyPhoneNumberView.swift in Sources */,
 				04502AEF2DC5B41800A41735 /* KeyboardResponder.swift in Sources */,
 				04D7918D2DC7A9EB0091BFEE /* TextWidth.swift in Sources */,
 				0443D0522DC1A9FB002139FE /* TextFieldFormInfo.swift in Sources */,
