@@ -54,7 +54,7 @@ struct IntroducePage: View {
                         .fixedSize(horizontal: false, vertical: true)
                     CSpace(height: screenSize.scaleHeight(27.5))
                     PageIndicator(currentPage: page, screenSize: screenSize)
-                    CSpace(height: screenSize.scaleHeight(35))
+                    CSpace(height: screenSize.scaleHeight(60))
                     OrangeButton(titleButton: "GET STARTED", screenSize: screenSize) {
                         onTapButton()
                     }

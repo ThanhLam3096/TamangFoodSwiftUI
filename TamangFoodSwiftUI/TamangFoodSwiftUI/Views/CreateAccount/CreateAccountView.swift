@@ -103,7 +103,7 @@ struct CreateAccountViewContent: View {
                         DefinePhoneNumberView()
                     }
                     CSpace(height: screenSize.scaleHeight(20))
-                    Text(AppText.conditionText)
+                    Text(AppText.policyText)
                         .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
                         .foregroundStyle(Color.bodyTextColor)
                         .multilineTextAlignment(.center)
