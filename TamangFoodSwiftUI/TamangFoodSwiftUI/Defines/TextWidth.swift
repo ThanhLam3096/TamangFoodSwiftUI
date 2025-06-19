@@ -46,7 +46,5 @@ struct TextWidthReader: UIViewRepresentable {
         DispatchQueue.main.async {
             self.textWidth = width
         }
-        print("===> TExt === \(text)")
-        print("===> \(textWidth)")
     }
 }

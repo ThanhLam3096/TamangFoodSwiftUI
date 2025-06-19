@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OrangeButton: View {
     @State var titleButton: String
+    @State var isDisable: Bool = false
     var screenSize: ScreenSize
     let action: () -> Void
     
@@ -25,6 +26,7 @@ struct OrangeButton: View {
             }
             .frame(width: screenSize.scaleWidth(335), height: screenSize.scaleHeight(48))
         }
+        .disabled(isDisable)
     }
 }
 

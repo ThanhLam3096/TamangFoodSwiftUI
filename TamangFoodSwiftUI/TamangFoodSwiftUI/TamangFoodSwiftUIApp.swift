@@ -12,7 +12,7 @@ struct TamangFoodSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack{
-                Welcome()
+                TabbarView()
 //                ForgotPassword()
             }
         }
