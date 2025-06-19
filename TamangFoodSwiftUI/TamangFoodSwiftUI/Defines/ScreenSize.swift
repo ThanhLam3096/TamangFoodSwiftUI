@@ -7,6 +7,20 @@
 
 import Foundation
 import SwiftUI
+import UIKit
+
+struct ScreenSizeUIKit {
+    static let screenWidth = UIScreen.main.bounds.width
+    static let screenHeight = UIScreen.main.bounds.height
+    
+    static func scaleWidth(_ width: CGFloat) -> CGFloat {
+        return width * (screenWidth / 375)
+    }
+    
+    static func scaleHeight(_ height: CGFloat) -> CGFloat {
+        return height * (screenHeight / 812)
+    }
+}
 
 struct ScreenSize {
     var width: CGFloat
@@ -67,4 +81,5 @@ class ScreenSizeManager: ObservableObject {
         self.screenSize = size
     }
 }
+
 
