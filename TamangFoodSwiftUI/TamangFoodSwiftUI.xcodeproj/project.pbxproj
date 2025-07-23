@@ -31,6 +31,7 @@
 		042E0ECA2DBCE474008CFC7F /* PageIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E0EC92DBCE474008CFC7F /* PageIndicator.swift */; };
 		042E0ECC2DBD1206008CFC7F /* IntroducePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E0ECB2DBD1206008CFC7F /* IntroducePage.swift */; };
 		043352372DC9A0E20003707A /* VerifyPhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043352362DC9A0E20003707A /* VerifyPhoneNumberView.swift */; };
+		0439A09A2E064A81001F0A17 /* SeeAllFoodItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0439A0992E064A81001F0A17 /* SeeAllFoodItemViewModel.swift */; };
 		044138932DBE61AC0050F863 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044138922DBE61AC0050F863 /* SignIn.swift */; };
 		0443D0522DC1A9FB002139FE /* TextFieldFormInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443D0512DC1A9FB002139FE /* TextFieldFormInfo.swift */; };
 		0446CF822DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446CF812DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift */; };
@@ -51,6 +52,7 @@
 		04502AF12DC5BD8700A41735 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04502AF02DC5BD8700A41735 /* View.swift */; };
 		0450A9B92DD5CBA30011BC00 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0450A9B82DD5CBA30011BC00 /* HomeView.swift */; };
 		045589072DF5CB09002F239D /* DataEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045589062DF5CB09002F239D /* DataEXT.swift */; };
+		0461D96A2E04423800D8DDE4 /* SeeAllFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461D9692E04423800D8DDE4 /* SeeAllFoodView.swift */; };
 		046C44A32DC8BE1C00D479E9 /* DefinePhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C44A22DC8BE1C00D479E9 /* DefinePhoneNumberView.swift */; };
 		046EDAE42DBE6643005E5F42 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046EDAE32DBE6643005E5F42 /* NavigationBarView.swift */; };
 		04707C812DA922C300CD6066 /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04707C802DA922C300CD6066 /* Spacer.swift */; };
@@ -59,6 +61,9 @@
 		0481284D2DC865A100342B70 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481284C2DC865A100342B70 /* CreateAccountView.swift */; };
 		049EAD0C2DDF1EF3007D1268 /* HomeViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EAD0B2DDF1EF3007D1268 /* HomeViewVM.swift */; };
 		049EAD0E2DDF2930007D1268 /* HeaderHomeViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EAD0D2DDF2930007D1268 /* HeaderHomeViewVM.swift */; };
+		04BD68302E0443FA0062E50D /* SeeAllFoodItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD682F2E0443FA0062E50D /* SeeAllFoodItemView.swift */; };
+		04C531D02E059661005D4790 /* SeeAllFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C531CF2E059661005D4790 /* SeeAllFoodViewModel.swift */; };
+		04C531D32E059955005D4790 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C531D22E059955005D4790 /* NavigationRouter.swift */; };
 		04D261F52DFEF7EB00A6BFF8 /* HorizontalHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D261F42DFEF7EB00A6BFF8 /* HorizontalHomeView.swift */; };
 		04D7918D2DC7A9EB0091BFEE /* TextWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D7918C2DC7A9EB0091BFEE /* TextWidth.swift */; };
 		04EE7AD92DA521DB00BA8EE1 /* TamangFoodSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EE7AD82DA521DB00BA8EE1 /* TamangFoodSwiftUIApp.swift */; };
@@ -118,6 +123,7 @@
 		042E0EC92DBCE474008CFC7F /* PageIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageIndicator.swift; sourceTree = "<group>"; };
 		042E0ECB2DBD1206008CFC7F /* IntroducePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroducePage.swift; sourceTree = "<group>"; };
 		043352362DC9A0E20003707A /* VerifyPhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneNumberView.swift; sourceTree = "<group>"; };
+		0439A0992E064A81001F0A17 /* SeeAllFoodItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodItemViewModel.swift; sourceTree = "<group>"; };
 		044138922DBE61AC0050F863 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		0443D0512DC1A9FB002139FE /* TextFieldFormInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormInfo.swift; sourceTree = "<group>"; };
 		0446CF812DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormInfoViewModel.swift; sourceTree = "<group>"; };
@@ -138,6 +144,7 @@
 		04502AF02DC5BD8700A41735 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		0450A9B82DD5CBA30011BC00 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		045589062DF5CB09002F239D /* DataEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEXT.swift; sourceTree = "<group>"; };
+		0461D9692E04423800D8DDE4 /* SeeAllFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodView.swift; sourceTree = "<group>"; };
 		046C44A22DC8BE1C00D479E9 /* DefinePhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinePhoneNumberView.swift; sourceTree = "<group>"; };
 		046EDAE32DBE6643005E5F42 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 		04707C802DA922C300CD6066 /* Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
@@ -146,6 +153,9 @@
 		0481284C2DC865A100342B70 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		049EAD0B2DDF1EF3007D1268 /* HomeViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewVM.swift; sourceTree = "<group>"; };
 		049EAD0D2DDF2930007D1268 /* HeaderHomeViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderHomeViewVM.swift; sourceTree = "<group>"; };
+		04BD682F2E0443FA0062E50D /* SeeAllFoodItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodItemView.swift; sourceTree = "<group>"; };
+		04C531CF2E059661005D4790 /* SeeAllFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodViewModel.swift; sourceTree = "<group>"; };
+		04C531D22E059955005D4790 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		04D261F42DFEF7EB00A6BFF8 /* HorizontalHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalHomeView.swift; sourceTree = "<group>"; };
 		04D7918C2DC7A9EB0091BFEE /* TextWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextWidth.swift; sourceTree = "<group>"; };
 		04EE7AD52DA521DB00BA8EE1 /* TamangFoodSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TamangFoodSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -379,6 +389,7 @@
 		0450A9B72DD5CB990011BC00 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0461D9682E04420800D8DDE4 /* SeeAllFood */,
 				04478B892E02F9CF0059C5FA /* RestaurantHomeView */,
 				04D261F32DFEF52400A6BFF8 /* HorizontalHomeView */,
 				04295C392DDD80BC0064A650 /* HeaderView */,
@@ -394,6 +405,16 @@
 				045589062DF5CB09002F239D /* DataEXT.swift */,
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		0461D9682E04420800D8DDE4 /* SeeAllFood */ = {
+			isa = PBXGroup;
+			children = (
+				04BD682E2E0443A30062E50D /* SeeAllFoodItemView */,
+				0461D9692E04423800D8DDE4 /* SeeAllFoodView.swift */,
+				04C531CF2E059661005D4790 /* SeeAllFoodViewModel.swift */,
+			);
+			path = SeeAllFood;
 			sourceTree = "<group>";
 		};
 		046C44A12DC8BE0200D479E9 /* DefinePhoneNumber */ = {
@@ -441,6 +462,23 @@
 			path = CreateAccount;
 			sourceTree = "<group>";
 		};
+		04BD682E2E0443A30062E50D /* SeeAllFoodItemView */ = {
+			isa = PBXGroup;
+			children = (
+				04BD682F2E0443FA0062E50D /* SeeAllFoodItemView.swift */,
+				0439A0992E064A81001F0A17 /* SeeAllFoodItemViewModel.swift */,
+			);
+			path = SeeAllFoodItemView;
+			sourceTree = "<group>";
+		};
+		04C531D12E05993F005D4790 /* NavigationRouter */ = {
+			isa = PBXGroup;
+			children = (
+				04C531D22E059955005D4790 /* NavigationRouter.swift */,
+			);
+			path = NavigationRouter;
+			sourceTree = "<group>";
+		};
 		04D261F32DFEF52400A6BFF8 /* HorizontalHomeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,6 +511,7 @@
 		04EE7AD72DA521DB00BA8EE1 /* TamangFoodSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				04C531D12E05993F005D4790 /* NavigationRouter */,
 				045589042DF5CADB002F239D /* Library */,
 				04135B3D2DE4065E0007D255 /* Model */,
 				04707C7F2DA922AC00CD6066 /* Custom */,
@@ -516,17 +555,17 @@
 		04EE7B022DA5221900BA8EE1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0447272B2E0416160068B971 /* Profile */,
-				0447272A2E0416100068B971 /* Orders */,
-				044727292E0416090068B971 /* Search */,
-				044727282E0415EA0068B971 /* TabbarView */,
-				0450A9B72DD5CB990011BC00 /* Home */,
-				043352352DC9A0CC0003707A /* VerifyPhoneNumber */,
-				046C44A12DC8BE0200D479E9 /* DefinePhoneNumber */,
 				0481284B2DC8658500342B70 /* CreateAccount */,
+				046C44A12DC8BE0200D479E9 /* DefinePhoneNumber */,
 				0447E1642DC7605E00697677 /* ForgotPassword */,
-				044138912DBE619C0050F863 /* SignIn */,
+				0450A9B72DD5CB990011BC00 /* Home */,
 				042E0EC22DBB2CA0008CFC7F /* Introduce */,
+				0447272A2E0416100068B971 /* Orders */,
+				0447272B2E0416160068B971 /* Profile */,
+				044727292E0416090068B971 /* Search */,
+				044138912DBE619C0050F863 /* SignIn */,
+				044727282E0415EA0068B971 /* TabbarView */,
+				043352352DC9A0CC0003707A /* VerifyPhoneNumber */,
 				04EE7B032DA5223100BA8EE1 /* WelcomeView */,
 			);
 			path = Views;
@@ -728,12 +767,15 @@
 				0411D6222E011C2B005F3422 /* HorizontalHomeViewModel.swift in Sources */,
 				049EAD0E2DDF2930007D1268 /* HeaderHomeViewVM.swift in Sources */,
 				042E0ECC2DBD1206008CFC7F /* IntroducePage.swift in Sources */,
+				04C531D02E059661005D4790 /* SeeAllFoodViewModel.swift in Sources */,
 				04295C3B2DDDCB440064A650 /* HeaderHomeView.swift in Sources */,
 				043352372DC9A0E20003707A /* VerifyPhoneNumberView.swift in Sources */,
 				044727312E04164E0068B971 /* OrdersView.swift in Sources */,
 				04478B8D2E02FA500059C5FA /* RestaurantHomeViewModel.swift in Sources */,
 				04502AEF2DC5B41800A41735 /* KeyboardResponder.swift in Sources */,
+				04BD68302E0443FA0062E50D /* SeeAllFoodItemView.swift in Sources */,
 				0450A9B92DD5CBA30011BC00 /* HomeView.swift in Sources */,
+				0461D96A2E04423800D8DDE4 /* SeeAllFoodView.swift in Sources */,
 				04D7918D2DC7A9EB0091BFEE /* TextWidth.swift in Sources */,
 				0443D0522DC1A9FB002139FE /* TextFieldFormInfo.swift in Sources */,
 				0411D6452E0180C6005F3422 /* Restaurant.swift in Sources */,
@@ -745,6 +787,7 @@
 				0411D6322E017EAC005F3422 /* SearchFilter.swift in Sources */,
 				0411D6242E011C93005F3422 /* App.swift in Sources */,
 				04502AE72DC5ABDA00A41735 /* SocialButton.swift in Sources */,
+				0439A09A2E064A81001F0A17 /* SeeAllFoodItemViewModel.swift in Sources */,
 				04502AE92DC5AC2D00A41735 /* SocialType.swift in Sources */,
 				0411D6202E011306005F3422 /* OrangeRatingTextViewModel.swift in Sources */,
 				0446CF822DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift in Sources */,
@@ -759,6 +802,7 @@
 				04D261F52DFEF7EB00A6BFF8 /* HorizontalHomeView.swift in Sources */,
 				0447E16C2DC7678F00697677 /* SignInRouter.swift in Sources */,
 				04502AF12DC5BD8700A41735 /* View.swift in Sources */,
+				04C531D32E059955005D4790 /* NavigationRouter.swift in Sources */,
 				0447272F2E04163D0068B971 /* SearchView.swift in Sources */,
 				046EDAE42DBE6643005E5F42 /* NavigationBarView.swift in Sources */,
 				04478B8B2E02F9FE0059C5FA /* RestaurantHomeView.swift in Sources */,

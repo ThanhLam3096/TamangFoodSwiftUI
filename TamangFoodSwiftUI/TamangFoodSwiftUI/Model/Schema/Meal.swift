@@ -7,7 +7,17 @@
 
 import Foundation
 
-final class Meal: Codable {
+final class Meal: Codable, Hashable {
+    // MARK: - Hashable
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(idMeal)
+    }
+    
+    // MARK: - Equatable
+    static func == (lhs: Meal, rhs: Meal) -> Bool {
+        return lhs.idMeal == rhs.idMeal
+    }
+    
     var image: String
     var name: String
     var typeFood: String

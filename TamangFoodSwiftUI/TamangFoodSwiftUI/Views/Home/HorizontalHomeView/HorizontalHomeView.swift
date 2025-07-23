@@ -50,13 +50,15 @@ struct HorizontalHomeView: View {
                     CSpace(height: screenSize.scaleHeight(10))
                     HStack {
                         OrangeRatingText(screenSize: screenSize, viewModel: OrangeRatingTextViewModel(rating: viewModel.meal.rating))
+                        CSpace(width: screenSize.scaleWidth(10))
                         Text(viewModel.meal.time)
                             .font(.yuGothicLight(size: screenSize.scaleHeight(14)))
                             .foregroundColor(.mainColor)
-                            .padding(.horizontal, screenSize.scaleWidth(10))
+                        CSpace(width: screenSize.scaleWidth(10))
                         Circle()
                             .fill(Color.bodyTextColor)
                             .frame(width: 5, height: 5)
+                        CSpace(width: screenSize.scaleWidth(10))
                         feeShipText(screenSize: screenSize)
                         Spacer()
                     }
@@ -72,12 +74,10 @@ struct HorizontalHomeView: View {
             Text("Free delivery")
                 .font(.yuGothicLight(size: screenSize.scaleHeight(14)))
                 .foregroundColor(.mainColor)
-                .padding(.leading, screenSize.scaleWidth(10))
         } else {
             Text("\(displayNumber(viewModel.meal.feeShip))$")
                 .font(.yuGothicLight(size: screenSize.scaleHeight(14)))
                 .foregroundColor(.mainColor)
-                .padding(.leading, screenSize.scaleWidth(10))
         }
     }
 }
