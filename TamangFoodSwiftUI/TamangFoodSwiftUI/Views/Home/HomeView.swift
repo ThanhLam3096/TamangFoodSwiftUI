@@ -80,7 +80,7 @@ struct HomeView: View {
                             .foregroundStyle(Color.mainColor)
                         Spacer()
                         Button {
-                            print("See All")
+                            router.goToSeeAll(meals: viewModel.listNationFood, title: "National Specialties")
                         } label: {
                             Text("See all")
                                 .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
