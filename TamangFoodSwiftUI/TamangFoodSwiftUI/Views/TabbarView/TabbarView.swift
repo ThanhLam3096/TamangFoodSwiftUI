@@ -66,7 +66,8 @@ struct TabbarView: View {
             Image(imageName)
                 .renderingMode(.original)
             Text(title)
-                .font(.custom("YuGothic-Light", size: 12))
+                .font(.yuGothicLight(size: 12))
+//                .font(.custom("YuGothic-Light", size: 12))
         }
     }
 }

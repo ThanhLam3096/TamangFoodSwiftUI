@@ -26,7 +26,7 @@ struct NavigationBarView: View {
 //            .background(.red)
             Spacer()
             Text(title)
-                .font(.headline)
+                .font(.yuGothicUISemibold(size: screenSize.scaleHeight(16)))
                 .foregroundColor(Color.mainColor)
                 .multilineTextAlignment(.center)
                 .frame(maxWidth: .infinity, alignment: .center)

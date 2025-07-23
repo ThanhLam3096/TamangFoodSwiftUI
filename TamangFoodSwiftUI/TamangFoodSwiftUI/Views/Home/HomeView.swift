@@ -12,7 +12,7 @@ struct HomeView: View {
     @StateObject private var headerVM = HeaderHomeViewVM()
     @State private var isExpanded: Bool = false
     @State private var currentIndex = 0
-    let items = Array(1...10)
+    @EnvironmentObject var router: NavigationRouter
     
     var body: some View {
         GeometryReader { geometry in
@@ -49,7 +49,7 @@ struct HomeView: View {
                             .foregroundStyle(Color.mainColor)
                         Spacer()
                         Button {
-                            print("See All")
+                            router.goToSeeAll(meals: viewModel.listMealFeaturePartners, title: "Feature Partners")
                         } label: {
                             Text("See all")
                                 .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
@@ -167,21 +167,21 @@ struct HomeView: View {
     private func fetchFeaturePartners() {
         guard viewModel.listMealFeaturePartners.isEmpty else { return }
         viewModel.getAPIListFeaturePartners { success, message in
-            print(success ? "Load Data Feature Partners Success" : "Failed: \(message)")
+            print(success ? "Load Data Feature Partners Success" : "Failed Feature Parners: \(message)")
         }
     }
     
     private func fetchNationFood() {
         guard viewModel.listNationFood.isEmpty else { return }
         viewModel.getAPIListNationFood { success, message in
-            print(success ? "Load Data Nation Food Success" : "Failed: \(message)")
+            print(success ? "Load Data Nation Food Success" : "Failed Nation: \(message)")
         }
     }
     
     private func fetchRestaurants() {
         guard viewModel.listRestaurants.isEmpty else { return }
         viewModel.getAPIListRestaurant { success, message in
-            print(success ? "Load Data Restaurants Success" : "Failed: \(message)")
+            print(success ? "Load Data Restaurants Success" : "Failed Restaurants: \(message)")
         }
     }
 }

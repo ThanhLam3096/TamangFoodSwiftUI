@@ -30,6 +30,13 @@ final class HomeViewVM: ObservableObject {
     @Published var listNationFood: [Meal] = []
     @Published var listRestaurants: [Restaurant] = []
     
+    @Published var moveToSeeAllFood = false
+    
+    func moveToScreenSeeAll() {
+        moveToSeeAllFood = true
+    }
+    
+    
     func getAPIListFeaturePartners(listFeaturePartnersCompletion: @escaping (Bool, String) -> Void) {
         Networking.shared().getFeaturePartners { [weak self] (mealResult) in
             guard let this = self else { return }
