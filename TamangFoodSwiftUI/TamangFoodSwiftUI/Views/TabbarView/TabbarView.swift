@@ -13,10 +13,21 @@ struct TabbarView: View {
     enum Tab {
         case home, search, orders, message, profile
     }
+    @EnvironmentObject var router: NavigationRouter
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            HomeView()
+            NavigationStack(path: $router.path) {
+                HomeView()
+                    .navigationDestination(for: Router.self) { route in
+                        switch route {
+                        case .seeAll(let meals, let title):
+                            SeeAllFoodView(viewModel: SeeAllFoodViewModel(meals: meals, title: title))
+                        default:
+                            DetailView()
+                        }
+                    }
+            }
                 .tabItem {
                     tabItemView(
                         imageName: selectedTab == .home ? "home_tabbar_selected" : "home_tabbar",
@@ -55,6 +66,10 @@ struct TabbarView: View {
                     )
                 }
                 .tag(Tab.profile)
+        }
+        .fullScreenCover(isPresented: $router.showDetail) {
+            DetailView()
+                .environmentObject(router)
         }
         .tint(Color.accentColor)
     }

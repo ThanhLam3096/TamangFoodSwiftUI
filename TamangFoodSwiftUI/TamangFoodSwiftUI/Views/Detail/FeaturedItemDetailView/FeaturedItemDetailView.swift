@@ -1,22 +1,22 @@
 //
-//  HorizontalHomeView.swift
+//  FeaturedItemDetailView.swift
 //  TamangFoodSwiftUI
 //
-//  Created by Thanh Lâm on 15/6/25.
+//  Created by Thanh Lâm on 16/8/25.
 //
 
 import SwiftUI
 import SDWebImageSwiftUI
 
-struct HorizontalHomeView: View {
+struct FeaturedItemDetailView: View {
     
     let screenSize: ScreenSize
     let action: () -> Void
-    @ObservedObject var viewModel: HorizontalHomeViewModel
+    @ObservedObject var viewModel: FeaturedItemDetailViewModel
     var body: some View {
         RoundedRectangle(cornerRadius: 12)
             .fill(Color.clear)
-            .frame(width: screenSize.scaleWidth(200), height: screenSize.scaleHeight(254))
+            .frame(width: screenSize.scaleWidth(140), height: screenSize.scaleHeight(198))
             .overlay(
                 VStack {
                     Button(action: {
@@ -27,7 +27,8 @@ struct HorizontalHomeView: View {
                             .indicator(.activity)
                             .transition(.fade(duration: 0.5))
                             .scaledToFill()
-                            .frame(width: screenSize.scaleWidth(200) ,height: screenSize.scaleHeight(160))
+                            .aspectRatio(1, contentMode: .fit)
+                            .frame(width: screenSize.scaleWidth(140))
                             .cornerRadius(4)
                             .clipped()
                             .background {
@@ -44,23 +45,15 @@ struct HorizontalHomeView: View {
                         .foregroundColor(.mainColor)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     CSpace(height: screenSize.scaleHeight(5))
-                    Text(viewModel.meal.address)
-                        .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
-                        .foregroundColor(.bodyTextColor)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    CSpace(height: screenSize.scaleHeight(10))
-                    HStack {
-                        OrangeRatingText(screenSize: screenSize, viewModel: OrangeRatingTextViewModel(rating: viewModel.meal.rating))
-                        CSpace(width: screenSize.scaleWidth(10))
-                        Text(viewModel.meal.time)
-                            .font(.yuGothicLight(size: screenSize.scaleHeight(14)))
-                            .foregroundColor(.mainColor)
-                        CSpace(width: screenSize.scaleWidth(10))
+                    HStack(alignment: .center) {
+                        feeShipText(screenSize: screenSize)
                         Circle()
                             .fill(Color.bodyTextColor)
                             .frame(width: 5, height: 5)
                         CSpace(width: screenSize.scaleWidth(10))
-                        feeShipText(screenSize: screenSize)
+                        Text(viewModel.meal.nation1)
+                            .font(.yuGothicUIRegular(size: screenSize.scaleHeight(14)))
+                            .foregroundColor(.mainColor)
                         Spacer()
                     }
                 }
@@ -73,7 +66,7 @@ struct HorizontalHomeView: View {
     private func feeShipText(screenSize: ScreenSize) -> some View {
         if viewModel.meal.feeShip == 0 {
             Text("Free delivery")
-                .font(.yuGothicLight(size: screenSize.scaleHeight(14)))
+                .font(.yuGothicUIRegular(size: screenSize.scaleHeight(14)))
                 .foregroundColor(.mainColor)
         } else {
             Text("\(displayNumber(viewModel.meal.feeShip))$")
@@ -84,5 +77,5 @@ struct HorizontalHomeView: View {
 }
 
 #Preview {
-    HorizontalHomeView(screenSize: ScreenSize(width: 375, height: 812), action: { print("Go To Detail")}, viewModel: HorizontalHomeViewModel(meal: Meal(image: "https://www.holidify.com/images/cmsuploads/compressed/c700x420_20181227132950.jpg", name: "Sushi", typeFood: "Sea Food", price: 5, address: "Tokyo, Japan", nation1: "Japan", nation2: "Japan", time: "10min", rating: "5.0", totalVote: 1123, fee: 1, idMeal: 0), typeList: .featurePartners))
+    FeaturedItemDetailView(screenSize: ScreenSize(width: 375, height: 812), action: { print("Go To Detail")}, viewModel: FeaturedItemDetailViewModel(meal: Meal(image: "https://www.holidify.com/images/cmsuploads/compressed/c700x420_20181227132950.jpg", name: "Sushi", typeFood: "Sea Food", price: 5, address: "Tokyo, Japan", nation1: "Japan", nation2: "Japan", time: "10min", rating: "5.0", totalVote: 1123, fee: 1, idMeal: 0)))
 }

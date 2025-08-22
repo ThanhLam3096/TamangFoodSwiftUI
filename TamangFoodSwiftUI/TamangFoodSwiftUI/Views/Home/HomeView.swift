@@ -61,10 +61,9 @@ struct HomeView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack(spacing: 16) {
                             ForEach(viewModel.listMealFeaturePartners, id: \.idMeal) { item in
-                                HorizontalHomeView(screenSize: screenSize, viewModel: HorizontalHomeViewModel(meal: item, typeList: .featurePartners))
-                                    .onTapGesture {
-                                        print("Go To Detail Food")
-                                    }
+                                HorizontalHomeView(screenSize: screenSize, action: {
+                                    router.goToDetail()
+                                }, viewModel: HorizontalHomeViewModel(meal: item, typeList: .featurePartners))
                             }
                         }
                         .padding(.horizontal, screenSize.scaleWidth(20))
@@ -92,10 +91,9 @@ struct HomeView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack(spacing: 16) {
                             ForEach(viewModel.listNationFood, id: \.idMeal) { item in
-                                HorizontalHomeView(screenSize: screenSize, viewModel: HorizontalHomeViewModel(meal: item, typeList: .featurePartners))
-                                    .onTapGesture {
-                                        print("Go To Detail Food")
-                                    }
+                                HorizontalHomeView(screenSize: screenSize, action: {
+                                    router.goToDetail()
+                                }, viewModel: HorizontalHomeViewModel(meal: item, typeList: .featurePartners))
                             }
                         }
                         .padding(.horizontal, screenSize.scaleWidth(20))
