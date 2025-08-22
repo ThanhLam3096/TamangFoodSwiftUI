@@ -11,9 +11,21 @@ import Observation
 
 class NavigationRouter: ObservableObject {
     @Published var path = NavigationPath()
+    @Published var showDetail: Bool = false
     
     func goToSeeAll(meals: [Meal], title: String) {
         path.append(Router.seeAll(meals: meals, title: title))
+    }
+    
+//    func goToDetail() {
+//        path.append(Router.detail)
+//    }
+    func goToDetail() {
+        showDetail = true
+    }
+    
+    func closeDetail() {
+        showDetail = false
     }
 
     func goBack() {
@@ -24,23 +36,8 @@ class NavigationRouter: ObservableObject {
         path.removeLast(path.count)
     }
 }
-//@Observable
-//class NavigationRouter {
-//    var path = NavigationPath()
-//    func navigateToCreateAccount() {
-//        path.append(Route.createAccount)
-//    }
-//    func navigateToHome() {
-//        path.append(Route.home)
-//    }
-//    func navigateToSeeAll() {
-//        path.append(Route.seeAll)
-//    }
-//    func popToRoot() {
-//        path.removeLast(path.count)
-//    }
-//}
 
 enum Router: Hashable {
     case seeAll( meals: [Meal], title: String)
+    case detail
 }
