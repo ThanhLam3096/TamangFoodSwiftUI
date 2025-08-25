@@ -23,8 +23,8 @@ struct TabbarView: View {
                         switch route {
                         case .seeAll(let meals, let title):
                             SeeAllFoodView(viewModel: SeeAllFoodViewModel(meals: meals, title: title))
-                        default:
-                            DetailView()
+                        case .detail(let meal):
+                            DetailView(viewModel: DetailViewModel(meal: meal))
                         }
                     }
             }
@@ -67,10 +67,10 @@ struct TabbarView: View {
                 }
                 .tag(Tab.profile)
         }
-        .fullScreenCover(isPresented: $router.showDetail) {
-            DetailView()
-                .environmentObject(router)
-        }
+//        .fullScreenCover(isPresented: $router.showDetail) {
+//            DetailView()
+//                .environmentObject(router)
+//        }
         .tint(Color.accentColor)
     }
     

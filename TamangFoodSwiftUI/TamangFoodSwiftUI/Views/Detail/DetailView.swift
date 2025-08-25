@@ -6,21 +6,24 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct DetailView: View {
-    @StateObject private var viewModel = DetailViewModel()
+//    @StateObject var viewModel = DetailViewModel()
+    @ObservedObject var viewModel: DetailViewModel
     @State private var selectedMeal: String?
+    @EnvironmentObject var router: NavigationRouter
     
     var body: some View {
         GeometryReader { geometry in
             let screenSize = ScreenSize(width: geometry.size.width, height: geometry.size.height)
             ScrollView {
                 VStack {
-                    Image("Header-image")
+                    WebImage(url: URL(string: viewModel.meal.image))
                         .resizable()
                         .frame(width: screenSize.width, height: screenSize.scaleHeight(280))
                     CSpace(height: screenSize.scaleHeight(10))
-                    InfoDetailMealView(screenSize: screenSize)
+                    InfoDetailMealView(screenSize: screenSize, viewModel: InfoDetailMealViewModel(meal: viewModel.meal))
                     CSpace(height: screenSize.scaleHeight(34))
                     Text("Featured Items")
                         .font(.yuGothicUILight(size: screenSize.scaleHeight(20)))
@@ -74,7 +77,7 @@ struct DetailView: View {
             .edgesIgnoringSafeArea(.top)
             HStack {
                 Button(action: {
-                    print("Back")
+                    router.goBack()
                 }, label: {
                     Image("white_back")
                         .frame(width: screenSize.scaleHeight(34), height: screenSize.scaleHeight(34))
@@ -98,6 +101,7 @@ struct DetailView: View {
                 
             }
         }
+        .navigationBarHidden(true)
     }
     
     private func fetchMealByCategory() {
@@ -111,5 +115,5 @@ struct DetailView: View {
 }
 
 #Preview {
-    DetailView()
+    DetailView(viewModel: DetailViewModel(meal: Meal(image: "https://www.holidify.com/images/cmsuploads/compressed/c700x420_20181227132950.jpg", name: "Sushi", typeFood: "Sea Food", price: 5, address: "Tokyo, Japan", nation1: "Japan", nation2: "Japan", time: "10min", rating: "5.0", totalVote: 1123, fee: 1, idMeal: 0)))
 }

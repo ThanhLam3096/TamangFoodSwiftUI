@@ -62,7 +62,7 @@ struct HomeView: View {
                         LazyHStack(spacing: 16) {
                             ForEach(viewModel.listMealFeaturePartners, id: \.idMeal) { item in
                                 HorizontalHomeView(screenSize: screenSize, action: {
-                                    router.goToDetail()
+                                    router.goToDetail(meal: item)
                                 }, viewModel: HorizontalHomeViewModel(meal: item, typeList: .featurePartners))
                             }
                         }
@@ -92,7 +92,7 @@ struct HomeView: View {
                         LazyHStack(spacing: 16) {
                             ForEach(viewModel.listNationFood, id: \.idMeal) { item in
                                 HorizontalHomeView(screenSize: screenSize, action: {
-                                    router.goToDetail()
+                                    router.goToDetail(meal: item)
                                 }, viewModel: HorizontalHomeViewModel(meal: item, typeList: .featurePartners))
                             }
                         }

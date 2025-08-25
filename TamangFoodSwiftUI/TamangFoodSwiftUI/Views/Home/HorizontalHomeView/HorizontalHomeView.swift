@@ -18,54 +18,55 @@ struct HorizontalHomeView: View {
             .fill(Color.clear)
             .frame(width: screenSize.scaleWidth(200), height: screenSize.scaleHeight(254))
             .overlay(
-                VStack {
                     Button(action: {
                         action()
                     }, label: {
-                        WebImage(url: URL(string: viewModel.meal.image))
-                            .resizable()
-                            .indicator(.activity)
-                            .transition(.fade(duration: 0.5))
-                            .scaledToFill()
-                            .frame(width: screenSize.scaleWidth(200) ,height: screenSize.scaleHeight(160))
-                            .cornerRadius(4)
-                            .clipped()
-                            .background {
-                                if #available(iOS 15.0, *) {
-                                    Color.gray.opacity(0.3)
-                                } else {
-                                    EmptyView()
+                        VStack {
+                            WebImage(url: URL(string: viewModel.meal.image))
+                                .resizable()
+                                .indicator(.activity)
+                                .transition(.fade(duration: 0.5))
+                                .scaledToFill()
+                                .frame(width: screenSize.scaleWidth(200) ,height: screenSize.scaleHeight(160))
+                                .cornerRadius(4)
+                                .clipped()
+                                .background {
+                                    if #available(iOS 15.0, *) {
+                                        Color.gray.opacity(0.3)
+                                    } else {
+                                        EmptyView()
+                                    }
                                 }
+                            CSpace(height: screenSize.scaleHeight(10))
+                            Text(viewModel.meal.name)
+                                .font(.yuGothicUILight(size: screenSize.scaleHeight(20)))
+                                .foregroundColor(.mainColor)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            CSpace(height: screenSize.scaleHeight(5))
+                            Text(viewModel.meal.address)
+                                .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
+                                .foregroundColor(.bodyTextColor)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            CSpace(height: screenSize.scaleHeight(10))
+                            HStack {
+                                OrangeRatingText(screenSize: screenSize, viewModel: OrangeRatingTextViewModel(rating: viewModel.meal.rating))
+                                CSpace(width: screenSize.scaleWidth(10))
+                                Text(viewModel.meal.time)
+                                    .font(.yuGothicLight(size: screenSize.scaleHeight(14)))
+                                    .foregroundColor(.mainColor)
+                                CSpace(width: screenSize.scaleWidth(10))
+                                Circle()
+                                    .fill(Color.bodyTextColor)
+                                    .frame(width: 5, height: 5)
+                                CSpace(width: screenSize.scaleWidth(10))
+                                feeShipText(screenSize: screenSize)
+                                Spacer()
                             }
+                        }
+                        .frame(maxHeight: .infinity, alignment: .top)
+                        .padding(.top, 0)
+
                     })
-                    CSpace(height: screenSize.scaleHeight(10))
-                    Text(viewModel.meal.name)
-                        .font(.yuGothicUILight(size: screenSize.scaleHeight(20)))
-                        .foregroundColor(.mainColor)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    CSpace(height: screenSize.scaleHeight(5))
-                    Text(viewModel.meal.address)
-                        .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
-                        .foregroundColor(.bodyTextColor)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    CSpace(height: screenSize.scaleHeight(10))
-                    HStack {
-                        OrangeRatingText(screenSize: screenSize, viewModel: OrangeRatingTextViewModel(rating: viewModel.meal.rating))
-                        CSpace(width: screenSize.scaleWidth(10))
-                        Text(viewModel.meal.time)
-                            .font(.yuGothicLight(size: screenSize.scaleHeight(14)))
-                            .foregroundColor(.mainColor)
-                        CSpace(width: screenSize.scaleWidth(10))
-                        Circle()
-                            .fill(Color.bodyTextColor)
-                            .frame(width: 5, height: 5)
-                        CSpace(width: screenSize.scaleWidth(10))
-                        feeShipText(screenSize: screenSize)
-                        Spacer()
-                    }
-                }
-                    .frame(maxHeight: .infinity, alignment: .top)
-                    .padding(.top, 0)
             )
     }
     

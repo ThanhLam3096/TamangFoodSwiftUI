@@ -10,9 +10,13 @@ import Foundation
 final class DetailViewModel: ObservableObject {
     
     @Published var typeMeal: [String] = ["Beef", "Breakfast", "Chicken", "Dessert", "Goat", "Lamb", "Miscellaneous", "Pasta", "Pork", "Seafood", "Side", "Starter", "Vegan", "Vegetarian"]
-    
+    @Published var meal: Meal
     @Published var listMealByCategory: [TheMealDB] = []
     @Published var mealDetail: TheMealDB?
+    
+    init(meal: Meal) {
+        self.meal = meal
+    }
     
     func getAPIListMealByCategory(categoryName: String, listMealByCategoryCompletion: @escaping (Bool, String) -> Void) {
         Networking.shared().getListMealByCategory(categoryName: categoryName) { [weak self] (mealResult) in
