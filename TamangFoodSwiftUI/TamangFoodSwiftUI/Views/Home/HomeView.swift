@@ -59,11 +59,17 @@ struct HomeView: View {
                     .padding(.horizontal, screenSize.scaleWidth(20))
                     .padding(.bottom, screenSize.scaleHeight(-5))
                     ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHStack(spacing: 16) {
-                            ForEach(viewModel.listMealFeaturePartners, id: \.idMeal) { item in
-                                HorizontalHomeView(screenSize: screenSize, action: {
-                                    router.goToDetail()
-                                }, viewModel: HorizontalHomeViewModel(meal: item, typeList: .featurePartners))
+                        HStack(spacing: 16) {
+                            if viewModel.listMealFeaturePartners.isEmpty {
+                                ForEach(0..<3, id: \.self) { _ in
+                                    SkeletonFoodView(screenSize: screenSize)
+                                }
+                            } else {
+                                ForEach(viewModel.listMealFeaturePartners, id: \.idMeal) { item in
+                                    HorizontalHomeView(screenSize: screenSize, action: {
+                                        router.goToDetail(meal: item)
+                                    }, viewModel: HorizontalHomeViewModel(meal: item, typeList: .featurePartners))
+                                }
                             }
                         }
                         .padding(.horizontal, screenSize.scaleWidth(20))
@@ -89,16 +95,23 @@ struct HomeView: View {
                     .padding(.horizontal, screenSize.scaleWidth(20))
                     .padding(.bottom, screenSize.scaleHeight(-5))
                     ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHStack(spacing: 16) {
-                            ForEach(viewModel.listNationFood, id: \.idMeal) { item in
-                                HorizontalHomeView(screenSize: screenSize, action: {
-                                    router.goToDetail()
-                                }, viewModel: HorizontalHomeViewModel(meal: item, typeList: .featurePartners))
+                        HStack(spacing: 16) {
+                            if viewModel.listNationFood.isEmpty {
+                                ForEach(0..<3, id: \.self) { _ in
+                                    SkeletonFoodView(screenSize: screenSize)
+                                }
+                            } else {
+                                ForEach(viewModel.listNationFood, id: \.idMeal) { item in
+                                    HorizontalHomeView(screenSize: screenSize, action: {
+                                        router.goToDetail(meal: item)
+                                    }, viewModel: HorizontalHomeViewModel(meal: item, typeList: .featurePartners))
+                                }
                             }
                         }
                         .padding(.horizontal, screenSize.scaleWidth(20))
                     }
                     .onAppear(perform: fetchNationFood)
+                    CSpace(height: screenSize.scaleHeight(20))
                     HStack {
                         Text("All Restaurants")
                             .font(.yuGothicUISemibold(size: screenSize.scaleHeight(24)))

@@ -12,16 +12,19 @@ import Observation
 class NavigationRouter: ObservableObject {
     @Published var path = NavigationPath()
     @Published var showDetail: Bool = false
+    @Published var selectedMeal: Meal? = nil
     
     func goToSeeAll(meals: [Meal], title: String) {
         path.append(Router.seeAll(meals: meals, title: title))
     }
     
-//    func goToDetail() {
-//        path.append(Router.detail)
-//    }
-    func goToDetail() {
+    func goToDetail(meal: Meal) {
         showDetail = true
+        path.append(Router.detail(meal: meal))
+    }
+    
+    func showDetailFullScreen(meal: Meal) {
+        selectedMeal = meal
     }
     
     func closeDetail() {
@@ -29,7 +32,8 @@ class NavigationRouter: ObservableObject {
     }
 
     func goBack() {
-        path.removeLast(path.count)
+        guard !path.isEmpty else { return }
+        path.removeLast()
     }
     
     func goToRoot() {
@@ -38,6 +42,6 @@ class NavigationRouter: ObservableObject {
 }
 
 enum Router: Hashable {
-    case seeAll( meals: [Meal], title: String)
-    case detail
+    case seeAll(meals: [Meal], title: String)
+    case detail(meal: Meal)
 }

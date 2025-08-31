@@ -27,6 +27,7 @@
 		0411D6442E0180C6005F3422 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411D63F2E0180C5005F3422 /* User.swift */; };
 		0411D6452E0180C6005F3422 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411D6402E0180C6005F3422 /* Restaurant.swift */; };
 		04135B402DE406870007D255 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04135B3F2DE406870007D255 /* Meal.swift */; };
+		041D99C32E60AA9500FED324 /* NumberDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041D99C22E60AA9500FED324 /* NumberDouble.swift */; };
 		04295C3B2DDDCB440064A650 /* HeaderHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04295C3A2DDDCB440064A650 /* HeaderHomeView.swift */; };
 		042E0EC52DBB2CBE008CFC7F /* PageNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E0EC42DBB2CBE008CFC7F /* PageNumber.swift */; };
 		042E0EC72DBB3809008CFC7F /* AppText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E0EC62DBB3809008CFC7F /* AppText.swift */; };
@@ -59,6 +60,10 @@
 		04502AF12DC5BD8700A41735 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04502AF02DC5BD8700A41735 /* View.swift */; };
 		0450A9B92DD5CBA30011BC00 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0450A9B82DD5CBA30011BC00 /* HomeView.swift */; };
 		045589072DF5CB09002F239D /* DataEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045589062DF5CB09002F239D /* DataEXT.swift */; };
+		045A11F02E5C986F00C54C13 /* InfoDetailMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A11EF2E5C986F00C54C13 /* InfoDetailMealViewModel.swift */; };
+		045A11F32E5CA5F400C54C13 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 045A11F22E5CA5F400C54C13 /* Shimmer */; };
+		045A11F62E5CA74700C54C13 /* SkeletonFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A11F52E5CA74700C54C13 /* SkeletonFoodView.swift */; };
+		045A11F92E5CAABC00C54C13 /* ShimmerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A11F82E5CAABC00C54C13 /* ShimmerConfig.swift */; };
 		0461D96A2E04423800D8DDE4 /* SeeAllFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461D9692E04423800D8DDE4 /* SeeAllFoodView.swift */; };
 		046C44A32DC8BE1C00D479E9 /* DefinePhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C44A22DC8BE1C00D479E9 /* DefinePhoneNumberView.swift */; };
 		046EDAE42DBE6643005E5F42 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046EDAE32DBE6643005E5F42 /* NavigationBarView.swift */; };
@@ -127,6 +132,7 @@
 		0411D63F2E0180C5005F3422 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0411D6402E0180C6005F3422 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		04135B3F2DE406870007D255 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		041D99C22E60AA9500FED324 /* NumberDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberDouble.swift; sourceTree = "<group>"; };
 		04295C3A2DDDCB440064A650 /* HeaderHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderHomeView.swift; sourceTree = "<group>"; };
 		042E0EC42DBB2CBE008CFC7F /* PageNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNumber.swift; sourceTree = "<group>"; };
 		042E0EC62DBB3809008CFC7F /* AppText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppText.swift; sourceTree = "<group>"; };
@@ -159,6 +165,9 @@
 		04502AF02DC5BD8700A41735 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		0450A9B82DD5CBA30011BC00 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		045589062DF5CB09002F239D /* DataEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEXT.swift; sourceTree = "<group>"; };
+		045A11EF2E5C986F00C54C13 /* InfoDetailMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDetailMealViewModel.swift; sourceTree = "<group>"; };
+		045A11F52E5CA74700C54C13 /* SkeletonFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonFoodView.swift; sourceTree = "<group>"; };
+		045A11F82E5CAABC00C54C13 /* ShimmerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerConfig.swift; sourceTree = "<group>"; };
 		0461D9692E04423800D8DDE4 /* SeeAllFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodView.swift; sourceTree = "<group>"; };
 		046C44A22DC8BE1C00D479E9 /* DefinePhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinePhoneNumberView.swift; sourceTree = "<group>"; };
 		046EDAE32DBE6643005E5F42 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
@@ -201,6 +210,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045A11F32E5CA5F400C54C13 /* Shimmer in Frameworks */,
 				0411D6272E016D0D005F3422 /* SDWebImageSwiftUI in Frameworks */,
 				0411D6372E018009005F3422 /* AlamofireDynamic in Frameworks */,
 				0411D6352E018009005F3422 /* Alamofire in Frameworks */,
@@ -227,8 +237,8 @@
 		040E87E12E5415690023C3E7 /* ListCategoryFoodView */ = {
 			isa = PBXGroup;
 			children = (
-				040E87E22E5415870023C3E7 /* ListCategoryFoodViewModel.swift */,
 				040E87E42E5416540023C3E7 /* ListCategoryFoodView.swift */,
+				040E87E22E5415870023C3E7 /* ListCategoryFoodViewModel.swift */,
 			);
 			path = ListCategoryFoodView;
 			sourceTree = "<group>";
@@ -441,6 +451,22 @@
 			path = Library;
 			sourceTree = "<group>";
 		};
+		045A11F42E5CA73600C54C13 /* SkeletonView */ = {
+			isa = PBXGroup;
+			children = (
+				045A11F52E5CA74700C54C13 /* SkeletonFoodView.swift */,
+			);
+			path = SkeletonView;
+			sourceTree = "<group>";
+		};
+		045A11F72E5CAAAA00C54C13 /* ShimmerConfig */ = {
+			isa = PBXGroup;
+			children = (
+				045A11F82E5CAABC00C54C13 /* ShimmerConfig.swift */,
+			);
+			path = ShimmerConfig;
+			sourceTree = "<group>";
+		};
 		0461D9682E04420800D8DDE4 /* SeeAllFood */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,6 +496,7 @@
 		04707C7F2DA922AC00CD6066 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				045A11F42E5CA73600C54C13 /* SkeletonView */,
 				0411D61C2E010FAC005F3422 /* OrangeRatingLabel */,
 				04502AE52DC5AA1200A41735 /* SocialButton */,
 				0443D0502DC1A9D3002139FE /* TextFieldFormEnterInfo */,
@@ -659,9 +686,11 @@
 		04EE7B1C2DA7C18B00BA8EE1 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				045A11F72E5CAAAA00C54C13 /* ShimmerConfig */,
 				04EE7B1D2DA7C1A500BA8EE1 /* Font.swift */,
 				04EE7B1F2DA7CF4000BA8EE1 /* Color.swift */,
 				04502AF02DC5BD8700A41735 /* View.swift */,
+				041D99C22E60AA9500FED324 /* NumberDouble.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -670,6 +699,7 @@
 			isa = PBXGroup;
 			children = (
 				044BC73E2E508B2800DFC6D4 /* InfoDetailMealView.swift */,
+				045A11EF2E5C986F00C54C13 /* InfoDetailMealViewModel.swift */,
 			);
 			path = InfoDetailMealView;
 			sourceTree = "<group>";
@@ -694,6 +724,7 @@
 				0411D6262E016D0D005F3422 /* SDWebImageSwiftUI */,
 				0411D6342E018009005F3422 /* Alamofire */,
 				0411D6362E018009005F3422 /* AlamofireDynamic */,
+				045A11F22E5CA5F400C54C13 /* Shimmer */,
 			);
 			productName = TamangFoodSwiftUI;
 			productReference = 04EE7AD52DA521DB00BA8EE1 /* TamangFoodSwiftUI.app */;
@@ -770,6 +801,7 @@
 			packageReferences = (
 				0411D6252E016CB9005F3422 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				0411D6332E018009005F3422 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				045A11F12E5CA5F400C54C13 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 			);
 			productRefGroup = 04EE7AD62DA521DB00BA8EE1 /* Products */;
 			projectDirPath = "";
@@ -820,10 +852,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				040E87E32E5415870023C3E7 /* ListCategoryFoodViewModel.swift in Sources */,
+				045A11F92E5CAABC00C54C13 /* ShimmerConfig.swift in Sources */,
 				0411D6432E0180C6005F3422 /* TheMealDB.swift in Sources */,
 				0411D6222E011C2B005F3422 /* HorizontalHomeViewModel.swift in Sources */,
 				049EAD0E2DDF2930007D1268 /* HeaderHomeViewVM.swift in Sources */,
 				042E0ECC2DBD1206008CFC7F /* IntroducePage.swift in Sources */,
+				041D99C32E60AA9500FED324 /* NumberDouble.swift in Sources */,
 				04C531D02E059661005D4790 /* SeeAllFoodViewModel.swift in Sources */,
 				04295C3B2DDDCB440064A650 /* HeaderHomeView.swift in Sources */,
 				043352372DC9A0E20003707A /* VerifyPhoneNumberView.swift in Sources */,
@@ -845,6 +879,7 @@
 				044BC7442E50A92C00DFC6D4 /* FeaturedItemDetailViewModel.swift in Sources */,
 				0411D6242E011C93005F3422 /* App.swift in Sources */,
 				04502AE72DC5ABDA00A41735 /* SocialButton.swift in Sources */,
+				045A11F62E5CA74700C54C13 /* SkeletonFoodView.swift in Sources */,
 				0439A09A2E064A81001F0A17 /* SeeAllFoodItemViewModel.swift in Sources */,
 				04502AE92DC5AC2D00A41735 /* SocialType.swift in Sources */,
 				0411D6202E011306005F3422 /* OrangeRatingTextViewModel.swift in Sources */,
@@ -861,6 +896,7 @@
 				04D261F52DFEF7EB00A6BFF8 /* HorizontalHomeView.swift in Sources */,
 				044BC7422E50A69600DFC6D4 /* FeaturedItemDetailView.swift in Sources */,
 				0447E16C2DC7678F00697677 /* SignInRouter.swift in Sources */,
+				045A11F02E5C986F00C54C13 /* InfoDetailMealViewModel.swift in Sources */,
 				04502AF12DC5BD8700A41735 /* View.swift in Sources */,
 				04C531D32E059955005D4790 /* NavigationRouter.swift in Sources */,
 				0447272F2E04163D0068B971 /* SearchView.swift in Sources */,
@@ -1237,6 +1273,14 @@
 				minimumVersion = 5.10.2;
 			};
 		};
+		045A11F12E5CA5F400C54C13 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1254,6 +1298,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0411D6332E018009005F3422 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = AlamofireDynamic;
+		};
+		045A11F22E5CA5F400C54C13 /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 045A11F12E5CA5F400C54C13 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

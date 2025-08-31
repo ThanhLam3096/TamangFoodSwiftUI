@@ -9,16 +9,17 @@ import SwiftUI
 
 struct InfoDetailMealView: View {
     let screenSize: ScreenSize
+    @ObservedObject var viewModel: InfoDetailMealViewModel
     
     var body: some View {
-        Text("Sushi")
+        Text(viewModel.meal.name)
             .font(.yuGothicUISemibold(size: screenSize.scaleHeight(24)))
             .foregroundStyle(Color.blackColor)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, screenSize.scaleWidth(20))
         CSpace(height: screenSize.scaleHeight(10))
         HStack {
-            Text("$$")
+            Text( "\(displayNumber(viewModel.meal.price))$")
                 .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
                 .foregroundStyle(Color.bodyTextColor)
             CSpace(width: screenSize.scaleWidth(10))
@@ -26,15 +27,7 @@ struct InfoDetailMealView: View {
                 .fill(Color.bodyTextColor)
                 .frame(width: 5, height: 5)
             CSpace(width: screenSize.scaleWidth(10))
-            Text("Chinese")
-                .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
-                .foregroundStyle(Color.bodyTextColor)
-            CSpace(width: screenSize.scaleWidth(15))
-            Circle()
-                .fill(Color.bodyTextColor)
-                .frame(width: 5, height: 5)
-            CSpace(width: screenSize.scaleWidth(10))
-            Text("American")
+            Text(viewModel.meal.nation1)
                 .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
                 .foregroundStyle(Color.bodyTextColor)
             CSpace(width: screenSize.scaleWidth(15))
@@ -42,7 +35,15 @@ struct InfoDetailMealView: View {
                 .fill(Color.bodyTextColor)
                 .frame(width: 5, height: 5)
             CSpace(width: screenSize.scaleWidth(10))
-            Text("Denshi Food")
+            Text(viewModel.meal.nation2)
+                .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
+                .foregroundStyle(Color.bodyTextColor)
+            CSpace(width: screenSize.scaleWidth(15))
+            Circle()
+                .fill(Color.bodyTextColor)
+                .frame(width: 5, height: 5)
+            CSpace(width: screenSize.scaleWidth(10))
+            Text(viewModel.meal.typeFood)
                 .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
                 .foregroundStyle(Color.bodyTextColor)
             Spacer()
@@ -50,7 +51,7 @@ struct InfoDetailMealView: View {
         .padding(.horizontal, screenSize.scaleWidth(20))
         CSpace(height: screenSize.scaleHeight(10))
         HStack {
-            Text("4.3")
+            Text(viewModel.meal.rating)
                 .font(.yuGothicUILight(size: screenSize.scaleHeight(12)))
                 .foregroundStyle(Color.mainColor)
             CSpace(width: screenSize.scaleWidth(10))
@@ -59,7 +60,7 @@ struct InfoDetailMealView: View {
                 .aspectRatio(1, contentMode: .fit)
                 .frame(width: screenSize.scaleWidth(12))
             CSpace(width: screenSize.scaleWidth(10))
-            Text("200+ rating")
+            Text("\(viewModel.meal.totalVote)+ Ratings")
                 .font(.yuGothicUILight(size: screenSize.scaleHeight(12)))
                 .foregroundStyle(Color.mainColor)
             Spacer()
@@ -79,10 +80,10 @@ struct InfoDetailMealView: View {
             }
             CSpace(width: screenSize.scaleWidth(10))
             VStack(alignment: .leading, spacing: 4) {
-                Text("Free")
+                Text(viewModel.meal.feeShip == 0 ? "Free" : "\(displayNumber(viewModel.meal.feeShip))")
                     .font(.yuGothicUILight(size: screenSize.scaleHeight(16)))
                     .foregroundStyle(Color.mainColor)
-                Text("Delivery")
+                Text(viewModel.meal.feeShip == 0 ? "Delivery" : "Dollars")
                     .font(.yuGothicUIRegular(size: screenSize.scaleHeight(12)))
                     .foregroundStyle(Color.mainColor)
             }
@@ -99,7 +100,7 @@ struct InfoDetailMealView: View {
             }
             CSpace(width: screenSize.scaleWidth(10))
             VStack(alignment: .leading, spacing: 4) {
-                Text("25")
+                Text(viewModel.meal.time.replacingOccurrences(of: "min", with: ""))
                     .font(.yuGothicUILight(size: screenSize.scaleHeight(16)))
                     .foregroundStyle(Color.mainColor)
                 Text("Minutes")
@@ -120,5 +121,5 @@ struct InfoDetailMealView: View {
 }
 
 #Preview {
-    InfoDetailMealView(screenSize: ScreenSize(width: 375, height: 812))
+    InfoDetailMealView(screenSize: ScreenSize(width: 375, height: 812), viewModel: InfoDetailMealViewModel(meal: Meal(image: "https://www.holidify.com/images/cmsuploads/compressed/c700x420_20181227132950.jpg", name: "Sushi", typeFood: "Sea Food", price: 5, address: "Tokyo, Japan", nation1: "Japan", nation2: "Japan", time: "10min", rating: "5.0", totalVote: 1123, fee: 1, idMeal: 0)))
 }

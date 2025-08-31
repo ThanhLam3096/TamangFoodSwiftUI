@@ -12,6 +12,7 @@ struct SeeAllFoodItemView: View {
     
     let screenSize: ScreenSize
     @ObservedObject var viewModel: SeeAllFoodItemViewModel
+    let action: () -> Void
     
     var body: some View {
         RoundedRectangle(cornerRadius: 12)
@@ -21,7 +22,7 @@ struct SeeAllFoodItemView: View {
                 VStack {
                     ZStack(alignment: .bottomLeading) {
                         Button(action: {
-                            print("Go To Detail Food")
+                            action()
                         }, label: {
                             ZStack {
                                 WebImage(url: URL(string: viewModel.meal.image))
@@ -110,5 +111,5 @@ struct SeeAllFoodItemView: View {
 }
 
 #Preview {
-    SeeAllFoodItemView(screenSize: ScreenSize(width: 375, height: 812), viewModel: SeeAllFoodItemViewModel(meal: Meal(image: "https://www.holidify.com/images/cmsuploads/compressed/8896564-16x9-large_20181227133052.jpg", name: "Rendang", typeFood: "Beef", price: 12, address: "Jakarta, Indonesia", nation1: "Indonesia", nation2: "Malaysia", time: "14min", rating: "4.4", totalVote: 1123, fee: 0.6, idMeal: 1)))
+    SeeAllFoodItemView(screenSize: ScreenSize(width: 375, height: 812), viewModel: SeeAllFoodItemViewModel(meal: Meal(image: "https://www.holidify.com/images/cmsuploads/compressed/8896564-16x9-large_20181227133052.jpg", name: "Rendang", typeFood: "Beef", price: 12, address: "Jakarta, Indonesia", nation1: "Indonesia", nation2: "Malaysia", time: "14min", rating: "4.4", totalVote: 1123, fee: 0.6, idMeal: 1)), action: {})
 }

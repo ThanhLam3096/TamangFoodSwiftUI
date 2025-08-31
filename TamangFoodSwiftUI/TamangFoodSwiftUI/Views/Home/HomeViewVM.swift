@@ -55,14 +55,14 @@ final class HomeViewVM: ObservableObject {
     func getAPIListNationFood(listNationFoodCompletion: @escaping (Bool, String) -> Void) {
         Networking.shared().getFoodNation { [weak self] (mealResult) in
             guard let this = self else { return }
-            switch mealResult {
-            case .failure(let error):
-                listNationFoodCompletion(false, error)
-            case .success(let result):
-                for item in result.meals {
-                    this.listNationFood.append(item)
+            DispatchQueue.main.async {
+                switch mealResult {
+                case .failure(let error):
+                    listNationFoodCompletion(false, error)
+                case .success(let result):
+                    this.listNationFood = result.meals
+                    listNationFoodCompletion(true, AppFood.String.loadSuccess)
                 }
-                listNationFoodCompletion(true, AppFood.String.loadSuccess)
             }
         }
     }

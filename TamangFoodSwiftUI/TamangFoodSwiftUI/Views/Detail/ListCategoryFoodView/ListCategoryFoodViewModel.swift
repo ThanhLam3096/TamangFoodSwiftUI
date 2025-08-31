@@ -13,4 +13,8 @@ final class ListCategoryFoodViewModel: ObservableObject {
     init(mealDB: TheMealDB) {
         self.mealDB = mealDB
     }
+    
+    func randomDecimal() -> Double {
+        return Double.random(in: 1.0...10.0).rounded(toPlaces: 1)
+    }
 }

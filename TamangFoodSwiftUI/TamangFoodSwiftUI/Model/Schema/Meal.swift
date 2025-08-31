@@ -8,6 +8,7 @@
 import Foundation
 
 final class Meal: Codable, Hashable {
+    
     // MARK: - Hashable
     func hash(into hasher: inout Hasher) {
         hasher.combine(idMeal)
