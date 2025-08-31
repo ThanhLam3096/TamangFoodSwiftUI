@@ -28,7 +28,9 @@ struct SeeAllFoodView: View {
                     LazyVGrid(columns: columns, spacing: screenSize.scaleWidth(15)) {
                         ForEach(viewModel.meals, id: \.idMeal) { item in
                             VStack {
-                                SeeAllFoodItemView(screenSize: screenSize, viewModel: SeeAllFoodItemViewModel(meal: item))
+                                SeeAllFoodItemView(screenSize: screenSize, viewModel: SeeAllFoodItemViewModel(meal: item), action: {
+                                    router.goToDetail(meal: item)
+                                })
                             }
                         }
                     }
@@ -37,6 +39,7 @@ struct SeeAllFoodView: View {
             }
         }
         .navigationBarHidden(true)
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 

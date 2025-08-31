@@ -18,9 +18,6 @@ class NavigationRouter: ObservableObject {
         path.append(Router.seeAll(meals: meals, title: title))
     }
     
-//    func goToDetail() {
-//        path.append(Router.detail)
-//    }
     func goToDetail(meal: Meal) {
         showDetail = true
         path.append(Router.detail(meal: meal))
@@ -35,7 +32,8 @@ class NavigationRouter: ObservableObject {
     }
 
     func goBack() {
-        path.removeLast(path.count)
+        guard !path.isEmpty else { return }
+        path.removeLast()
     }
     
     func goToRoot() {

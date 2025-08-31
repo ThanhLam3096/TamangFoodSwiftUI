@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Shimmer
 
 extension View {
     func hideKeyboard() {
@@ -37,5 +38,52 @@ struct RoundedCorner: Shape {
     func path(in rect: CGRect) -> Path {
         let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         return Path(path.cgPath)
+    }
+}
+
+struct ShimmerModifier: ViewModifier {
+    var config: ShimmerConfig
+    var active: Bool
+    
+    @State private var move: CGFloat = -1
+    
+    func body(content: Content) -> some View {
+        ZStack {
+            // backgroup
+            content
+                .foregroundColor(config.tint)
+            
+            if active {
+                // highlight move
+                content
+                    .mask(
+                        LinearGradient(
+                            gradient: Gradient(colors: [
+                                .clear,
+                                config.highlight.opacity(config.highlightOpacity),
+                                .clear
+                            ]),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                        .blur(radius: config.blur)
+                        .offset(x: move * 300) // move speed gradient
+                    )
+                    .onAppear {
+                        withAnimation(
+                            Animation.linear(duration: config.speed)
+                                .repeatForever(autoreverses: false)
+                        ) {
+                            move = 2
+                        }
+                    }
+            }
+        }
+    }
+}
+
+extension View {
+    func shimmering(config: ShimmerConfig, active: Bool = true) -> some View {
+        self.modifier(ShimmerModifier(config: config, active: active))
     }
 }

@@ -13,6 +13,7 @@ final class DetailViewModel: ObservableObject {
     @Published var meal: Meal
     @Published var listMealByCategory: [TheMealDB] = []
     @Published var mealDetail: TheMealDB?
+    @Published var isLoadingCategory = false
     
     init(meal: Meal) {
         self.meal = meal
@@ -30,6 +31,22 @@ final class DetailViewModel: ObservableObject {
                     this.listMealByCategory.append(item)
                 }
                 listMealByCategoryCompletion(true, AppFood.String.loadSuccess)
+            }
+        }
+    }
+    
+    func getAPIDetailMealDB(idMeal: String, detailMealCompletion: @escaping (Bool, String) -> Void) {
+        Networking.shared().getDetailMeal(idMeal: idMeal) { [weak self] (mealDetailResult) in
+            guard let this = self else { return }
+            switch mealDetailResult {
+            case .failure(let error):
+                detailMealCompletion(false, error)
+            case .success(let result):
+                let items = result.meals
+                for item in items{
+                    this.mealDetail = item
+                }
+                detailMealCompletion(true, AppFood.String.loadSuccess)
             }
         }
     }
