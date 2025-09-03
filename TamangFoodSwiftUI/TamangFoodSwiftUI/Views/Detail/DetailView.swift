@@ -27,7 +27,9 @@ struct DetailView: View {
                             .resizable()
                             .frame(width: screenSize.width, height: screenSize.scaleHeight(280))
                         CSpace(height: screenSize.scaleHeight(10))
-                        InfoDetailMealView(screenSize: screenSize, viewModel: InfoDetailMealViewModel(meal: viewModel.meal))
+                        InfoDetailMealView(screenSize: screenSize, viewModel: InfoDetailMealViewModel(meal: viewModel.meal), action: {
+                            router.presentFullScreen(.addToOrder(meal: viewModel.meal))
+                        })
                         CSpace(height: screenSize.scaleHeight(34))
                         Text("Featured Items")
                             .font(.yuGothicUILight(size: screenSize.scaleHeight(20)))
@@ -106,9 +108,10 @@ struct DetailView: View {
             }
         }
         .navigationBarHidden(true)
-        .toolbar(.hidden, for: .tabBar) 
+        .toolbar(.hidden, for: .tabBar)
     }
     
+    // MARK: Fuctional
     private func fetchMealByCategory() {
         guard let category = selectedMeal else { return }
         viewModel.getAPIListMealByCategory(categoryName: category) { success, message in

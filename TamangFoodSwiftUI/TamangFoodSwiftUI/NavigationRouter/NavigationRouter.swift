@@ -11,26 +11,17 @@ import Observation
 
 class NavigationRouter: ObservableObject {
     @Published var path = NavigationPath()
-    @Published var showDetail: Bool = false
-    @Published var selectedMeal: Meal? = nil
     
-    func goToSeeAll(meals: [Meal], title: String) {
-        path.append(Router.seeAll(meals: meals, title: title))
+    // Modal (present)
+    @Published var presentedSheet: Router? = nil
+    @Published var presentedFullScreen: Router? = nil
+    
+    // MARK: - Push
+    func push(_ route: Router) {
+        path.append(route)
     }
     
-    func goToDetail(meal: Meal) {
-        showDetail = true
-        path.append(Router.detail(meal: meal))
-    }
     
-    func showDetailFullScreen(meal: Meal) {
-        selectedMeal = meal
-    }
-    
-    func closeDetail() {
-        showDetail = false
-    }
-
     func goBack() {
         guard !path.isEmpty else { return }
         path.removeLast()
@@ -39,9 +30,38 @@ class NavigationRouter: ObservableObject {
     func goToRoot() {
         path.removeLast(path.count)
     }
+    
+    // MARK: - Present
+    func presentSheet(_ route: Router) {
+        presentedSheet = route
+    }
+    
+    func presentFullScreen(_ route: Router) {
+        presentedFullScreen = route
+    }
+    
+    func dismissSheet() {
+        presentedSheet = nil
+    }
+    
+    func dismissFullScreen() {
+        presentedFullScreen = nil
+    }
 }
 
-enum Router: Hashable {
+enum Router: Hashable, Identifiable {
     case seeAll(meals: [Meal], title: String)
     case detail(meal: Meal)
+    case addToOrder(meal: Meal)
+    
+    var id: String {
+        switch self {
+        case .seeAll(_, let title):
+            return "seeAll_\(title)"
+        case .detail(let meal):
+            return "detail_\(meal.idMeal)"
+        case .addToOrder(let meal):
+            return "addToOrder_\(meal.idMeal)"
+        }
+    }
 }

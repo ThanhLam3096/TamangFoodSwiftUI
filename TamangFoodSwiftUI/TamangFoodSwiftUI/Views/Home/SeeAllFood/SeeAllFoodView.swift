@@ -29,7 +29,7 @@ struct SeeAllFoodView: View {
                         ForEach(viewModel.meals, id: \.idMeal) { item in
                             VStack {
                                 SeeAllFoodItemView(screenSize: screenSize, viewModel: SeeAllFoodItemViewModel(meal: item), action: {
-                                    router.goToDetail(meal: item)
+                                    router.push(.detail(meal: item))
                                 })
                             }
                         }

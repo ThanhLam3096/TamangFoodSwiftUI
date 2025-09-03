@@ -25,6 +25,8 @@ struct TabbarView: View {
                             SeeAllFoodView(viewModel: SeeAllFoodViewModel(meals: meals, title: title))
                         case .detail(let meal):
                             DetailView(viewModel: DetailViewModel(meal: meal))
+                        case .addToOrder(meal: let meal):
+                            AddToOrderView(viewModel: AddToOrderViewModel(meal: meal))
                         }
                     }
             }
@@ -67,11 +69,15 @@ struct TabbarView: View {
                 }
                 .tag(Tab.profile)
         }
-//        .fullScreenCover(isPresented: $router.showDetail) {
-//            DetailView()
-//                .environmentObject(router)
-//        }
         .tint(Color.accentColor)
+        .fullScreenCover(item: $router.presentedFullScreen) { router in
+            switch router {
+            case .addToOrder(let meal):
+                AddToOrderView(viewModel: AddToOrderViewModel(meal: meal))
+            default: EmptyView()
+            }
+        }
+        .environmentObject(router)
     }
     
     // MARK: - TabItem View
@@ -82,7 +88,6 @@ struct TabbarView: View {
                 .renderingMode(.original)
             Text(title)
                 .font(.yuGothicLight(size: 12))
-//                .font(.custom("YuGothic-Light", size: 12))
         }
     }
 }

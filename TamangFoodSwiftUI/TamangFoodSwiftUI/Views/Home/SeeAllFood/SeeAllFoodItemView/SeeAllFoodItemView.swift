@@ -20,58 +20,56 @@ struct SeeAllFoodItemView: View {
             .frame(width: screenSize.scaleWidth(160), height: screenSize.scaleHeight(348))
             .overlay(
                 VStack {
-                    ZStack(alignment: .bottomLeading) {
-                        Button(action: {
-                            action()
-                        }, label: {
-                            ZStack {
-                                WebImage(url: URL(string: viewModel.meal.image))
-                                    .resizable()
-                                    .indicator(.activity)
-                                    .transition(.fade(duration: 0.5))
-                                    .scaledToFill()
-                                    .frame(width: screenSize.scaleWidth(160) ,height: screenSize.scaleHeight(280))
-                                    .cornerRadius(4)
-                                    .clipped()
-                                    .background {
-                                        if #available(iOS 15.0, *) {
-                                            Color.gray.opacity(0.3)
-                                        } else {
-                                            EmptyView()
-                                        }
+                    Button(action: {
+                        action()
+                    }, label: {
+                        ZStack {
+                            WebImage(url: URL(string: viewModel.meal.image))
+                                .resizable()
+                                .indicator(.activity)
+                                .transition(.fade(duration: 0.5))
+                                .scaledToFill()
+                                .frame(width: screenSize.scaleWidth(160) ,height: screenSize.scaleHeight(280))
+                                .cornerRadius(4)
+                                .clipped()
+                                .background {
+                                    if #available(iOS 15.0, *) {
+                                        Color.gray.opacity(0.3)
+                                    } else {
+                                        EmptyView()
                                     }
-                                VStack {
-                                    Spacer()
-                                    HStack {
-                                        Image("fast-clock")
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: screenSize.scaleWidth(13), height: screenSize.scaleWidth(13))
-                                        CSpace(width: screenSize.scaleWidth(5))
-                                        Text(viewModel.meal.time)
-                                            .font(.yuGothicUIRegular(size: screenSize.scaleHeight(12)))
-                                            .foregroundStyle(Color.bgColor)
-                                        Spacer()
-                                    }
-                                    .padding(.leading, screenSize.scaleWidth(10))
-                                    CSpace(height: screenSize.scaleHeight(10))
-                                    HStack {
-                                        Image("fee_ship")
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: screenSize.scaleWidth(13), height: screenSize.scaleWidth(13))
-                                        CSpace(width: screenSize.scaleWidth(5))
-                                        feeShipText(screenSize: screenSize)
-                                        Spacer()
-                                        OrangeRatingText(screenSize: screenSize, viewModel: OrangeRatingTextViewModel(rating: viewModel.meal.rating))
-                                    }
-                                    .padding(.horizontal, screenSize.scaleWidth(10))
-                                    CSpace(height: screenSize.scaleHeight(10))
                                 }
-                                    .frame(width: screenSize.scaleWidth(160), height: screenSize.scaleHeight(280))
+                            VStack {
+                                Spacer()
+                                HStack {
+                                    Image("fast-clock")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: screenSize.scaleWidth(13), height: screenSize.scaleWidth(13))
+                                    CSpace(width: screenSize.scaleWidth(5))
+                                    Text(viewModel.meal.time)
+                                        .font(.yuGothicUIRegular(size: screenSize.scaleHeight(12)))
+                                        .foregroundStyle(Color.bgColor)
+                                    Spacer()
+                                }
+                                .padding(.leading, screenSize.scaleWidth(10))
+                                CSpace(height: screenSize.scaleHeight(10))
+                                HStack {
+                                    Image("fee_ship")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: screenSize.scaleWidth(13), height: screenSize.scaleWidth(13))
+                                    CSpace(width: screenSize.scaleWidth(5))
+                                    feeShipText(screenSize: screenSize)
+                                    Spacer()
+                                    OrangeRatingText(screenSize: screenSize, viewModel: OrangeRatingTextViewModel(rating: viewModel.meal.rating))
+                                }
+                                .padding(.horizontal, screenSize.scaleWidth(10))
+                                CSpace(height: screenSize.scaleHeight(10))
                             }
-                        })
-                    }
+                            .frame(width: screenSize.scaleWidth(160), height: screenSize.scaleHeight(280))
+                        }
+                    })
                     CSpace(height: screenSize.scaleHeight(10))
                     Text(viewModel.meal.name)
                         .font(.yuGothicLight(size: screenSize.scaleHeight(20)))

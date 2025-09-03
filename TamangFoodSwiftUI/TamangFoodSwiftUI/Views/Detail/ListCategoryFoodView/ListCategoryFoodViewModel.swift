@@ -8,8 +8,11 @@
 import Foundation
 
 final class ListCategoryFoodViewModel: ObservableObject {
+    
+    // MARK: Propertiers
     @Published var mealDB: TheMealDB
     
+    // MARK: init
     init(mealDB: TheMealDB) {
         self.mealDB = mealDB
     }

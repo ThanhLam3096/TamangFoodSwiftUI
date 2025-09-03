@@ -9,12 +9,14 @@ import Foundation
 
 final class DetailViewModel: ObservableObject {
     
+    // MARK: Propertiers
     @Published var typeMeal: [String] = ["Beef", "Breakfast", "Chicken", "Dessert", "Goat", "Lamb", "Miscellaneous", "Pasta", "Pork", "Seafood", "Side", "Starter", "Vegan", "Vegetarian"]
     @Published var meal: Meal
     @Published var listMealByCategory: [TheMealDB] = []
     @Published var mealDetail: TheMealDB?
     @Published var isLoadingCategory = false
     
+    // MARK: init
     init(meal: Meal) {
         self.meal = meal
     }

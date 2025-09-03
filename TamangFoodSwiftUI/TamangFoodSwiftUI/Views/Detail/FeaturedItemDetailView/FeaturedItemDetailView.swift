@@ -10,9 +10,12 @@ import SDWebImageSwiftUI
 
 struct FeaturedItemDetailView: View {
     
+    // MARK: Propertiers
     let screenSize: ScreenSize
     let action: () -> Void
     @ObservedObject var viewModel: FeaturedItemDetailViewModel
+    
+    // MARK: UI
     var body: some View {
         RoundedRectangle(cornerRadius: 12)
             .fill(Color.clear)

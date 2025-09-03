@@ -8,8 +8,11 @@
 import Foundation
 
 final class FeaturedItemDetailViewModel: ObservableObject {
+    
+    // MARK: Propertiers
     @Published var meal: Meal
     
+    // MARK: init
     init(meal: Meal) {
         self.meal = meal
     }

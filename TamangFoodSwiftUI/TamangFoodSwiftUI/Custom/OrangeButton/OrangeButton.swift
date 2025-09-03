@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OrangeButton: View {
-    @State var titleButton: String
+    var titleButton: String
     @State var isDisable: Bool = false
     var screenSize: ScreenSize
     let action: () -> Void
