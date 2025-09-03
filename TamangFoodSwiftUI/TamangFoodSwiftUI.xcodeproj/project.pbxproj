@@ -35,6 +35,11 @@
 		042E0ECC2DBD1206008CFC7F /* IntroducePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E0ECB2DBD1206008CFC7F /* IntroducePage.swift */; };
 		043352372DC9A0E20003707A /* VerifyPhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043352362DC9A0E20003707A /* VerifyPhoneNumberView.swift */; };
 		0439A09A2E064A81001F0A17 /* SeeAllFoodItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0439A0992E064A81001F0A17 /* SeeAllFoodItemViewModel.swift */; };
+		043FC4672E644AD400BCF593 /* AddToOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FC4662E644AD400BCF593 /* AddToOrderView.swift */; };
+		043FC4692E645D4900BCF593 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FC4682E645D4900BCF593 /* Text.swift */; };
+		043FC46C2E647D5800BCF593 /* ChoiceSpiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FC46B2E647D5800BCF593 /* ChoiceSpiceView.swift */; };
+		043FC46E2E647D8A00BCF593 /* ChoiceSpiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FC46D2E647D8A00BCF593 /* ChoiceSpiceViewModel.swift */; };
+		043FC4702E6486A700BCF593 /* AddToOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FC46F2E6486A700BCF593 /* AddToOrderViewModel.swift */; };
 		044138932DBE61AC0050F863 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044138922DBE61AC0050F863 /* SignIn.swift */; };
 		0443D0522DC1A9FB002139FE /* TextFieldFormInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443D0512DC1A9FB002139FE /* TextFieldFormInfo.swift */; };
 		0446CF822DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446CF812DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift */; };
@@ -64,11 +69,14 @@
 		045A11F32E5CA5F400C54C13 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 045A11F22E5CA5F400C54C13 /* Shimmer */; };
 		045A11F62E5CA74700C54C13 /* SkeletonFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A11F52E5CA74700C54C13 /* SkeletonFoodView.swift */; };
 		045A11F92E5CAABC00C54C13 /* ShimmerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A11F82E5CAABC00C54C13 /* ShimmerConfig.swift */; };
+		045FB99C2E64945800807DD3 /* HeaderSpiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045FB99B2E64945800807DD3 /* HeaderSpiceView.swift */; };
 		0461D96A2E04423800D8DDE4 /* SeeAllFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461D9692E04423800D8DDE4 /* SeeAllFoodView.swift */; };
 		046C44A32DC8BE1C00D479E9 /* DefinePhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C44A22DC8BE1C00D479E9 /* DefinePhoneNumberView.swift */; };
 		046EDAE42DBE6643005E5F42 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046EDAE32DBE6643005E5F42 /* NavigationBarView.swift */; };
 		04707C812DA922C300CD6066 /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04707C802DA922C300CD6066 /* Spacer.swift */; };
 		04707C842DAA167100CD6066 /* OrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04707C832DAA167100CD6066 /* OrangeButton.swift */; };
+		047270782E66804B00B9CD6A /* HeaderSpiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047270772E66804B00B9CD6A /* HeaderSpiceViewModel.swift */; };
+		047CC2902E67D04900478EA0 /* FooterListSpiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CC28F2E67D04900478EA0 /* FooterListSpiceView.swift */; };
 		0481284A2DC857B300342B70 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048128492DC857B300342B70 /* ForgotPasswordViewModel.swift */; };
 		0481284D2DC865A100342B70 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481284C2DC865A100342B70 /* CreateAccountView.swift */; };
 		04927D2A2E31D3120015AF18 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04927D292E31D3120015AF18 /* DetailView.swift */; };
@@ -140,6 +148,11 @@
 		042E0ECB2DBD1206008CFC7F /* IntroducePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroducePage.swift; sourceTree = "<group>"; };
 		043352362DC9A0E20003707A /* VerifyPhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneNumberView.swift; sourceTree = "<group>"; };
 		0439A0992E064A81001F0A17 /* SeeAllFoodItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodItemViewModel.swift; sourceTree = "<group>"; };
+		043FC4662E644AD400BCF593 /* AddToOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToOrderView.swift; sourceTree = "<group>"; };
+		043FC4682E645D4900BCF593 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		043FC46B2E647D5800BCF593 /* ChoiceSpiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceSpiceView.swift; sourceTree = "<group>"; };
+		043FC46D2E647D8A00BCF593 /* ChoiceSpiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceSpiceViewModel.swift; sourceTree = "<group>"; };
+		043FC46F2E6486A700BCF593 /* AddToOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToOrderViewModel.swift; sourceTree = "<group>"; };
 		044138922DBE61AC0050F863 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		0443D0512DC1A9FB002139FE /* TextFieldFormInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormInfo.swift; sourceTree = "<group>"; };
 		0446CF812DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormInfoViewModel.swift; sourceTree = "<group>"; };
@@ -168,11 +181,14 @@
 		045A11EF2E5C986F00C54C13 /* InfoDetailMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDetailMealViewModel.swift; sourceTree = "<group>"; };
 		045A11F52E5CA74700C54C13 /* SkeletonFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonFoodView.swift; sourceTree = "<group>"; };
 		045A11F82E5CAABC00C54C13 /* ShimmerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerConfig.swift; sourceTree = "<group>"; };
+		045FB99B2E64945800807DD3 /* HeaderSpiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSpiceView.swift; sourceTree = "<group>"; };
 		0461D9692E04423800D8DDE4 /* SeeAllFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodView.swift; sourceTree = "<group>"; };
 		046C44A22DC8BE1C00D479E9 /* DefinePhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinePhoneNumberView.swift; sourceTree = "<group>"; };
 		046EDAE32DBE6643005E5F42 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 		04707C802DA922C300CD6066 /* Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
 		04707C832DAA167100CD6066 /* OrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButton.swift; sourceTree = "<group>"; };
+		047270772E66804B00B9CD6A /* HeaderSpiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSpiceViewModel.swift; sourceTree = "<group>"; };
+		047CC28F2E67D04900478EA0 /* FooterListSpiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterListSpiceView.swift; sourceTree = "<group>"; };
 		048128492DC857B300342B70 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		0481284C2DC865A100342B70 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		04927D292E31D3120015AF18 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -344,6 +360,27 @@
 			path = VerifyPhoneNumber;
 			sourceTree = "<group>";
 		};
+		043FC4632E6448BD00BCF593 /* AddToOrder */ = {
+			isa = PBXGroup;
+			children = (
+				047CC28E2E67CFC500478EA0 /* FooterListSpiceView */,
+				045FB9982E64941B00807DD3 /* HeaderListSpiceView */,
+				043FC46A2E647A9A00BCF593 /* ChoiceSpiceView */,
+				043FC4662E644AD400BCF593 /* AddToOrderView.swift */,
+				043FC46F2E6486A700BCF593 /* AddToOrderViewModel.swift */,
+			);
+			path = AddToOrder;
+			sourceTree = "<group>";
+		};
+		043FC46A2E647A9A00BCF593 /* ChoiceSpiceView */ = {
+			isa = PBXGroup;
+			children = (
+				043FC46B2E647D5800BCF593 /* ChoiceSpiceView.swift */,
+				043FC46D2E647D8A00BCF593 /* ChoiceSpiceViewModel.swift */,
+			);
+			path = ChoiceSpiceView;
+			sourceTree = "<group>";
+		};
 		044138912DBE619C0050F863 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +504,16 @@
 			path = ShimmerConfig;
 			sourceTree = "<group>";
 		};
+		045FB9982E64941B00807DD3 /* HeaderListSpiceView */ = {
+			isa = PBXGroup;
+			children = (
+				045FB99B2E64945800807DD3 /* HeaderSpiceView.swift */,
+				047270772E66804B00B9CD6A /* HeaderSpiceViewModel.swift */,
+			);
+			name = HeaderListSpiceView;
+			path = "HeaderListSpiceVieư";
+			sourceTree = "<group>";
+		};
 		0461D9682E04420800D8DDE4 /* SeeAllFood */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,6 +561,14 @@
 				04707C832DAA167100CD6066 /* OrangeButton.swift */,
 			);
 			path = OrangeButton;
+			sourceTree = "<group>";
+		};
+		047CC28E2E67CFC500478EA0 /* FooterListSpiceView */ = {
+			isa = PBXGroup;
+			children = (
+				047CC28F2E67D04900478EA0 /* FooterListSpiceView.swift */,
+			);
+			path = FooterListSpiceView;
 			sourceTree = "<group>";
 		};
 		0481284B2DC8658500342B70 /* CreateAccount */ = {
@@ -629,6 +684,8 @@
 		04EE7B022DA5221900BA8EE1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				04EEF9D72E68570C00B18A2F /* YourOrders */,
+				043FC4632E6448BD00BCF593 /* AddToOrder */,
 				048A49CA2E3120D700822A6D /* Detail */,
 				0481284B2DC8658500342B70 /* CreateAccount */,
 				046C44A12DC8BE0200D479E9 /* DefinePhoneNumber */,
@@ -691,8 +748,16 @@
 				04EE7B1F2DA7CF4000BA8EE1 /* Color.swift */,
 				04502AF02DC5BD8700A41735 /* View.swift */,
 				041D99C22E60AA9500FED324 /* NumberDouble.swift */,
+				043FC4682E645D4900BCF593 /* Text.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		04EEF9D72E68570C00B18A2F /* YourOrders */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = YourOrders;
 			sourceTree = "<group>";
 		};
 		04F212EB2E498F03005D00F4 /* InfoDetailMealView */ = {
@@ -855,6 +920,7 @@
 				045A11F92E5CAABC00C54C13 /* ShimmerConfig.swift in Sources */,
 				0411D6432E0180C6005F3422 /* TheMealDB.swift in Sources */,
 				0411D6222E011C2B005F3422 /* HorizontalHomeViewModel.swift in Sources */,
+				043FC4702E6486A700BCF593 /* AddToOrderViewModel.swift in Sources */,
 				049EAD0E2DDF2930007D1268 /* HeaderHomeViewVM.swift in Sources */,
 				042E0ECC2DBD1206008CFC7F /* IntroducePage.swift in Sources */,
 				041D99C32E60AA9500FED324 /* NumberDouble.swift in Sources */,
@@ -870,6 +936,7 @@
 				04D7918D2DC7A9EB0091BFEE /* TextWidth.swift in Sources */,
 				0443D0522DC1A9FB002139FE /* TextFieldFormInfo.swift in Sources */,
 				0411D6452E0180C6005F3422 /* Restaurant.swift in Sources */,
+				043FC46E2E647D8A00BCF593 /* ChoiceSpiceViewModel.swift in Sources */,
 				04707C842DAA167100CD6066 /* OrangeButton.swift in Sources */,
 				04502AED2DC5ADC600A41735 /* SocialButtonViewModel.swift in Sources */,
 				0481284A2DC857B300342B70 /* ForgotPasswordViewModel.swift in Sources */,
@@ -882,7 +949,10 @@
 				045A11F62E5CA74700C54C13 /* SkeletonFoodView.swift in Sources */,
 				0439A09A2E064A81001F0A17 /* SeeAllFoodItemViewModel.swift in Sources */,
 				04502AE92DC5AC2D00A41735 /* SocialType.swift in Sources */,
+				043FC4692E645D4900BCF593 /* Text.swift in Sources */,
 				0411D6202E011306005F3422 /* OrangeRatingTextViewModel.swift in Sources */,
+				047CC2902E67D04900478EA0 /* FooterListSpiceView.swift in Sources */,
+				043FC4672E644AD400BCF593 /* AddToOrderView.swift in Sources */,
 				0446CF822DC4CE7500F10255 /* TextFieldFormInfoViewModel.swift in Sources */,
 				0411D6412E0180C6005F3422 /* Order.swift in Sources */,
 				040E87E52E5416540023C3E7 /* ListCategoryFoodView.swift in Sources */,
@@ -903,13 +973,16 @@
 				046EDAE42DBE6643005E5F42 /* NavigationBarView.swift in Sources */,
 				04478B8B2E02F9FE0059C5FA /* RestaurantHomeView.swift in Sources */,
 				0411D61E2E0112B6005F3422 /* OrangeRatingText.swift in Sources */,
+				043FC46C2E647D5800BCF593 /* ChoiceSpiceView.swift in Sources */,
 				044BC73F2E508B2800DFC6D4 /* InfoDetailMealView.swift in Sources */,
 				045589072DF5CB09002F239D /* DataEXT.swift in Sources */,
 				0411D6422E0180C6005F3422 /* CardDetails.swift in Sources */,
 				044727352E04166B0068B971 /* ProfileView.swift in Sources */,
 				04927D2A2E31D3120015AF18 /* DetailView.swift in Sources */,
+				047270782E66804B00B9CD6A /* HeaderSpiceViewModel.swift in Sources */,
 				042E0ECA2DBCE474008CFC7F /* PageIndicator.swift in Sources */,
 				044138932DBE61AC0050F863 /* SignIn.swift in Sources */,
+				045FB99C2E64945800807DD3 /* HeaderSpiceView.swift in Sources */,
 				04EE7B202DA7CF4100BA8EE1 /* Color.swift in Sources */,
 				0411D6292E016F92005F3422 /* GlobalFunction.swift in Sources */,
 				0411D6302E017EAC005F3422 /* API.swift in Sources */,

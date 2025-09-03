@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct InfoDetailMealView: View {
+    
+    // MARK: Propertiers
     let screenSize: ScreenSize
     @ObservedObject var viewModel: InfoDetailMealViewModel
+    
+    // MARK: Action
+    let action: () -> Void
     
     var body: some View {
         Text(viewModel.meal.name)
@@ -109,7 +114,7 @@ struct InfoDetailMealView: View {
             }
             Spacer()
             Button(action: {
-                print("Share")
+                action()
             }, label: {
                 Text("TAKE AWAY")
             })
@@ -121,5 +126,5 @@ struct InfoDetailMealView: View {
 }
 
 #Preview {
-    InfoDetailMealView(screenSize: ScreenSize(width: 375, height: 812), viewModel: InfoDetailMealViewModel(meal: Meal(image: "https://www.holidify.com/images/cmsuploads/compressed/c700x420_20181227132950.jpg", name: "Sushi", typeFood: "Sea Food", price: 5, address: "Tokyo, Japan", nation1: "Japan", nation2: "Japan", time: "10min", rating: "5.0", totalVote: 1123, fee: 1, idMeal: 0)))
+    InfoDetailMealView(screenSize: ScreenSize(width: 375, height: 812), viewModel: InfoDetailMealViewModel(meal: Meal(image: "https://www.holidify.com/images/cmsuploads/compressed/c700x420_20181227132950.jpg", name: "Sushi", typeFood: "Sea Food", price: 5, address: "Tokyo, Japan", nation1: "Japan", nation2: "Japan", time: "10min", rating: "5.0", totalVote: 1123, fee: 1, idMeal: 0)), action: {print("Orders")})
 }

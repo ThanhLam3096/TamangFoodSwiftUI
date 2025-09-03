@@ -49,7 +49,7 @@ struct HomeView: View {
                             .foregroundStyle(Color.mainColor)
                         Spacer()
                         Button {
-                            router.goToSeeAll(meals: viewModel.listMealFeaturePartners, title: "Feature Partners")
+                            router.push(.seeAll(meals: viewModel.listMealFeaturePartners, title: "Feature Partners"))
                         } label: {
                             Text("See all")
                                 .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
@@ -67,7 +67,7 @@ struct HomeView: View {
                             } else {
                                 ForEach(viewModel.listMealFeaturePartners, id: \.idMeal) { item in
                                     HorizontalHomeView(screenSize: screenSize, action: {
-                                        router.goToDetail(meal: item)
+                                        router.push(.detail(meal: item))
                                     }, viewModel: HorizontalHomeViewModel(meal: item, typeList: .featurePartners))
                                 }
                             }
@@ -85,7 +85,7 @@ struct HomeView: View {
                             .foregroundStyle(Color.mainColor)
                         Spacer()
                         Button {
-                            router.goToSeeAll(meals: viewModel.listNationFood, title: "National Specialties")
+                            router.push(.seeAll(meals: viewModel.listNationFood, title: "National Specialties"))
                         } label: {
                             Text("See all")
                                 .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
@@ -103,7 +103,7 @@ struct HomeView: View {
                             } else {
                                 ForEach(viewModel.listNationFood, id: \.idMeal) { item in
                                     HorizontalHomeView(screenSize: screenSize, action: {
-                                        router.goToDetail(meal: item)
+                                        router.push(.detail(meal: item))
                                     }, viewModel: HorizontalHomeViewModel(meal: item, typeList: .featurePartners))
                                 }
                             }
@@ -127,14 +127,12 @@ struct HomeView: View {
                     }
                     .padding(.horizontal, screenSize.scaleWidth(20))
                     .padding(.bottom, screenSize.scaleHeight(-5))
-                    ScrollView(.vertical, showsIndicators: false) {
-                        LazyVStack {
-                            ForEach(viewModel.listRestaurants, id: \.id) { item in
-                                RestaurantHomeView(screenSize: screenSize, viewModel: RestaurantHomeViewModel(restaurant: item))
-                                    .onTapGesture {
-                                        print("Go To Detail Food")
-                                    }
-                            }
+                    LazyVStack {
+                        ForEach(viewModel.listRestaurants, id: \.id) { item in
+                            RestaurantHomeView(screenSize: screenSize, viewModel: RestaurantHomeViewModel(restaurant: item))
+                                .onTapGesture {
+                                    print("Go To Restaurant")
+                                }
                         }
                     }
                     .onAppear(perform: fetchRestaurants)
