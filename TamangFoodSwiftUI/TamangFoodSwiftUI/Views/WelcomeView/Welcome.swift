@@ -15,7 +15,7 @@ struct Welcome: View {
             let screenSize = ScreenSize(width: geometry.size.width, height: geometry.size.height)
             ZStack {
                 Circle()
-                    .fill(Color.accentColor.opacity(0.3))
+                    .fill(Color.myAccentColor.opacity(0.3))
                     .frame(width: screenSize.scaleHeight(437), height: screenSize.scaleHeight(437))
                     .offset(x: -(screenSize.scaleWidth(110)), y: -(screenSize.scaleHeight(249)))
                     .ignoresSafeArea()
@@ -64,4 +64,8 @@ struct Welcome: View {
             .frame(width: screenSize.width, height: screenSize.height)
         }
     }
+}
+
+#Preview {
+    Welcome()
 }

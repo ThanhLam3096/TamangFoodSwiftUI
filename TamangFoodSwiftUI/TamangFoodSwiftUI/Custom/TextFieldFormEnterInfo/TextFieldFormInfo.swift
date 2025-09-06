@@ -56,12 +56,12 @@ struct TextFieldFormInfo: View {
                    SecureField("", text: $viewModel.infoUser)
                        .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
                        .foregroundStyle(Color.mainColor)
-                       .tint(Color.accentColor)
+                       .tint(Color.myAccentColor)
                } else {
                    TextField("", text: $viewModel.infoUser)
                        .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
                        .foregroundStyle(Color.mainColor)
-                       .tint(Color.accentColor)
+                       .tint(Color.myAccentColor)
                }
 
                Image("check")

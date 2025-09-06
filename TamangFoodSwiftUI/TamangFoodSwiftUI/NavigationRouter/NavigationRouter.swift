@@ -53,6 +53,7 @@ enum Router: Hashable, Identifiable {
     case seeAll(meals: [Meal], title: String)
     case detail(meal: Meal)
     case addToOrder(meal: Meal)
+    case yourOrder
     
     var id: String {
         switch self {
@@ -62,6 +63,8 @@ enum Router: Hashable, Identifiable {
             return "detail_\(meal.idMeal)"
         case .addToOrder(let meal):
             return "addToOrder_\(meal.idMeal)"
+        case .yourOrder:
+            return "yourOrder"
         }
     }
 }

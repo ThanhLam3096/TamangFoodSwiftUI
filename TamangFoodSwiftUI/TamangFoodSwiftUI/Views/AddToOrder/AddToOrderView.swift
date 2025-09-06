@@ -23,7 +23,7 @@ struct AddToOrderView: View {
                             .resizable()
                             .frame(width: screenSize.width, height: screenSize.scaleHeight(280))
                         Button(action: {
-                            router.dismissFullScreen()
+                            router.goBack()
                         }) {
                             Image("close")
                                 .resizable()
@@ -124,7 +124,7 @@ struct AddToOrderView: View {
                         .frame(maxWidth: .infinity)
                         CSpace(height: screenSize.scaleHeight(44))
                         OrangeButton(titleButton: "ADD TO ORDER ($\(displayNumber(viewModel.totalOfPriceMeal)))", screenSize: screenSize) {
-                            print("abcd")
+                            router.presentFullScreen(.yourOrder)
                         }
                         CSpace(height: screenSize.scaleHeight(50))
                     }
