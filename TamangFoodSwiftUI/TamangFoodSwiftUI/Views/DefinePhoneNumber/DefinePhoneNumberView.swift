@@ -57,7 +57,7 @@ struct DefinePhoneNumberView: View {
                             TextField("", text: $phoneNumber)
                                 .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
                                 .foregroundStyle(Color.mainColor)
-                                .tint(Color.accentColor)
+                                .tint(Color.myAccentColor)
                         }
                         CSpace(height: screenSize.scaleHeight(10))
                         Color(hex: "#F6F6F6")

@@ -21,7 +21,7 @@ struct HeaderSpiceView: View {
             Button(action: {}, label: {
                 Text("REQUIRED")
                     .font(.yuGothicLight(size: screenSize.scaleHeight(12)))
-                    .foregroundStyle(viewModel.data.isEmpty ? Color.bgColor : Color.accentColor)
+                    .foregroundStyle(viewModel.data.isEmpty ? Color.bgColor : Color.myAccentColor)
             })
             .frame(width: screenSize.scaleWidth(90), height: screenSize.scaleHeight(32))
             .background(viewModel.data.isEmpty ? Color.activeColor : Color.activeColor.opacity(0.3))

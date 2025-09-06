@@ -28,7 +28,7 @@ struct DetailView: View {
                             .frame(width: screenSize.width, height: screenSize.scaleHeight(280))
                         CSpace(height: screenSize.scaleHeight(10))
                         InfoDetailMealView(screenSize: screenSize, viewModel: InfoDetailMealViewModel(meal: viewModel.meal), action: {
-                            router.presentFullScreen(.addToOrder(meal: viewModel.meal))
+                            router.push(.addToOrder(meal: viewModel.meal))
                         })
                         CSpace(height: screenSize.scaleHeight(34))
                         Text("Featured Items")

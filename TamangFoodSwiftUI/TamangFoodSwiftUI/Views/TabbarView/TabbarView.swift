@@ -27,6 +27,8 @@ struct TabbarView: View {
                             DetailView(viewModel: DetailViewModel(meal: meal))
                         case .addToOrder(meal: let meal):
                             AddToOrderView(viewModel: AddToOrderViewModel(meal: meal))
+                        case .yourOrder:
+                            YourOrdersView(viewModel: YourOrdersViewModel())
                         }
                     }
             }
@@ -69,11 +71,11 @@ struct TabbarView: View {
                 }
                 .tag(Tab.profile)
         }
-        .tint(Color.accentColor)
+        .tint(Color.myAccentColor)
         .fullScreenCover(item: $router.presentedFullScreen) { router in
             switch router {
-            case .addToOrder(let meal):
-                AddToOrderView(viewModel: AddToOrderViewModel(meal: meal))
+            case .yourOrder:
+                YourOrdersView(viewModel: YourOrdersViewModel())
             default: EmptyView()
             }
         }

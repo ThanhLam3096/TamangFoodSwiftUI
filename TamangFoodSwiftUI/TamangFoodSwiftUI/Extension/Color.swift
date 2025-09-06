@@ -14,7 +14,7 @@ extension Color {
     static let bodyTextColor = Color(hex: "#868686")
     static let inputColor = Color(hex: "#FBFBFB")
     static let bgColor = Color(hex: "#FFFFFF")
-    static let accentColor = Color(hex: "#F8B64C")
+    static let myAccentColor = Color(hex: "#F8B64C")
     static let greenColor = Color(hex: "#22A45D")
     static let redColor = Color(hex: "#FF7058")
     static let yellowColor = Color(hex: "#FFD15C")
