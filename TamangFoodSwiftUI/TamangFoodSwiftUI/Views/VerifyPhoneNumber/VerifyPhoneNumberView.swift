@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct VerifyPhoneNumberView: View {
-    
+    // MARK: - Properties
     @State private var screenSizeManager = ScreenSizeManager()
     @Environment(\.presentationMode) var presentationMode
     @FocusState private var focusedIndex: Int?
     @State private var code: [String] = Array(repeating: "", count: 4)
     @ObservedObject private var keyboard = KeyboardResponder()
+    @EnvironmentObject var router: AuthNavigationRouter
     
     var body: some View {
         GeometryReader { geometry in
@@ -26,7 +27,7 @@ struct VerifyPhoneNumberView: View {
             let screenSize = ScreenSize(from: screenSizeManager.screenSize == .zero ? size : screenSizeManager.screenSize)
             VStack {
                 NavigationBarView(screenSize: screenSize, title: AppText.titleNaviVerifyPhoneNumber) {
-                    dismissView(presentationMode)
+                    router.goBack()
                 }
                 ScrollView {
                     CSpace(height: screenSize.scaleHeight(24))

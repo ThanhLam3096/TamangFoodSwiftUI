@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct Welcome: View {
-    @State private var isNavigate = false
+    // MARK: - Properties
+    @EnvironmentObject var router: AuthNavigationRouter
     
     var body: some View {
         GeometryReader { geometry in
@@ -24,12 +25,12 @@ struct Welcome: View {
                     CSpace(height: screenSize.scaleHeight(75))
                     HStack(alignment: .top) {
                         CSpace(width: screenSize.scaleWidth(20))
-                        Image("icon-tamago")
+                        Image(AppFood.StringImage.iconTamago)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: screenSize.scaleWidth(65), height: screenSize.scaleWidth(65))
                         CSpace(width: screenSize.scaleWidth(10))
-                        Text("Tamang\nFoodService")
+                        Text(AppFood.String.titleWelcome)
                             .font(.yuGothicBold(size: screenSize.scaleHeight(37)))
                             .multilineTextAlignment(.center)
                             .foregroundStyle(Color.bodyTextColor)
@@ -38,25 +39,22 @@ struct Welcome: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .frame(height: screenSize.scaleWidth(75))
                     CSpace(height: screenSize.scaleHeight(54))
-                    Image("Welcome-image")
+                    Image(AppFood.StringImage.welcomeImage)
                         .aspectRatio(contentMode: .fit)
                         .frame(width: screenSize.scaleWidth(213), height: screenSize.scaleHeight(243))
                     CSpace(height: screenSize.scaleHeight(41))
-                    Text("Welcome")
+                    Text(AppFood.String.welcome)
                         .font(.yuGothicBold(size: screenSize.scaleHeight(28)))
                         .foregroundStyle(Color.titleColor)
                     CSpace(height: screenSize.scaleHeight(20))
-                    Text("It’s a pleasure to meet you. We are excited that you’re here so let’s get started!")
+                    Text(AppFood.String.contentWelcome)
                         .font(.yuGothicMedium(size: screenSize.scaleHeight(16)))
                         .multilineTextAlignment(.center)
                         .foregroundStyle(Color.titleColor)
                         .padding(.horizontal, screenSize.scaleWidth(20))
                     CSpace(height: screenSize.scaleHeight(60))
-                    OrangeButton(titleButton: "GET STARTED", screenSize: screenSize) {
-                        isNavigate = true
-                    }
-                    .navigationDestination(isPresented: $isNavigate) {
-                        PageNumber()
+                    OrangeButton(titleButton: AppFood.String.orangeTitleButtonWelcome, screenSize: screenSize) {
+                        router.push(.pageNumber)
                     }
                 }
                 .frame(width: screenSize.width)

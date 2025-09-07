@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct HomeView: View {
+    // MARK: Properties
     @StateObject private var viewModel = HomeViewVM()
     @StateObject private var headerVM = HeaderHomeViewVM()
     @State private var isExpanded: Bool = false
     @State private var currentIndex = 0
-    @EnvironmentObject var router: NavigationRouter
+    @EnvironmentObject var router: MainNavigationRouter
+
     
     var body: some View {
         GeometryReader { geometry in
@@ -44,14 +46,14 @@ struct HomeView: View {
                         }
                     }
                     HStack {
-                        Text("Featured\nPartners")
+                        Text(AppFood.String.homeFeaturedPartnersString)
                             .font(.yuGothicUISemibold(size: screenSize.scaleHeight(24)))
                             .foregroundStyle(Color.mainColor)
                         Spacer()
                         Button {
-                            router.push(.seeAll(meals: viewModel.listMealFeaturePartners, title: "Feature Partners"))
+                            router.push(.seeAll(meals: viewModel.listMealFeaturePartners, title: AppFood.String.titleFeaturePartners))
                         } label: {
-                            Text("See all")
+                            Text(AppFood.String.seeAllString)
                                 .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
                                 .foregroundStyle(Color.activeColor)
                         }
@@ -75,19 +77,19 @@ struct HomeView: View {
                         .padding(.horizontal, screenSize.scaleWidth(20))
                     }
                     .onAppear(perform: fetchFeaturePartners)
-                    Image("Banner")
+                    Image(AppFood.StringImage.bannerIcon)
                         .resizable()
                         .scaledToFit()
                         .frame(width: screenSize.width - screenSize.scaleWidth(40),height: screenSize.scaleHeight(210))
                     HStack {
-                        Text("Best Picks\nRestaurants by\nteam")
+                        Text(AppFood.String.famousResFoodTitle)
                             .font(.yuGothicUISemibold(size: screenSize.scaleHeight(24)))
                             .foregroundStyle(Color.mainColor)
                         Spacer()
                         Button {
-                            router.push(.seeAll(meals: viewModel.listNationFood, title: "National Specialties"))
+                            router.push(.seeAll(meals: viewModel.listNationFood, title: AppFood.String.titleNationMeal))
                         } label: {
-                            Text("See all")
+                            Text(AppFood.String.seeAllString)
                                 .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
                                 .foregroundStyle(Color.activeColor)
                         }
@@ -113,14 +115,14 @@ struct HomeView: View {
                     .onAppear(perform: fetchNationFood)
                     CSpace(height: screenSize.scaleHeight(20))
                     HStack {
-                        Text("All Restaurants")
+                        Text(AppFood.String.allRestaurantsTitle)
                             .font(.yuGothicUISemibold(size: screenSize.scaleHeight(24)))
                             .foregroundStyle(Color.mainColor)
                         Spacer()
                         Button {
                             print("See All")
                         } label: {
-                            Text("See all")
+                            Text(AppFood.String.seeAllString)
                                 .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
                                 .foregroundStyle(Color.activeColor)
                         }

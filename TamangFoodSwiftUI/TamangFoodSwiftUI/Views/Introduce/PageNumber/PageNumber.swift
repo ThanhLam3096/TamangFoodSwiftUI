@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct PageNumber: View {
+    // MARK: - Properties
+    @EnvironmentObject var router: AuthNavigationRouter
     @StateObject private var viewModel = PageNumberViewModel()
-//    @State private var path: [SignInRoute] = []
-
+    
     var body: some View {
         IntroducePage(
             imageIntroduce: viewModel.imageIntroduce,
@@ -21,10 +22,13 @@ struct PageNumber: View {
                 viewModel.nextPage()
             }
         )
-        .navigationDestination(isPresented: $viewModel.navigateToSignIn) {
-            SignIn()
-        }
         .navigationBarHidden(true)
+        .onAppear {
+            // ✅ Inject callback
+            viewModel.onFinish = {
+                router.push(.signIn)
+            }
+        }
     }
 }
 

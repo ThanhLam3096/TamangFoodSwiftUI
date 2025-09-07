@@ -10,7 +10,7 @@ import SwiftUI
 struct YourOrdersView: View {
     // MARK: - Properties
     @ObservedObject var viewModel: YourOrdersViewModel
-    @EnvironmentObject var router: NavigationRouter
+    @EnvironmentObject var router: MainNavigationRouter
     
     var body: some View {
         GeometryReader { geometry in
@@ -26,15 +26,15 @@ struct YourOrdersView: View {
                         }
                         CSpace(height: screenSize.scaleHeight(16))
                         HStack {
-                            Text("Subtotal")
+                            Text(AppFood.String.subTotalString)
                                 .mainUIRegularText(size: screenSize.scaleHeight(16))
                             Spacer()
-                            Text("Dollars$30")
+                            Text("\(AppFood.String.dollarsString)$30")
                                 .mainUIRegularText(size: screenSize.scaleHeight(16))
                         }
                         CSpace(height: screenSize.scaleHeight(24))
                         HStack {
-                            Text("Delivery")
+                            Text(AppFood.String.deliveryDetailString)
                                 .mainUIRegularText(size: screenSize.scaleHeight(16))
                             Spacer()
                             Text("$3")
@@ -49,7 +49,7 @@ struct YourOrdersView: View {
                         }
                         CSpace(height: screenSize.scaleHeight(28))
                         HStack {
-                            Text("Add more items")
+                            Text(AppFood.String.addMoreItemString)
                                 .font(.yuGothicUILight(size: screenSize.scaleHeight(16)))
                                 .foregroundStyle(Color.myAccentColor)
                             Spacer()
@@ -63,7 +63,7 @@ struct YourOrdersView: View {
                             .frame(height: 1)
                         CSpace(height: screenSize.scaleHeight(10))
                         HStack {
-                            Text("Promo Code")
+                            Text(AppFood.String.promoCodeString)
                                 .mainUIRegularText(size: screenSize.scaleHeight(16))
                             Spacer()
                             Button(action: {
@@ -81,14 +81,14 @@ struct YourOrdersView: View {
                     }
                 }
                 .padding(.horizontal, screenSize.scaleWidth(20))
-                .navigationTitle(Text("Title ở giữa"))
+                .navigationTitle(Text(AppFood.String.yourOrderTitle))
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(action: {
                             router.dismissFullScreen()
                         }) {
-                            Image("black_close")
+                            Image(AppFood.StringImage.blackCloseIcon)
                                 .foregroundColor(.blue)
                         }
                     }

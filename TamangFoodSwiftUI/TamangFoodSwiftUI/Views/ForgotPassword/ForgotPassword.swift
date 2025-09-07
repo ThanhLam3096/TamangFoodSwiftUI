@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ForgotPassword: View {
+    // MARK: - Properties
+    @EnvironmentObject var router: AuthNavigationRouter
     @StateObject private var emailViewModel = TextFieldFormInfoViewModel()
     @StateObject private var screenSizeManager = ScreenSizeManager()
     @StateObject private var viewModel = ForgotPasswordViewModel()
@@ -24,7 +26,7 @@ struct ForgotPassword: View {
             let resolvedSize = ScreenSize(from: screenSizeManager.screenSize == .zero ? size : screenSizeManager.screenSize)
             VStack {
                 NavigationBarView(screenSize: resolvedSize, title: AppText.titleNaviForgotPassword) {
-                    dismissView(presentationMode)
+                    router.goBack()
                 }
                 ZStack(alignment: .top) {
                     if viewModel.isResendEmail {
@@ -103,7 +105,7 @@ struct ForgotPassowrdContentView2: View {
                     .fixedSize(horizontal: false, vertical: true)
                 TextWidthReader(
                     text: "to sajin tamang@figma.com.  ",
-                    font: UIFont.fontYugothicUIRegular(ofSize: screenSize.scaleHeight(16)) ?? .systemFont(ofSize: 16), // Dùng UIFont để tính toán chiều rộng
+                    font: UIFont.fontYugothicUIRegular(ofSize: screenSize.scaleHeight(16)) ?? .systemFont(ofSize: 16),
                     textWidth: $textWidth
                 )
                 .hidden()

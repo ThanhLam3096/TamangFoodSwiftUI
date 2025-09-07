@@ -23,6 +23,6 @@ struct PageIndicator: View {
     }
 }
 
-//#Preview {
-//    PageView(currentPage: 0, screenSize: <#ScreenSize#>)
-//}
+#Preview {
+    PageIndicator(currentPage: 1, screenSize: ScreenSize(width: 375, height: 812))
+}

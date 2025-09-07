@@ -13,13 +13,13 @@ struct TabbarView: View {
     enum Tab {
         case home, search, orders, message, profile
     }
-    @EnvironmentObject var router: NavigationRouter
+    @EnvironmentObject var router: MainNavigationRouter
     
     var body: some View {
         TabView(selection: $selectedTab) {
             NavigationStack(path: $router.path) {
                 HomeView()
-                    .navigationDestination(for: Router.self) { route in
+                    .navigationDestination(for: MainRouter.self) { route in
                         switch route {
                         case .seeAll(let meals, let title):
                             SeeAllFoodView(viewModel: SeeAllFoodViewModel(meals: meals, title: title))

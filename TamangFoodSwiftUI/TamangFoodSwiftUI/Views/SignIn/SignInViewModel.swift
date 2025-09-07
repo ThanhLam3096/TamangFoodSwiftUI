@@ -10,19 +10,5 @@ import Foundation
 import SwiftUI
 
 final class SignInViewModel: ObservableObject {
-    @Published var moveToForgotPassword = false
-    @Published var moveToCreateAccount = false
-    @Published var moveToHome = false
-    
-    func moveToScreenForgotPassword() {
-        moveToForgotPassword = true
-    }
-    
-    func moveToScreenCreateAccount() {
-        moveToCreateAccount = true
-    }
-    
-    func moveToScreenHome() {
-        moveToHome = true
-    }
+
 }

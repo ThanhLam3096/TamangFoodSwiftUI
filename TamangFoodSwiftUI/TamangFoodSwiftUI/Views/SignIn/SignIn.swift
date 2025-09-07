@@ -8,15 +8,13 @@
 import SwiftUI
 
 struct SignIn: View {
+    // MARK: - Properties
     @StateObject private var emailViewModel = TextFieldFormInfoViewModel()
     @StateObject private var passwordViewModel = TextFieldFormInfoViewModel()
     @StateObject private var screenSizeManager = ScreenSizeManager()
-//    @State private var path: [SignInRoute] = []
     @StateObject private var viewModel = SignInViewModel()
-//    @Binding var path: [SignInRoute]
     
     var body: some View {
-//        NavigationStack(path: $path) {
             GeometryReader { geometry in
                 let size = geometry.size
                 Color.clear.onAppear {
@@ -29,30 +27,22 @@ struct SignIn: View {
                     emailViewModel: emailViewModel,
                     passwordViewModel: passwordViewModel,
                     viewModel: viewModel
-//                    path: $path
                 )
             }
             .ignoresSafeArea(.keyboard)
             .navigationBarHidden(true)
-//            .navigationDestination(for: SignInRoute.self) { route in
-//                switch route {
-//                case .forgetPassword:
-//                    ForgotPassword()
-//                case .createAccount:
-//                    CreateAccountView()
-//                }
-//            }
-//        }
     }
 }
 
 struct SignInContent: View {
+    // MARK: - Properties
+    @AppStorage("isLoggedIn") var isLoggedIn = false
+    @EnvironmentObject var router: AuthNavigationRouter
     let screenSize: ScreenSize
     @ObservedObject var emailViewModel: TextFieldFormInfoViewModel
     @ObservedObject var passwordViewModel: TextFieldFormInfoViewModel
     @ObservedObject private var keyboard = KeyboardResponder()
     @ObservedObject var viewModel: SignInViewModel
-//    @Binding var path: [SignInRoute]
     
     var body: some View {
 //        ScrollViewReader { proxy in
@@ -78,19 +68,16 @@ struct SignInContent: View {
                         TextFieldFormInfo(title: AppText.passwordTitleTextField, screenSize: screenSize, isPasswordForm: true, viewModel: passwordViewModel)
                         CSpace(height: screenSize.scaleHeight(25))
                         Button(action: {
-//                            path.append(.forgetPassword)
-                            viewModel.moveToScreenForgotPassword()
+                            router.push(.forgotPassword)
                         }) {
                             Text(AppText.forgetPassword)
                                 .font(.yuGothicUILight(size: screenSize.scaleHeight(12)))
                                 .foregroundStyle(Color.bodyTextColor)
                         }
-                        .navigationDestination(isPresented: $viewModel.moveToForgotPassword) {
-                            ForgotPassword()
-                        }
                         CSpace(height: screenSize.scaleHeight(39))
                         OrangeButton(titleButton: AppText.signInText, screenSize: screenSize) {
-                            print("Go next Screen")
+                            router.push(.home)
+                            isLoggedIn = true
                         }
                         CSpace(height: screenSize.scaleHeight(20))
                         HStack {
@@ -99,16 +86,12 @@ struct SignInContent: View {
                                 .foregroundStyle(Color.mainColor)
                             CSpace(width: screenSize.scaleWidth(20))
                             Button {
-//                                path.append(.createAccount)
-                                viewModel.moveToScreenCreateAccount()
+                                router.push(.createAccount)
                             } label: {
                                 Text(AppText.createNewAccountText)
                                     .font(.yuGothicUILight(size: screenSize.scaleHeight(12)))
                                     .foregroundStyle(Color.activeColor)
                             }
-                        }
-                        .navigationDestination(isPresented: $viewModel.moveToCreateAccount) {
-                            CreateAccountView()
                         }
                         .frame(width: screenSize.scaleWidth(249))
                         CSpace(height: screenSize.scaleHeight(20))

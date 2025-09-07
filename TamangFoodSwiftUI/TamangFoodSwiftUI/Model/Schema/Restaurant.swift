@@ -19,4 +19,18 @@ final class Restaurant: Codable {
     let feeDelivery: String
     let averagePrice: Double
     let id: Int
+    
+    init(image: String, name: String, branch1: String, branch2: String, typeFood: String, rating: String, numberRating: String, time: String, feeDelivery: String, averagePrice: Double, id: Int) {
+        self.image = image
+        self.name = name
+        self.branch1 = branch1
+        self.branch2 = branch2
+        self.typeFood = typeFood
+        self.rating = rating
+        self.numberRating = numberRating
+        self.time = time
+        self.feeDelivery = feeDelivery
+        self.averagePrice = averagePrice
+        self.id = id
+    }
 }

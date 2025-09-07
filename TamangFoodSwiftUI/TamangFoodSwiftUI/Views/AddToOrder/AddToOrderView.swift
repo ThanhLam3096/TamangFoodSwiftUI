@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 struct AddToOrderView: View {
     // MARK: - Properties
     @ObservedObject var viewModel: AddToOrderViewModel
-    @EnvironmentObject var router: NavigationRouter
+    @EnvironmentObject var router: MainNavigationRouter
     
     var body: some View {
         GeometryReader { geometry in

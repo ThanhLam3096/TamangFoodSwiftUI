@@ -16,7 +16,7 @@ struct HeaderHomeView: View {
     
     var body: some View {
         VStack {
-            Text("DELIVERY TO")
+            Text(AppFood.String.deliveryString)
                 .font(.yuGothicUILight(size: screenSize.scaleHeight(12)))
                 .foregroundStyle(Color.activeColor)
                 .frame(maxWidth: .infinity, alignment: .center)
@@ -33,7 +33,7 @@ struct HeaderHomeView: View {
                         Text(viewModel.locationString)
                             .font(.yuGothicLight(size: screenSize.scaleHeight(20)))
                             .foregroundStyle(Color.mainColor)
-                        Image("back_down")
+                        Image(AppFood.StringImage.backDownIcon)
                             .rotationEffect(.degrees(isExpanded ? 180 : 0))
                                         .animation(.easeInOut(duration: 0.3), value: isExpanded)
 //                            .rotationEffect(.degrees(rotationAngle))
@@ -42,7 +42,7 @@ struct HeaderHomeView: View {
 
                 HStack {
                     Spacer()
-                    Text("Filter")
+                    Text(AppFood.String.filterString)
                         .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
                         .foregroundStyle(Color.activeColor)
                 }
