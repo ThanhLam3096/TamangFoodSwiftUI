@@ -8,6 +8,7 @@
 import Foundation
 
 final class InfoDetailMealViewModel: ObservableObject {
+    // MARK: - Properties
     @Published var meal: Meal
     
     init(meal: Meal) {

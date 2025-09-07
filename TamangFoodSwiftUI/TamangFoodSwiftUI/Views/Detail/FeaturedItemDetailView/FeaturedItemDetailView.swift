@@ -68,7 +68,7 @@ struct FeaturedItemDetailView: View {
     @ViewBuilder
     private func feeShipText(screenSize: ScreenSize) -> some View {
         if viewModel.meal.feeShip == 0 {
-            Text("Free delivery")
+            Text(AppFood.String.freeDeliveryString)
                 .font(.yuGothicUIRegular(size: screenSize.scaleHeight(14)))
                 .foregroundColor(.mainColor)
         } else {

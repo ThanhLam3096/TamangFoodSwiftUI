@@ -9,11 +9,15 @@ import Foundation
 import SwiftUI
 
 final class PageNumberViewModel: ObservableObject {
+    // MARK: - Properties
+    
     @Published var page = 0
     @Published var imageIntroduce = AppText.imagePageOne
     @Published var titleIntroduce = AppText.titlePageOne
     @Published var descriptionIntroduce = AppText.onboardingPageOneDescription
     @Published var navigateToSignIn = false
+    
+    var onFinish: (() -> Void)?
 
     func nextPage() {
         switch page {
@@ -28,7 +32,7 @@ final class PageNumberViewModel: ObservableObject {
             titleIntroduce = AppText.titlePageThree
             descriptionIntroduce = AppText.onboardingPageThreeDescription
         default:
-            navigateToSignIn = true
+            onFinish?()
         }
     }
 }

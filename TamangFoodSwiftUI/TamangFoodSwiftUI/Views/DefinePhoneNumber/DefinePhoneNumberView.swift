@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct DefinePhoneNumberView: View {
-    
+    // MARK: - Properties
     @State private var screenSizeManager = ScreenSizeManager()
     @Environment(\.presentationMode) var presentationMode
     @State private var phoneNumber: String = ""
     @ObservedObject private var keyboard = KeyboardResponder()
-    @State private var isMoveVerifyPhoneNumber: Bool = false
+    @EnvironmentObject var router: AuthNavigationRouter
     
     var body: some View {
         GeometryReader { geometry in
@@ -26,7 +26,7 @@ struct DefinePhoneNumberView: View {
             let screenSize = ScreenSize(from: screenSizeManager.screenSize == .zero ? size : screenSizeManager.screenSize)
             VStack {
                 NavigationBarView(screenSize: screenSize, title: AppText.titleDefinePhoneNumber) {
-                    dismissView(presentationMode)
+                    router.goBack()
                 }
                 ScrollView {
                     VStack {
@@ -68,10 +68,7 @@ struct DefinePhoneNumberView: View {
                             CSpace(height: screenSize.scaleHeight(460))
                         }
                         OrangeButton(titleButton: AppText.signUpText, screenSize: screenSize) {
-                            isMoveVerifyPhoneNumber = true
-                        }
-                        .navigationDestination(isPresented: $isMoveVerifyPhoneNumber) {
-                            VerifyPhoneNumberView()
+                            router.push(.verifyPhoneNumber)
                         }
                     }
                     .padding(.horizontal, screenSize.scaleWidth(20))

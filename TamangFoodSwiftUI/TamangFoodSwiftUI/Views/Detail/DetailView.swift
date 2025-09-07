@@ -9,10 +9,11 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct DetailView: View {
-    //    @StateObject var viewModel = DetailViewModel()
+    
+    // MARK: - Properties
     @ObservedObject var viewModel: DetailViewModel
     @State private var selectedMeal: String?
-    @EnvironmentObject var router: NavigationRouter
+    @EnvironmentObject var router: MainNavigationRouter
     
     var body: some View {
         GeometryReader { geometry in
@@ -31,7 +32,7 @@ struct DetailView: View {
                             router.push(.addToOrder(meal: viewModel.meal))
                         })
                         CSpace(height: screenSize.scaleHeight(34))
-                        Text("Featured Items")
+                        Text(AppFood.String.titleDetailFeaturedItem)
                             .font(.yuGothicUILight(size: screenSize.scaleHeight(20)))
                             .foregroundStyle(Color.mainColor)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -85,23 +86,20 @@ struct DetailView: View {
                 Button(action: {
                     router.goBack()
                 }, label: {
-                    Image("white_back")
-                        .frame(width: screenSize.scaleHeight(34), height: screenSize.scaleHeight(34))
+                    Image(AppFood.StringImage.whiteBackIcon)
                 })
                 .padding(.leading, screenSize.scaleWidth(20))
                 Spacer()
                 Button(action: {
                     print("Share")
                 }, label: {
-                    Image("Combined_Shape")
-                        .frame(width: screenSize.scaleHeight(34), height: screenSize.scaleHeight(34))
+                    Image(AppFood.StringImage.combinedShapeIcon)
                 })
                 .padding(.trailing, screenSize.scaleWidth(10))
                 Button(action: {
                     print("Search")
                 }, label: {
-                    Image("white_search")
-                        .frame(width: screenSize.scaleHeight(34), height: screenSize.scaleHeight(34))
+                    Image(AppFood.StringImage.whiteSearchIcon)
                 })
                 .padding(.trailing, screenSize.scaleWidth(20))
                 

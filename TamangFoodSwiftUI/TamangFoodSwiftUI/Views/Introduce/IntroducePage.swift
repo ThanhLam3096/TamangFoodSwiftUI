@@ -22,12 +22,12 @@ struct IntroducePage: View {
                     CSpace(height: screenSize.scaleHeight(95))
                     HStack(alignment: .top) {
                         CSpace(width: screenSize.scaleWidth(20))
-                        Image("logo_tamano")
+                        Image(AppFood.StringImage.logoTamago)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: screenSize.scaleWidth(65), height: screenSize.scaleWidth(65))
                         CSpace(width: screenSize.scaleWidth(10))
-                        Text("Tamang\nFoodService")
+                        Text(AppFood.String.titleWelcome)
                             .font(.yuGothicBold(size: screenSize.scaleHeight(37)))
                             .multilineTextAlignment(.center)
                             .foregroundStyle(Color.blackColor)
@@ -55,7 +55,7 @@ struct IntroducePage: View {
                     CSpace(height: screenSize.scaleHeight(27.5))
                     PageIndicator(currentPage: page, screenSize: screenSize)
                     CSpace(height: screenSize.scaleHeight(60))
-                    OrangeButton(titleButton: "GET STARTED", screenSize: screenSize) {
+                    OrangeButton(titleButton: AppFood.String.orangeTitleButtonWelcome, screenSize: screenSize) {
                         onTapButton()
                     }
                 }
@@ -66,4 +66,3 @@ struct IntroducePage: View {
         }
     }
 }
-

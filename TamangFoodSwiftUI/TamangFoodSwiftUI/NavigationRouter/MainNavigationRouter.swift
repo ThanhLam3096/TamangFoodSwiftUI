@@ -1,5 +1,5 @@
 //
-//  NavigationRouter.swift
+//  MainNavigationRouter.swift
 //  TamangFoodSwiftUI
 //
 //  Created by Thanh Lâm on 20/6/25.
@@ -9,15 +9,15 @@ import Foundation
 import SwiftUI
 import Observation
 
-class NavigationRouter: ObservableObject {
+class MainNavigationRouter: ObservableObject {
     @Published var path = NavigationPath()
     
     // Modal (present)
-    @Published var presentedSheet: Router? = nil
-    @Published var presentedFullScreen: Router? = nil
+    @Published var presentedSheet: MainRouter? = nil
+    @Published var presentedFullScreen: MainRouter? = nil
     
     // MARK: - Push
-    func push(_ route: Router) {
+    func push(_ route: MainRouter) {
         path.append(route)
     }
     
@@ -32,11 +32,11 @@ class NavigationRouter: ObservableObject {
     }
     
     // MARK: - Present
-    func presentSheet(_ route: Router) {
+    func presentSheet(_ route: MainRouter) {
         presentedSheet = route
     }
     
-    func presentFullScreen(_ route: Router) {
+    func presentFullScreen(_ route: MainRouter) {
         presentedFullScreen = route
     }
     
@@ -49,7 +49,7 @@ class NavigationRouter: ObservableObject {
     }
 }
 
-enum Router: Hashable, Identifiable {
+enum MainRouter: Hashable, Identifiable {
     case seeAll(meals: [Meal], title: String)
     case detail(meal: Meal)
     case addToOrder(meal: Meal)

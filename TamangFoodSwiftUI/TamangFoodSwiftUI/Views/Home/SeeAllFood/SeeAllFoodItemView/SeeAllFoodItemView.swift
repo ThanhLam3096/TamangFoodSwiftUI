@@ -42,7 +42,7 @@ struct SeeAllFoodItemView: View {
                             VStack {
                                 Spacer()
                                 HStack {
-                                    Image("fast-clock")
+                                    Image(AppFood.StringImage.fastClockIcon)
                                         .resizable()
                                         .scaledToFill()
                                         .frame(width: screenSize.scaleWidth(13), height: screenSize.scaleWidth(13))
@@ -55,7 +55,7 @@ struct SeeAllFoodItemView: View {
                                 .padding(.leading, screenSize.scaleWidth(10))
                                 CSpace(height: screenSize.scaleHeight(10))
                                 HStack {
-                                    Image("fee_ship")
+                                    Image(AppFood.StringImage.feeShipIcon)
                                         .resizable()
                                         .scaledToFill()
                                         .frame(width: screenSize.scaleWidth(13), height: screenSize.scaleWidth(13))

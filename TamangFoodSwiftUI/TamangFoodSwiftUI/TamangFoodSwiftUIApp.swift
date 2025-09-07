@@ -9,12 +9,10 @@ import SwiftUI
 
 @main
 struct TamangFoodSwiftUIApp: App {
-    @StateObject private var router = NavigationRouter()
     
     var body: some Scene {
         WindowGroup {
-            TabbarView()
-                .environmentObject(router)
+            RootView()
         }
     }
 }

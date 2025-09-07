@@ -60,7 +60,7 @@ struct InfoDetailMealView: View {
                 .font(.yuGothicUILight(size: screenSize.scaleHeight(12)))
                 .foregroundStyle(Color.mainColor)
             CSpace(width: screenSize.scaleWidth(10))
-            Image("Star")
+            Image(AppFood.StringImage.starIcon)
                 .resizable()
                 .aspectRatio(1, contentMode: .fit)
                 .frame(width: screenSize.scaleWidth(12))
@@ -74,10 +74,10 @@ struct InfoDetailMealView: View {
         CSpace(height: screenSize.scaleHeight(25))
         HStack(alignment: .top) {
             HStack(alignment: .bottom) {
-                Image("active")
+                Image(AppFood.StringImage.activeIcon)
                     .resizable()
                     .frame(width: screenSize.scaleWidth(18), height: screenSize.scaleHeight(24))
-                Image("dollar")
+                Image(AppFood.StringImage.dollarIconDetail)
                     .resizable()
                     .aspectRatio(1, contentMode: .fit)
                     .frame(width: screenSize.scaleWidth(17))
@@ -85,19 +85,19 @@ struct InfoDetailMealView: View {
             }
             CSpace(width: screenSize.scaleWidth(10))
             VStack(alignment: .leading, spacing: 4) {
-                Text(viewModel.meal.feeShip == 0 ? "Free" : "\(displayNumber(viewModel.meal.feeShip))")
+                Text(viewModel.meal.feeShip == 0 ? AppFood.String.freeString : "\(displayNumber(viewModel.meal.feeShip))")
                     .font(.yuGothicUILight(size: screenSize.scaleHeight(16)))
                     .foregroundStyle(Color.mainColor)
-                Text(viewModel.meal.feeShip == 0 ? "Delivery" : "Dollars")
+                Text(viewModel.meal.feeShip == 0 ? AppFood.String.deliveryDetailString : AppFood.String.dollarsString)
                     .font(.yuGothicUIRegular(size: screenSize.scaleHeight(12)))
                     .foregroundStyle(Color.mainColor)
             }
             CSpace(width: screenSize.scaleWidth(30))
             HStack(alignment: .bottom) {
-                Image("active")
+                Image(AppFood.StringImage.activeIcon)
                     .resizable()
                     .frame(width: screenSize.scaleWidth(18), height: screenSize.scaleHeight(24))
-                Image("timer")
+                Image(AppFood.StringImage.timberIcon)
                     .resizable()
                     .aspectRatio(1, contentMode: .fit)
                     .frame(width: screenSize.scaleWidth(17))
@@ -108,7 +108,7 @@ struct InfoDetailMealView: View {
                 Text(viewModel.meal.time.replacingOccurrences(of: "min", with: ""))
                     .font(.yuGothicUILight(size: screenSize.scaleHeight(16)))
                     .foregroundStyle(Color.mainColor)
-                Text("Minutes")
+                Text(AppFood.String.minutesString)
                     .font(.yuGothicUIRegular(size: screenSize.scaleHeight(12)))
                     .foregroundStyle(Color.mainColor)
             }
@@ -116,7 +116,7 @@ struct InfoDetailMealView: View {
             Button(action: {
                 action()
             }, label: {
-                Text("TAKE AWAY")
+                Text(AppFood.String.titleTakeAwayButton)
             })
             .frame(width: screenSize.scaleWidth(113), height: screenSize.scaleHeight(40))
             .buttonStyle(OutlineActiveButtonStyle(activeColor: .activeColor))

@@ -33,7 +33,7 @@ struct ItemOrderView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 Spacer()
-                Text("Dollars$\(viewModel.summaryPriceMeal())")
+                Text("\(AppFood.String.dollarsString)$\(viewModel.summaryPriceMeal())")
                     .font(.yuGothicUISemibold(size: screenSize.scaleHeight(14)))
                     .foregroundStyle(Color.myAccentColor)
                     .frame(maxWidth: .infinity, alignment: .trailing)

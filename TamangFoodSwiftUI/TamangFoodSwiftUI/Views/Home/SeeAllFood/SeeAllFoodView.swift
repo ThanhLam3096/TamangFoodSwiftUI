@@ -14,7 +14,7 @@ struct SeeAllFoodView: View {
         GridItem(.flexible())
     ]
     @ObservedObject var viewModel: SeeAllFoodViewModel
-    @EnvironmentObject var router: NavigationRouter
+    @EnvironmentObject var router: MainNavigationRouter
     @Environment(\.dismiss) var dismiss
     
     var body: some View {

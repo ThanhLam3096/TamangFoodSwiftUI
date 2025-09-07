@@ -45,6 +45,7 @@ struct CreateAccountView: View {
 }
 
 struct CreateAccountViewContent: View {
+    // MARK: - Properties
     let screenSize: ScreenSize
     @ObservedObject var fullNameViewModel: TextFieldFormInfoViewModel
     @ObservedObject var emailViewModel: TextFieldFormInfoViewModel
@@ -54,13 +55,13 @@ struct CreateAccountViewContent: View {
     @Binding var textWidth: CGFloat
     var presentationMode: Binding<PresentationMode>
     @Binding var isSuccessSignUp: Bool
-    
+    @EnvironmentObject var router: AuthNavigationRouter
     
     var body: some View {
         ScrollView {
             VStack {
                 NavigationBarView(screenSize: screenSize, title: AppText.titleCreateAccount) {
-                    dismissView(presentationMode)
+                    router.goBack()
                 }
                 VStack {
                     Text(AppText.titleCreateAccount)
@@ -97,10 +98,7 @@ struct CreateAccountViewContent: View {
                     TextFieldFormInfo(title: AppText.passwordTitleTextField, screenSize: screenSize, isPasswordForm: true, viewModel: passwordViewModel)
                     CSpace(height: screenSize.scaleHeight(39))
                     OrangeButton(titleButton: AppText.signUpText, screenSize: screenSize) {
-                        isSuccessSignUp = true
-                    }
-                    .navigationDestination(isPresented: $isSuccessSignUp) {
-                        DefinePhoneNumberView()
+                        router.push(.definePhoneNumber)
                     }
                     CSpace(height: screenSize.scaleHeight(20))
                     Text(AppText.policyText)

@@ -80,14 +80,14 @@ struct RestaurantHomeView: View {
                             .font(.yuGothicLight(size: screenSize.scaleHeight(12)))
                             .foregroundColor(.mainColor)
                         CSpace(width: screenSize.scaleWidth(12))
-                        Image("Star")
+                        Image(AppFood.StringImage.starIcon)
                             .frame(width: 14, height: 10)
                         CSpace(width: screenSize.scaleWidth(10))
                         Text(viewModel.restaurant.numberRating)
                             .font(.yuGothicLight(size: screenSize.scaleHeight(12)))
                             .foregroundColor(.mainColor)
                         CSpace(width: screenSize.scaleWidth(15))
-                        Image("timer")
+                        Image(AppFood.StringImage.timberIcon)
                             .frame(width: 18, height: 16)
                         CSpace(width: screenSize.scaleWidth(10))
                         Text(viewModel.restaurant.time)
@@ -98,7 +98,7 @@ struct RestaurantHomeView: View {
                             .fill(Color.bodyTextColor)
                             .frame(width: 5, height: 5)
                         CSpace(width: screenSize.scaleWidth(10))
-                        Image("Dollar")
+                        Image(AppFood.StringImage.dollarIcon)
                             .frame(width: 18, height: 16)
                         CSpace(width: screenSize.scaleWidth(10))
                         Text(viewModel.restaurant.feeDelivery)
@@ -113,4 +113,8 @@ struct RestaurantHomeView: View {
                     .padding(.horizontal, screenSize.scaleWidth(20))
             )
     }
+}
+
+#Preview {
+    RestaurantHomeView(screenSize: ScreenSize(width: 375, height: 812), viewModel: RestaurantHomeViewModel(restaurant: Restaurant(image: "https://i0.wp.com/www.tusktravel.com/blog/wp-content/uploads/2023/07/Noma-Copenhagen-Denmark.jpg?w=1136&ssl=1", name: "Noma, Copenhagen, Denmark", branch1: "Chinese", branch2: "American", typeFood: "Deshi Food", rating: "4.3", numberRating: "200+ Ratings", time: "10 Min", feeDelivery: "Free", averagePrice: 42, id: 1)))
 }
