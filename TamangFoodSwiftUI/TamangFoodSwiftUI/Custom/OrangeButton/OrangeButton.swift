@@ -30,6 +30,29 @@ struct OrangeButton: View {
     }
 }
 
+struct OrangeUIKitButton: View {
+    var titleButton: String
+    @State var isDisable: Bool = false
+    var screenSize: ScreenSizeUIKit
+    let action: () -> Void
+    
+    var body: some View {
+        Button {
+            action()
+        } label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: screenSize.scaleHeight(8))
+                    .fill(Color.activeColor)
+                Text(titleButton)
+                    .foregroundStyle(.white)
+                    .font(.yuGothicBold(size: screenSize.scaleHeight(14)))
+            }
+            .frame(width: screenSize.scaleWidth(335), height: screenSize.scaleHeight(48))
+        }
+        .disabled(isDisable)
+    }
+}
+
 
 //struct OrangeButton: View {
 //    var title: String

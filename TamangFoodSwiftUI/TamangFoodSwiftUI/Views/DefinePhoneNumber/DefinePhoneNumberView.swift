@@ -55,6 +55,11 @@ struct DefinePhoneNumberView: View {
                                 Image("pathDown")
                             }
                             TextField("", text: $phoneNumber)
+                                .keyboardType(.numberPad)
+                                .onChange(of: phoneNumber) { oldValue, newValue in
+                                    // Only get Number
+                                    phoneNumber = newValue.filter { $0.isNumber }
+                                }
                                 .font(.yuGothicUIRegular(size: screenSize.scaleHeight(16)))
                                 .foregroundStyle(Color.mainColor)
                                 .tint(Color.myAccentColor)

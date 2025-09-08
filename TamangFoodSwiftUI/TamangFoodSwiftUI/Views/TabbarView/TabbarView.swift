@@ -29,6 +29,8 @@ struct TabbarView: View {
                             AddToOrderView(viewModel: AddToOrderViewModel(meal: meal))
                         case .yourOrder:
                             YourOrdersView(viewModel: YourOrdersViewModel())
+                        case .paymentMethod:
+                            PaymentMethodView()
                         }
                     }
             }
@@ -72,13 +74,13 @@ struct TabbarView: View {
                 .tag(Tab.profile)
         }
         .tint(Color.myAccentColor)
-        .fullScreenCover(item: $router.presentedFullScreen) { router in
-            switch router {
-            case .yourOrder:
-                YourOrdersView(viewModel: YourOrdersViewModel())
-            default: EmptyView()
-            }
-        }
+//        .fullScreenCover(item: $router.presentedFullScreen) { router in
+//            switch router {
+//            case .yourOrder:
+//                YourOrdersView(viewModel: YourOrdersViewModel())
+//            default: EmptyView()
+//            }
+//        }
         .environmentObject(router)
     }
     

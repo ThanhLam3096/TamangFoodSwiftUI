@@ -33,7 +33,6 @@ extension AppFood {
         static let cancelString = "Cancel"
         static let titleAddInstructions = "Add Special Instructions"
         static let messageAddInstructions = "Add Info Meal Do You Want More Here"
-        static let subjectMethodsPayment = "This card will only be charged when\n you place an order."
         static let createAccount = "Create Account"
         static let continueAction = "Continue To Setup"
         static let collectionDBOrder = "orderMeal"
@@ -58,6 +57,10 @@ extension AppFood {
         static let addMoreItemString = "Add more items"
         static let promoCodeString = "Promo Code"
         static let yourOrderTitle = "Your Orders"
+        static let addYourPaymentMethod = "Add your payment methods"
+        static let subjectMethodsPayment = "This card will only be charged when\n you place an order."
+        static let addCardTitleButton = "ADD CARD"
+        static let scanCardTitleButton = "SCAN CARD"
     }
     
     struct StringImage {
@@ -77,5 +80,7 @@ extension AppFood {
         static let activeIcon = "active"
         static let dollarIconDetail = "dollar"
         static let blackCloseIcon = "black_close"
+        static let leftArrowBackIcon = "left_arrow_back"
+        static let cameraIcon = "camera"
     }
 }

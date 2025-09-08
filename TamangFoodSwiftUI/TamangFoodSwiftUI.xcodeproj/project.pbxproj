@@ -87,6 +87,7 @@
 		04927D2A2E31D3120015AF18 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04927D292E31D3120015AF18 /* DetailView.swift */; };
 		049EAD0C2DDF1EF3007D1268 /* HomeViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EAD0B2DDF1EF3007D1268 /* HomeViewVM.swift */; };
 		049EAD0E2DDF2930007D1268 /* HeaderHomeViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EAD0D2DDF2930007D1268 /* HeaderHomeViewVM.swift */; };
+		04B86E802E6D879800BE18A5 /* PaymentMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B86E7F2E6D879800BE18A5 /* PaymentMethodView.swift */; };
 		04BD68302E0443FA0062E50D /* SeeAllFoodItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD682F2E0443FA0062E50D /* SeeAllFoodItemView.swift */; };
 		04C531D02E059661005D4790 /* SeeAllFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C531CF2E059661005D4790 /* SeeAllFoodViewModel.swift */; };
 		04C531D32E059955005D4790 /* MainNavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C531D22E059955005D4790 /* MainNavigationRouter.swift */; };
@@ -205,6 +206,7 @@
 		04927D292E31D3120015AF18 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		049EAD0B2DDF1EF3007D1268 /* HomeViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewVM.swift; sourceTree = "<group>"; };
 		049EAD0D2DDF2930007D1268 /* HeaderHomeViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderHomeViewVM.swift; sourceTree = "<group>"; };
+		04B86E7F2E6D879800BE18A5 /* PaymentMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodView.swift; sourceTree = "<group>"; };
 		04BD682F2E0443FA0062E50D /* SeeAllFoodItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodItemView.swift; sourceTree = "<group>"; };
 		04C531CF2E059661005D4790 /* SeeAllFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFoodViewModel.swift; sourceTree = "<group>"; };
 		04C531D22E059955005D4790 /* MainNavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationRouter.swift; sourceTree = "<group>"; };
@@ -620,6 +622,14 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		04B86E7E2E6D876800BE18A5 /* PaymentMethodView */ = {
+			isa = PBXGroup;
+			children = (
+				04B86E7F2E6D879800BE18A5 /* PaymentMethodView.swift */,
+			);
+			path = PaymentMethodView;
+			sourceTree = "<group>";
+		};
 		04BD682E2E0443A30062E50D /* SeeAllFoodItemView */ = {
 			isa = PBXGroup;
 			children = (
@@ -714,6 +724,7 @@
 		04EE7B022DA5221900BA8EE1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				04B86E7E2E6D876800BE18A5 /* PaymentMethodView */,
 				0488F1982E6D2B840004727D /* RootView */,
 				04EEF9D72E68570C00B18A2F /* YourOrders */,
 				043FC4632E6448BD00BCF593 /* AddToOrder */,
@@ -962,6 +973,7 @@
 				04C531D02E059661005D4790 /* SeeAllFoodViewModel.swift in Sources */,
 				04295C3B2DDDCB440064A650 /* HeaderHomeView.swift in Sources */,
 				043352372DC9A0E20003707A /* VerifyPhoneNumberView.swift in Sources */,
+				04B86E802E6D879800BE18A5 /* PaymentMethodView.swift in Sources */,
 				043BDE302E6A7A9B00C6EAE4 /* YourOrdersViewModel.swift in Sources */,
 				044727312E04164E0068B971 /* OrdersView.swift in Sources */,
 				04478B8D2E02FA500059C5FA /* RestaurantHomeViewModel.swift in Sources */,
@@ -1209,6 +1221,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1239,6 +1252,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

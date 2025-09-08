@@ -124,7 +124,8 @@ struct AddToOrderView: View {
                         .frame(maxWidth: .infinity)
                         CSpace(height: screenSize.scaleHeight(44))
                         OrangeButton(titleButton: "ADD TO ORDER ($\(displayNumber(viewModel.totalOfPriceMeal)))", screenSize: screenSize) {
-                            router.presentFullScreen(.yourOrder)
+//                            router.presentFullScreen(.yourOrder)
+                            router.push(.yourOrder)
                         }
                         CSpace(height: screenSize.scaleHeight(50))
                     }
