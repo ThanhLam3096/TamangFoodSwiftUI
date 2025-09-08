@@ -54,6 +54,7 @@ enum MainRouter: Hashable, Identifiable {
     case detail(meal: Meal)
     case addToOrder(meal: Meal)
     case yourOrder
+    case paymentMethod
     
     var id: String {
         switch self {
@@ -65,6 +66,8 @@ enum MainRouter: Hashable, Identifiable {
             return "addToOrder_\(meal.idMeal)"
         case .yourOrder:
             return "yourOrder"
+        case .paymentMethod:
+            return "paymentMethod"
         }
     }
 }
