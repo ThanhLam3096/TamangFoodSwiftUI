@@ -11,81 +11,83 @@ struct SearchView: View {
     // MARK: - Properties
     @StateObject var viewModel: SearchViewModel = SearchViewModel()
     @ObservedObject private var keyboard = KeyboardResponder()
+    let screenSize = ScreenSizeUIKit(from: UIScreen.main.bounds.size)
     
     var body: some View {
-        GeometryReader { geometry in
-            let screenSize = ScreenSize(width: geometry.size.width, height: geometry.size.height)
-            ZStack {
-                VStack {
-                    headerViewShow(screenSize: screenSize)
-                    HStack {
-                        Button(action: {
-                            
-                        }) {
-                            Text(AppFood.String.filterString)
-                                .mainUIRegularText(size: screenSize.scaleHeight(16))
-                        }
-                        .frame(height: screenSize.scaleHeight(40))
-                        .padding(.horizontal, screenSize.scaleWidth(10))
-                        .background(Color.bodyTextColor.opacity(0.2))
-                        .cornerRadius(8, corners: .allCorners)
-                        CSpace(width: screenSize.scaleWidth(20))
-                        Button(action: {
-                            viewModel.isNation = true
-                            viewModel.isSearchKey = false
-                        }) {
-                            Text(AppFood.String.nationString)
-                                .mainUIRegularText(size: screenSize.scaleHeight(16))
-                        }
-                        .frame(height: screenSize.scaleHeight(40))
-                        .padding(.horizontal, screenSize.scaleWidth(10))
-                        .background(Color.accentColor.opacity(0.2))
-                        .cornerRadius(8, corners: .allCorners)
-                        CSpace(width: screenSize.scaleWidth(20))
-                        Button(action: {
-                            viewModel.isNation = false
-                            viewModel.isSearchKey = false
-                        }) {
-                            Text(AppFood.String.categoryString)
-                                .mainUIRegularText(size: screenSize.scaleHeight(16))
-                        }
-                        .frame(height: screenSize.scaleHeight(40))
-                        .padding(.horizontal, screenSize.scaleWidth(10))
-                        .background(Color.myAccentColor.opacity(0.2))
-                        .cornerRadius(8, corners: .allCorners)
+        ZStack {
+            VStack {
+                headerViewShow(screenSize: screenSize)
+                HStack {
+                    Button(action: {
+                        
+                    }) {
+                        Text(AppFood.String.filterString)
+                            .mainUIRegularText(size: screenSize.scaleHeight(16))
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    CSpace(height: screenSize.scaleHeight(20))
-                    if viewModel.isSearchKey {
-                        introduceSearchView(screenSize: screenSize)
-                    } else {
-                        CateAndNationMealCollectionView(viewModel: CateAndNationMealCollectionViewModel(isNation: viewModel.isNation), screenSize: screenSize)
+                    .frame(height: screenSize.scaleHeight(40))
+                    .padding(.horizontal, screenSize.scaleWidth(10))
+                    .background(Color.bodyTextColor.opacity(0.2))
+                    .cornerRadius(8, corners: .allCorners)
+                    CSpace(width: screenSize.scaleWidth(20))
+                    Button(action: {
+                        viewModel.isNation = true
+                        viewModel.isSearchKey = false
+                        fetchNationMeal()
+                    }) {
+                        Text(AppFood.String.nationString)
+                            .mainUIRegularText(size: screenSize.scaleHeight(16))
                     }
+                    .frame(height: screenSize.scaleHeight(40))
+                    .padding(.horizontal, screenSize.scaleWidth(10))
+                    .background(Color.accentColor.opacity(0.2))
+                    .cornerRadius(8, corners: .allCorners)
+                    CSpace(width: screenSize.scaleWidth(20))
+                    Button(action: {
+                        viewModel.isNation = false
+                        viewModel.isSearchKey = false
+                        fetchCategoryMeal()
+                    }) {
+                        Text(AppFood.String.categoryString)
+                            .mainUIRegularText(size: screenSize.scaleHeight(16))
+                    }
+                    .frame(height: screenSize.scaleHeight(40))
+                    .padding(.horizontal, screenSize.scaleWidth(10))
+                    .background(Color.myAccentColor.opacity(0.2))
+                    .cornerRadius(8, corners: .allCorners)
                 }
-                .padding(.horizontal, screenSize.scaleWidth(20))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                CSpace(height: screenSize.scaleHeight(20))
+                if viewModel.isSearchKey {
+                    introduceSearchView(screenSize: screenSize)
+                } else {
+                    CateAndNationMealCollectionView(viewModel: CateAndNationMealCollectionViewModel( titleNationCategoryMeal: viewModel.titleNationCategoryMeal, imageNationCategoryMeal: viewModel.isNation ? viewModel.flagsNationMeal : viewModel.dishTypeMeal), screenSize: screenSize)
+                }
             }
+            .padding(.horizontal, screenSize.scaleWidth(20))
         }
         .ignoresSafeArea(.keyboard)
         .onTapGesture {
             hideKeyboard()
         }
+        
     }
     
+    // MARK: ViewBuilder
     @ViewBuilder
-    private func introduceSearchView(screenSize: ScreenSize) -> some View {
+    private func introduceSearchView(screenSize: ScreenSizeUIKit) -> some View {
         VStack {
-            Text("Enter Your Name Meal For Search...")
+            Text(AppFood.String.enterYourMealSearchString)
                 .font(.yuGothicUISemibold(size: screenSize.scaleHeight(30)))
                 .foregroundStyle(Color.myAccentColor)
                 .multilineTextAlignment(.center)
-            Image("search_waste_food")
+            Image(AppFood.StringImage.emptySearchImage)
                 .resizable()
         }
         .frame(maxWidth: .infinity)
     }
     
     @ViewBuilder
-    private func headerViewShow(screenSize: ScreenSize) -> some View {
+    private func headerViewShow(screenSize: ScreenSizeUIKit) -> some View {
         if viewModel.isSearchKey {
             VStack {
                 CSpace(height: screenSize.scaleHeight(20))
@@ -100,10 +102,23 @@ struct SearchView: View {
             })
             CSpace(height: screenSize.scaleHeight(20))
         }
-        
+    }
+    
+    // MARK: Function
+    private func fetchNationMeal() {
+        viewModel.getAPINationMeal { success, message in
+            print(success ? "Load Data Nation Meal Success" : "Failed Nation: \(message)")
+        }
+    }
+    
+    private func fetchCategoryMeal() {
+        viewModel.getAPICategoryMeal { success, message in
+            print(success ? "Load Data Category Meal Success" : "Failed Nation: \(message)")
+        }
     }
 }
 
 #Preview {
     SearchView()
 }
+

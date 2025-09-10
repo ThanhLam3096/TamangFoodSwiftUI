@@ -10,15 +10,31 @@ import SwiftUI
 import UIKit
 
 struct ScreenSizeUIKit {
-    let screenWidth = UIScreen.main.bounds.width
-    let screenHeight = UIScreen.main.bounds.height
+    var screenWidth = UIScreen.main.bounds.width
+    var screenHeight = UIScreen.main.bounds.height
+    static let shared = ScreenSizeUIKit()
+    
+    // Base size scale follow (iPhone 11: 375x812)
+    private let baseWidth: CGFloat = 375
+    private let baseHeight: CGFloat = 812
+    
+    private init() {
+        let size = UIScreen.main.bounds.size
+        self.screenWidth = size.width
+        self.screenHeight = size.height
+    }
+    
+    init(from size: CGSize) {
+        self.screenWidth = size.width
+        self.screenHeight = size.height
+    }
     
     func scaleWidth(_ width: CGFloat) -> CGFloat {
-        return width * (screenWidth / 375)
+        return width * (screenWidth / baseWidth)
     }
     
     func scaleHeight(_ height: CGFloat) -> CGFloat {
-        return height * (screenHeight / 812)
+        return height * (screenHeight / baseHeight)
     }
 }
 
@@ -27,14 +43,14 @@ struct ScreenSize {
     var height: CGFloat
     
     init(width: CGFloat, height: CGFloat) {
-            self.width = width
-            self.height = height
-        }
-
-        init(from size: CGSize) {
-            self.width = size.width
-            self.height = size.height
-        }
+        self.width = width
+        self.height = height
+    }
+    
+    init(from size: CGSize) {
+        self.width = size.width
+        self.height = size.height
+    }
 
     func scaleWidth(_ value: CGFloat) -> CGFloat {
         value * (width / 375)
@@ -82,4 +98,12 @@ class ScreenSizeManager: ObservableObject {
     }
 }
 
-
+extension CGFloat {
+    var w: CGFloat {
+        return ScreenSizeUIKit.shared.scaleWidth(self)
+    }
+    
+    var h: CGFloat {
+        return ScreenSizeUIKit.shared.scaleHeight(self)
+    }
+}

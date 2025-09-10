@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HeaderSearchView: View {
     // MARK: - Properties
-    let screenSize: ScreenSize
+    let screenSize: ScreenSizeUIKit
     @State private var searchText: String = ""
     
     var body: some View {
@@ -41,5 +41,5 @@ struct HeaderSearchView: View {
 }
 
 #Preview {
-    HeaderSearchView(screenSize: ScreenSize(width: 375, height: 812))
+    HeaderSearchView(screenSize: ScreenSizeUIKit(from:  UIScreen.main.bounds.size))
 }
