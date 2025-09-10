@@ -61,6 +61,10 @@ extension AppFood {
         static let subjectMethodsPayment = "This card will only be charged when\n you place an order."
         static let addCardTitleButton = "ADD CARD"
         static let scanCardTitleButton = "SCAN CARD"
+        static let searchTitle = "Search"
+        static let placeHolderSearchTextField = "Search on foodly"
+        static let nationString = "Nation"
+        static let categoryString = "Category"
     }
     
     struct StringImage {
@@ -82,5 +86,6 @@ extension AppFood {
         static let blackCloseIcon = "black_close"
         static let leftArrowBackIcon = "left_arrow_back"
         static let cameraIcon = "camera"
+        static let searchIcon = "search"
     }
 }
