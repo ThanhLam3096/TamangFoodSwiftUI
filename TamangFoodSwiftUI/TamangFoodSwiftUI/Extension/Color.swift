@@ -52,3 +52,34 @@ extension Color {
         )
     }
 }
+
+struct UIKitColor {
+    static let activeColor = UIColor(hex: "#EEA734")
+    static let mainColor = UIColor(hex: "#010F07")
+    static let bodyTextColor = UIColor(hex: "#868686")
+    static let inputColor = UIColor(hex: "#FBFBFB")
+    static let bgColor = UIColor(hex: "#FFFFFF")
+    static let myAccentColor = UIColor(hex: "#F8B64C")
+    static let greenColor = UIColor(hex: "#22A45D")
+    static let redColor = UIColor(hex: "#FF7058")
+    static let yellowColor = UIColor(hex: "#FFD15C")
+    static let tabBarColor = UIColor(hex: "#979797")
+    static let blackColor = UIColor(hex: "#000000")
+    static let cacuColor = UIColor(hex: "#F8F8F8")
+}
+
+extension UIColor {
+    convenience init(hex: String) {
+        var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
+        hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
+
+        var rgb: UInt64 = 0
+        Scanner(string: hexSanitized).scanHexInt64(&rgb)
+
+        let red = CGFloat((rgb & 0xFF0000) >> 16) / 255.0
+        let green = CGFloat((rgb & 0x00FF00) >> 8) / 255.0
+        let blue = CGFloat(rgb & 0x0000FF) / 255.0
+
+        self.init(red: red, green: green, blue: blue, alpha: 1.0)
+    }
+}

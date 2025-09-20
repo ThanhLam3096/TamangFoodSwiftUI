@@ -66,6 +66,7 @@ extension AppFood {
         static let nationString = "Nation"
         static let categoryString = "Category"
         static let enterYourMealSearchString = "Enter Your Name Meal For Search..."
+        static let clearAllButtonTitle = "Clear All"
     }
     
     struct StringImage {
@@ -89,5 +90,6 @@ extension AppFood {
         static let cameraIcon = "camera"
         static let searchIcon = "search"
         static let emptySearchImage = "search_waste_food"
+        static let backButton = "back"
     }
 }

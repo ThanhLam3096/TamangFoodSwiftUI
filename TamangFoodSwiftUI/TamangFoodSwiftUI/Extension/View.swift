@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import Shimmer
+import SwiftUIIntrospect
 
 extension View {
     func hideKeyboard() {
@@ -87,3 +88,84 @@ extension View {
         self.modifier(ShimmerModifier(config: config, active: active))
     }
 }
+
+extension View {
+    @MainActor func customScrollIndicator(color: UIColor, width: CGFloat = 3) -> some View {
+        self.introspect(.scrollView, on: .iOS(.v15, .v16, .v17)) { scrollView in
+            scrollView.showsVerticalScrollIndicator = true
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                if let indicator = scrollView.subviews.first(where: {
+                    String(describing: type(of: $0)).contains("Indicator")
+                }) {
+                    indicator.backgroundColor = color
+                    indicator.layer.cornerRadius = width / 2
+                    indicator.frame.size.width = width
+                    indicator.clipsToBounds = true
+                }
+            }
+        }
+    }
+}
+
+extension View {
+    @ViewBuilder
+    func hidden(_ shouldHide: Bool) -> some View {
+        if shouldHide {
+            self.hidden()
+        } else {
+            self
+        }
+    }
+}
+
+struct CustomTextField: UIViewRepresentable {
+    @Binding var text: String
+    var onFirstTap: (() -> Void)?
+
+    class Coordinator: NSObject, UITextFieldDelegate {
+        var parent: CustomTextField
+        var didFirstTap = false
+
+        init(_ parent: CustomTextField) {
+            self.parent = parent
+        }
+
+        func textFieldDidBeginEditing(_ textField: UITextField) {
+            if !didFirstTap {
+                didFirstTap = true
+                parent.onFirstTap?()
+            }
+        }
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    func makeUIView(context: Context) -> UITextField {
+        let textField = UITextField()
+        textField.delegate = context.coordinator
+        textField.borderStyle = .roundedRect
+        return textField
+    }
+
+    func updateUIView(_ uiView: UITextField, context: Context) {
+        uiView.text = text
+    }
+}
+
+struct StatefulPreviewWrapper<Value, Content: View>: View {
+    @State private var value: Value
+    private let content: (Binding<Value>) -> Content
+    
+    init(_ value: Value, @ViewBuilder content: @escaping (Binding<Value>) -> Content) {
+        _value = State(initialValue: value)
+        self.content = content
+    }
+    
+    var body: some View {
+        content($value)
+    }
+}
+
