@@ -12,6 +12,14 @@ struct FeaturePartnesResult {
     var featurePartnes: [Meal]
 }
 
+struct FeaturePartnesResult2: Decodable {
+    var featurePartnes: [Meal]
+    
+    enum CodingKeys: String, CodingKey {
+        case featurePartnes = "Meal"
+    }
+}
+
 struct NationFoodResult: Decodable {
     var meals: [Meal]
     
@@ -109,13 +117,35 @@ final class Networking {
                         let listFeaturePartnersMeal = json["Meal"] as! [JSON]
                         
                         // Chuyển đổi từ JSON sang đối tượng Meal
-                        let nationMeal = listFeaturePartnersMeal.compactMap { Meal(json: $0) }
-                        let result = FeaturePartnesResult(featurePartnes: nationMeal)
+                        let featurePartnerMeal = listFeaturePartnersMeal.compactMap { Meal(json: $0) }
+                        let result = FeaturePartnesResult(featurePartnes: featurePartnerMeal)
                         completion(.success(result))
                     } else {
                         completion(.failure(AppFood.String.alertFailedToDataAPI))
                     }
                 case .failure(_):
+                    completion(.failure(AppFood.String.alertFailedToConnectAPI))
+                }
+            }
+        }
+    }
+    
+    // MARK: - Public Functions Call FeaturePartners Data
+    func getFeaturePartners2(completion: @escaping APICompletion<FeaturePartnesResult2>) {
+        guard let url = URL(string: Api.Path.apiFeaturedParners) else {
+            completion(.failure(AppFood.String.alertFailedAPI))
+            return
+        }
+        AF.request(url).validate().responseDecodable(of: FeaturePartnesResult2.self) { response in
+            DispatchQueue.main.async {
+                switch response.result {
+                case .success(let result):
+                    completion(.success(result))
+                case .failure(_):
+                    if let data = response.data,
+                       let jsonString = String(data: data, encoding: .utf8) {
+                        print("JSON Response: \(jsonString)")
+                    }
                     completion(.failure(AppFood.String.alertFailedToConnectAPI))
                 }
             }
@@ -163,12 +193,12 @@ final class Networking {
     }
     
     // MARK: - Public Functions Call Data Meal By CategoryName
-    func getListMealByCategory(categoryName: String, completion: @escaping APICompletion<MealByCategoryResult>) {
+    func getListMealByCategory(categoryName: String, completion: @escaping APICompletion<TheMealDetailResult>) {
         guard let url = URL(string: Api.Path.apiMealCategoryAndArea + "c=\(categoryName)") else {
             completion(.failure(AppFood.String.alertFailedAPI))
             return
         }
-        AF.request(url).validate().responseDecodable(of: MealByCategoryResult.self) { response in
+        AF.request(url).validate().responseDecodable(of: TheMealDetailResult.self) { response in
             DispatchQueue.main.async {
                 switch response.result {
                 case .success(let result):
@@ -181,12 +211,12 @@ final class Networking {
     }
     
     // MARK: - Public Functions Call Data Meal By Nation Name
-    func getListMealByNation(nationName: String, completion: @escaping APICompletion<MealByCategoryResult>) {
+    func getListMealByNation(nationName: String, completion: @escaping APICompletion<TheMealDetailResult>) {
         guard let url = URL(string: Api.Path.apiMealCategoryAndArea + "a=\(nationName)") else {
             completion(.failure(AppFood.String.alertFailedAPI))
             return
         }
-        AF.request(url).validate().responseDecodable(of: MealByCategoryResult.self) { response in
+        AF.request(url).validate().responseDecodable(of: TheMealDetailResult.self) { response in
             DispatchQueue.main.async {
                 switch response.result {
                 case .success(let result):
@@ -204,13 +234,31 @@ final class Networking {
             completion(.failure(AppFood.String.alertFailedAPI))
             return
         }
-        AF.request(url).validate().responseDecodable(of: TheMealDetailResult.self) { response in
+        AF.request(url).validate(statusCode: 200..<600).responseDecodable(of: TheMealDetailResult.self) { response in
             DispatchQueue.main.async {
-                switch response.result {
-                case .success(let result):
-                    completion(.success(result))
-                case .failure(_):
-                    completion(.failure(AppFood.String.alertFailedToConnectAPI))
+                if let statusCode = response.response?.statusCode {
+                    switch statusCode {
+                    case 200:
+                        switch response.result {
+                        case .success(let result):
+                            completion(.success(result))
+                        case .failure(_):
+                            completion(.failure(AppFood.String.alertFailedToConnectAPI))
+                        }
+                    case 400:
+                        completion(.failure("⚠️ Bad Request (400)"))
+                    case 401:
+                        completion(.failure("🚫 Unauthorized (401)"))
+                    case 403:
+                        completion(.failure("⛔ Forbidden (403)"))
+                    case 404:
+                        completion(.failure("🔍 Not Found (404)"))
+                    case 500:
+                        completion(.failure("💥 Internal Server Error (500)"))
+                        
+                    default:
+                        completion(.failure("ℹ️ Unexpected status code: \(statusCode)"))
+                    }
                 }
             }
         }

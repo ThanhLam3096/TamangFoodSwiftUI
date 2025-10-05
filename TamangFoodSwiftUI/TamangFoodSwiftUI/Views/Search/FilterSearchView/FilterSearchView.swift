@@ -20,25 +20,12 @@ struct FilterSearchView: View {
                     VStack(alignment: .leading, spacing: screenSize.scaleHeight(20)) {
                         Section(header: HeaderForFilterSearchView(viewModel: HeaderFilterSearchViewModel(headerType: .nationHeader), screenSize: screenSize)) {
                             FlexibleWrapView(screenSize: screenSize, viewModel: FlexibleWrapViewModel(tags: viewModel.filterByNation, horizontalSpacing: 15, verticalSpacing: 20, paddingText: 10, listFilterChoice: viewModel.choosingNation), action: { valueNation in
-                                if viewModel.choosingNation.contains(valueNation) {
-                                    // removeAll "listArray.contains($0)" is remove all item have value
-                                    // removeAll "$0 == item.value" is remove all item = value
-                                    viewModel.choosingNation.removeAll {
-                                        $0 == valueNation
-                                    }
-                                } else {
-                                    viewModel.choosingNation.append(valueNation)
-                                }
+                                viewModel.filterSearch(valueNation, for: .nationHeader)
                             })
                         }
                         Section(header: HeaderForFilterSearchView(viewModel: HeaderFilterSearchViewModel(headerType: .categoryHeader), screenSize: screenSize)) {
                             FlexibleWrapView(screenSize: screenSize, viewModel: FlexibleWrapViewModel(tags: viewModel.filterByCategory, horizontalSpacing: 15, verticalSpacing: 20, paddingText: 10, listFilterChoice: viewModel.choosingCategories), action: { valueCategory in
-                                if viewModel.choosingCategories.contains(valueCategory) {
-                                    viewModel.choosingCategories.removeAll { valueCategory.contains($0)
-                                    }
-                                } else {
-                                    viewModel.choosingCategories.append(valueCategory)
-                                }
+                                viewModel.filterSearch(valueCategory, for: .categoryHeader)
                             })
                         }
                         Section(header: HeaderForFilterSearchView(viewModel: HeaderFilterSearchViewModel(headerType: .priceRangeHeader), screenSize: screenSize)) {
@@ -46,13 +33,7 @@ struct FilterSearchView: View {
                                 HStack(spacing: screenSize.scaleWidth(10)) {
                                     ForEach(viewModel.filterByPriceRange, id: \.self) { price in
                                         Button(action: {
-                                            if viewModel.choosingPriceRange.contains(price) {
-                                                viewModel.choosingPriceRange.removeAll {
-                                                    $0 == price
-                                                }
-                                            } else {
-                                                viewModel.choosingPriceRange.append(price)
-                                            }
+                                            viewModel.filterSearch(price, for: .priceRangeHeader)
                                         }, label: {
                                             Text(price)
                                                 .font(.yuGothicUISemibold(size: screenSize.scaleHeight(14)))

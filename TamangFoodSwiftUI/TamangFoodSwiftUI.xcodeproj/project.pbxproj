@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04001B242E921B2000B2FE1C /* AppStorageCodableFilterSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04001B232E921B2000B2FE1C /* AppStorageCodableFilterSearch.swift */; };
 		040E87E32E5415870023C3E7 /* ListCategoryFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E87E22E5415870023C3E7 /* ListCategoryFoodViewModel.swift */; };
 		040E87E52E5416540023C3E7 /* ListCategoryFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E87E42E5416540023C3E7 /* ListCategoryFoodView.swift */; };
 		0411D61E2E0112B6005F3422 /* OrangeRatingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411D61D2E0112B5005F3422 /* OrangeRatingText.swift */; };
@@ -149,6 +150,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04001B232E921B2000B2FE1C /* AppStorageCodableFilterSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageCodableFilterSearch.swift; sourceTree = "<group>"; };
 		040E87E22E5415870023C3E7 /* ListCategoryFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCategoryFoodViewModel.swift; sourceTree = "<group>"; };
 		040E87E42E5416540023C3E7 /* ListCategoryFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCategoryFoodView.swift; sourceTree = "<group>"; };
 		0411D61D2E0112B5005F3422 /* OrangeRatingText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeRatingText.swift; sourceTree = "<group>"; };
@@ -302,6 +304,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04001B222E921AEA00B2FE1C /* AppStorage */ = {
+			isa = PBXGroup;
+			children = (
+				04001B232E921B2000B2FE1C /* AppStorageCodableFilterSearch.swift */,
+			);
+			path = AppStorage;
+			sourceTree = "<group>";
+		};
 		040E87E12E5415690023C3E7 /* ListCategoryFoodView */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,6 +358,7 @@
 		04135B3D2DE4065E0007D255 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04001B222E921AEA00B2FE1C /* AppStorage */,
 				0411D62D2E017EAC005F3422 /* API */,
 				0411D62F2E017EAC005F3422 /* UserDefaults */,
 				04135B3E2DE4066B0007D255 /* Schema */,
@@ -1172,6 +1183,7 @@
 				04D4B0242E6C6F05006327C8 /* AuthNavigationRouter.swift in Sources */,
 				042E0ECA2DBCE474008CFC7F /* PageIndicator.swift in Sources */,
 				044138932DBE61AC0050F863 /* SignIn.swift in Sources */,
+				04001B242E921B2000B2FE1C /* AppStorageCodableFilterSearch.swift in Sources */,
 				045FB99C2E64945800807DD3 /* HeaderSpiceView.swift in Sources */,
 				04EE7B202DA7CF4100BA8EE1 /* Color.swift in Sources */,
 				0411D6292E016F92005F3422 /* GlobalFunction.swift in Sources */,
