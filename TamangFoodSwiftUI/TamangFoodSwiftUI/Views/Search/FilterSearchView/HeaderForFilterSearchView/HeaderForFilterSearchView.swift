@@ -12,6 +12,9 @@ struct HeaderForFilterSearchView: View {
     @ObservedObject var viewModel: HeaderFilterSearchViewModel
     let screenSize: ScreenSize
     
+    // MARK: Action
+    let action: (HeaderFilterType) -> Void
+    
     var body: some View {
         HStack {
             Text(viewModel.headerType.title)
@@ -19,7 +22,7 @@ struct HeaderForFilterSearchView: View {
                 .foregroundStyle(Color.mainColor)
             Spacer()
             Button(action: {
-                print("abcd")
+                action(viewModel.headerType)
             }, label: {
                 Text(AppFood.String.clearAllButtonTitle)
                     .font(.yuGothicUILight(size: screenSize.scaleHeight(14)))
@@ -30,5 +33,5 @@ struct HeaderForFilterSearchView: View {
 }
 
 #Preview {
-    HeaderForFilterSearchView(viewModel: HeaderFilterSearchViewModel(headerType: .nationHeader),screenSize: ScreenSize(width: 375, height: 812))
+    HeaderForFilterSearchView(viewModel: HeaderFilterSearchViewModel(headerType: .nationHeader),screenSize: ScreenSize(width: 375, height: 812), action: {_ in })
 }

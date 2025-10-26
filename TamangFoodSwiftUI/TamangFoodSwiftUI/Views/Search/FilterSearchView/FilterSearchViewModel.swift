@@ -53,4 +53,20 @@ final class FilterSearchViewModel: ObservableObject {
             storedPrice = choosingPriceRange // ✅ sync in AppStorage
         }
     }
+    
+    func removeFilterSearch(for type: HeaderFilterType) {
+        switch type {
+        case .nationHeader:
+            clear(&choosingNation, &storedFilterNation)
+        case .categoryHeader:
+            clear(&choosingCategories, &storedCategories)
+        case .priceRangeHeader:
+            clear(&choosingPriceRange, &storedPrice)
+        }
+    }
+
+    private func clear(_ choosing: inout [String], _ stored: inout [String]) {
+        choosing.removeAll()
+        stored = choosing
+    }
 }

@@ -18,17 +18,23 @@ struct FilterSearchView: View {
             VStack {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(alignment: .leading, spacing: screenSize.scaleHeight(20)) {
-                        Section(header: HeaderForFilterSearchView(viewModel: HeaderFilterSearchViewModel(headerType: .nationHeader), screenSize: screenSize)) {
+                        Section(header: HeaderForFilterSearchView(viewModel: HeaderFilterSearchViewModel(headerType: .nationHeader), screenSize: screenSize, action: { type in
+                            viewModel.removeFilterSearch(for: type)
+                        })) {
                             FlexibleWrapView(screenSize: screenSize, viewModel: FlexibleWrapViewModel(tags: viewModel.filterByNation, horizontalSpacing: 15, verticalSpacing: 20, paddingText: 10, listFilterChoice: viewModel.choosingNation), action: { valueNation in
                                 viewModel.filterSearch(valueNation, for: .nationHeader)
                             })
                         }
-                        Section(header: HeaderForFilterSearchView(viewModel: HeaderFilterSearchViewModel(headerType: .categoryHeader), screenSize: screenSize)) {
+                        Section(header: HeaderForFilterSearchView(viewModel: HeaderFilterSearchViewModel(headerType: .categoryHeader), screenSize: screenSize, action: { type in
+                            viewModel.removeFilterSearch(for: type)
+                        })) {
                             FlexibleWrapView(screenSize: screenSize, viewModel: FlexibleWrapViewModel(tags: viewModel.filterByCategory, horizontalSpacing: 15, verticalSpacing: 20, paddingText: 10, listFilterChoice: viewModel.choosingCategories), action: { valueCategory in
                                 viewModel.filterSearch(valueCategory, for: .categoryHeader)
                             })
                         }
-                        Section(header: HeaderForFilterSearchView(viewModel: HeaderFilterSearchViewModel(headerType: .priceRangeHeader), screenSize: screenSize)) {
+                        Section(header: HeaderForFilterSearchView(viewModel: HeaderFilterSearchViewModel(headerType: .priceRangeHeader), screenSize: screenSize, action: { type in
+                            viewModel.removeFilterSearch(for: type)
+                        })) {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: screenSize.scaleWidth(10)) {
                                     ForEach(viewModel.filterByPriceRange, id: \.self) { price in
