@@ -14,7 +14,7 @@ struct PaymentMethodView: View {
     @State private var idCard: String = ""
     @State private var expiryDateCard: String = ""
     @State private var cvcCard: String = ""
-    private let screenSize = ScreenSizeUIKit()
+    private let screenSize = ScreenSizeUIKit(from: UIScreen.main.bounds.size)
     @ObservedObject private var keyboard = KeyboardResponder()
     
     var body: some View {

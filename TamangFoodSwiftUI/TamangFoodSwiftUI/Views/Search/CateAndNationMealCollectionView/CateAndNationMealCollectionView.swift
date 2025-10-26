@@ -14,25 +14,29 @@ struct CateAndNationMealCollectionView: View {
         GridItem(.flexible())
     ]
     @ObservedObject var viewModel: CateAndNationMealCollectionViewModel
-    let screenSize: ScreenSize
-    
+    let screenSize: ScreenSizeUIKit
+    let action: (TypeMeal, String) -> Void
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             LazyVGrid(columns: columns, spacing: screenSize.scaleWidth(20)) {
-                ForEach(viewModel.isNation ? viewModel.flagsNationMeal : viewModel.dishTypeMeal, id: \.self) { item in
+                ForEach(viewModel.titleNationCategoryMeal.indices, id: \.self) { index in
+                    let item = viewModel.titleNationCategoryMeal[index]
                     VStack {
                         Button(action: {
-                            print(item)
+                            action(viewModel.typeMeal, viewModel.titleNationCategoryMeal[index])
                         }, label: {
-                            AnimatedImage(imageName: item, size: screenSize.scaleWidth(160))
+                            AnimatedImage(imageName: viewModel.imageNationCategoryMeal[index], size: screenSize.scaleWidth(160), isURLImage: false)
+                                .cornerRadius(8, corners: .allCorners)
                                 .overlay(
                                     ZStack {
-                                        Color.mainColor.opacity(0.4).cornerRadius(8)
+                                        Color.mainColor.opacity(0.4)
                                         Text(item)
                                             .font(.yuGothicUILight(size: screenSize.scaleHeight(20)))
                                             .foregroundColor(Color.bgColor)
-                                    })
+                                    }
+                                        .cornerRadius(8, corners: .allCorners)
+                                )
                         })
                         .onAppear {
                             // Call Back Animation
@@ -49,5 +53,5 @@ struct CateAndNationMealCollectionView: View {
 }
 
 #Preview {
-    CateAndNationMealCollectionView(viewModel: CateAndNationMealCollectionViewModel(isNation: true), screenSize: ScreenSize(width: 375, height: 812))
+    CateAndNationMealCollectionView(viewModel: CateAndNationMealCollectionViewModel(titleNationCategoryMeal: ["USA", "British", "Canadian", "China", "Croatian", "Dutch", "Egyptian", "Filipino", "France", "Greek", "Indian", "Irish", "Italian", "Jamaican", "Japan", "Kenyan", "Malaysian", "Mexican", "Moroccan", "Polish", "Portuguese", "Russia", "Spanish", "Thai", "Tunisian", "Turkish", "Ukrainian", "Unknown", "VietNam"], imageNationCategoryMeal: ["USA", "British", "Canadian", "China", "Croatian", "Dutch", "Egyptian", "Filipino", "France", "Greek", "Indian", "Irish", "Italian", "Jamaican", "Japan", "Kenyan", "Malaysian", "Mexican", "Moroccan", "Polish", "Portuguese", "Russia", "Spanish", "Thai", "Tunisian", "Turkish", "Ukrainian", "Unknown", "VietNam"], typeMeal: .nation), screenSize: ScreenSizeUIKit(from: UIScreen.main.bounds.size), action: {_,_ in })
 }

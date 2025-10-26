@@ -65,6 +65,8 @@ extension AppFood {
         static let placeHolderSearchTextField = "Search on foodly"
         static let nationString = "Nation"
         static let categoryString = "Category"
+        static let enterYourMealSearchString = "Enter Your Name Meal For Search..."
+        static let clearAllButtonTitle = "Clear All"
     }
     
     struct StringImage {
@@ -87,5 +89,7 @@ extension AppFood {
         static let leftArrowBackIcon = "left_arrow_back"
         static let cameraIcon = "camera"
         static let searchIcon = "search"
+        static let emptySearchImage = "search_waste_food"
+        static let backButton = "back"
     }
 }

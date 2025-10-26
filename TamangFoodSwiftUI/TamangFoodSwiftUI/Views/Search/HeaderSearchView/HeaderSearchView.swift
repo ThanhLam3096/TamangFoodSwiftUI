@@ -9,8 +9,10 @@ import SwiftUI
 
 struct HeaderSearchView: View {
     // MARK: - Properties
-    let screenSize: ScreenSize
-    @State private var searchText: String = ""
+    let screenSize: ScreenSizeUIKit
+    @Binding var searchText: String
+    @FocusState private var isFocused: Bool
+    let action: () -> Void
     
     var body: some View {
         Text(AppFood.String.searchTitle)
@@ -28,6 +30,9 @@ struct HeaderSearchView: View {
                 .foregroundStyle(Color.mainColor)
                 .tint(Color.myAccentColor)
                 .frame(height: screenSize.scaleHeight(54))
+                .focused($isFocused)
+                .onChange(of: isFocused) { oldValue, newValue in                  action()
+                }
         }
         .frame(height: screenSize.scaleHeight(54))
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -41,5 +46,11 @@ struct HeaderSearchView: View {
 }
 
 #Preview {
-    HeaderSearchView(screenSize: ScreenSize(width: 375, height: 812))
+    StatefulPreviewWrapper("") { text in
+        HeaderSearchView(
+            screenSize: ScreenSizeUIKit(from: UIScreen.main.bounds.size),
+            searchText: text,
+            action: {}
+        )
+    }
 }

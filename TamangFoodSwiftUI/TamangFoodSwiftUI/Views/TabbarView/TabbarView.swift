@@ -16,71 +16,81 @@ struct TabbarView: View {
     @EnvironmentObject var router: MainNavigationRouter
     
     var body: some View {
-        TabView(selection: $selectedTab) {
-            NavigationStack(path: $router.path) {
+        NavigationStack(path: $router.path) {
+            TabView(selection: $selectedTab) {
                 HomeView()
-                    .navigationDestination(for: MainRouter.self) { route in
-                        switch route {
-                        case .seeAll(let meals, let title):
-                            SeeAllFoodView(viewModel: SeeAllFoodViewModel(meals: meals, title: title))
-                        case .detail(let meal):
-                            DetailView(viewModel: DetailViewModel(meal: meal))
-                        case .addToOrder(meal: let meal):
-                            AddToOrderView(viewModel: AddToOrderViewModel(meal: meal))
-                        case .yourOrder:
-                            YourOrdersView(viewModel: YourOrdersViewModel())
-                        case .paymentMethod:
-                            PaymentMethodView()
-                        }
+                    .tabItem {
+                        tabItemView(
+                            imageName: selectedTab == .home ? "home_tabbar_selected" : "home_tabbar",
+                            title: "Home",
+                            isSelected: selectedTab == .home
+                        )
                     }
+                    .tag(Tab.home)
+                
+                SearchView()
+                    .tabItem {
+                        tabItemView(
+                            imageName: selectedTab == .search ? "search_tabbar_selected" : "search_tabbar",
+                            title: "Search",
+                            isSelected: selectedTab == .search
+                        )
+                    }
+                    .tag(Tab.search)
+                
+                OrdersView()
+                    .tabItem {
+                        tabItemView(
+                            imageName: selectedTab == .orders ? "order_tabbar_selected" : "order_tabbar",
+                            title: "Orders",
+                            isSelected: selectedTab == .orders
+                        )
+                    }
+                    .tag(Tab.orders)
+                
+                ProfileView()
+                    .tabItem {
+                        tabItemView(
+                            imageName: selectedTab == .profile ? "profile_tabbar_selected" : "profile_tabbar",
+                            title: "Profile",
+                            isSelected: selectedTab == .profile
+                        )
+                    }
+                    .tag(Tab.profile)
             }
-                .tabItem {
-                    tabItemView(
-                        imageName: selectedTab == .home ? "home_tabbar_selected" : "home_tabbar",
-                        title: "Home",
-                        isSelected: selectedTab == .home
-                    )
+            .tint(Color.myAccentColor)
+            .navigationDestination(for: MainRouter.self) { route in
+                switch route {
+                case .seeAll(let meals, let title):
+                    SeeAllFoodView(viewModel: SeeAllFoodViewModel(meals: meals, title: title))
+                case .detail(let meal):
+                    DetailView(viewModel: DetailViewModel(meal: meal))
+                case .addToOrder(meal: let meal):
+                    AddToOrderView(viewModel: AddToOrderViewModel(meal: meal))
+                case .yourOrder:
+                    YourOrdersView(viewModel: YourOrdersViewModel())
+                case .paymentMethod:
+                    PaymentMethodView()
+                default: EmptyView()
                 }
-                .tag(Tab.home)
-            
-            SearchView()
-                .tabItem {
-                    tabItemView(
-                        imageName: selectedTab == .search ? "search_tabbar_selected" : "search_tabbar",
-                        title: "Search",
-                        isSelected: selectedTab == .search
-                    )
-                }
-                .tag(Tab.search)
-            
-            OrdersView()
-                .tabItem {
-                    tabItemView(
-                        imageName: selectedTab == .orders ? "order_tabbar_selected" : "order_tabbar",
-                        title: "Orders",
-                        isSelected: selectedTab == .orders
-                    )
-                }
-                .tag(Tab.orders)
-            
-            ProfileView()
-                .tabItem {
-                    tabItemView(
-                        imageName: selectedTab == .profile ? "profile_tabbar_selected" : "profile_tabbar",
-                        title: "Profile",
-                        isSelected: selectedTab == .profile
-                    )
-                }
-                .tag(Tab.profile)
+            }
         }
-        .tint(Color.myAccentColor)
-//        .fullScreenCover(item: $router.presentedFullScreen) { router in
-//            switch router {
-//            case .yourOrder:
-//                YourOrdersView(viewModel: YourOrdersViewModel())
-//            default: EmptyView()
-//            }
-//        }
+        .fullScreenCover(item: $router.presentedFullScreen) { router in
+            switch router {
+            case .yourOrder:
+                YourOrdersView(viewModel: YourOrdersViewModel())
+            default: EmptyView()
+            }
+        }
+        .sheet(item: $router.presentedSheet) { route in
+            switch route {
+            case .filterSearch(let nations, let categories):
+                NavigationStack {
+                    FilterSearchView(viewModel: FilterSearchViewModel(filterByNation: nations, filterByCategory: categories))
+                }
+            default: EmptyView()
+            }
+        }
         .environmentObject(router)
     }
     

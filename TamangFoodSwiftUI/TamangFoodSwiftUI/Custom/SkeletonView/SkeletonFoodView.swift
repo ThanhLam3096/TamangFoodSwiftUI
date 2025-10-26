@@ -58,7 +58,7 @@ struct SkeletonFoodView: View {
                         ))
                 }
             )
-//            .shimmering(active: true)
+        //            .shimmering(active: true)
     }
 }
 

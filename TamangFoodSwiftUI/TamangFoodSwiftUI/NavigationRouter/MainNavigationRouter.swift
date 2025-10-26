@@ -21,7 +21,6 @@ class MainNavigationRouter: ObservableObject {
         path.append(route)
     }
     
-    
     func goBack() {
         guard !path.isEmpty else { return }
         path.removeLast()
@@ -55,6 +54,7 @@ enum MainRouter: Hashable, Identifiable {
     case addToOrder(meal: Meal)
     case yourOrder
     case paymentMethod
+    case filterSearch(nations: [String], categories: [String])
     
     var id: String {
         switch self {
@@ -68,6 +68,8 @@ enum MainRouter: Hashable, Identifiable {
             return "yourOrder"
         case .paymentMethod:
             return "paymentMethod"
+        case .filterSearch(let nations, let categories):
+            return "Filter Nation: \(nations), Categories: \(categories)"
         }
     }
 }

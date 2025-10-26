@@ -8,5 +8,9 @@
 import Foundation
 
 final class ResultSearchViewModel: ObservableObject {
+    @Published var meals: [TheMealDB]
     
+    init(meals: [TheMealDB]) {
+        self.meals = meals
+    }
 }
