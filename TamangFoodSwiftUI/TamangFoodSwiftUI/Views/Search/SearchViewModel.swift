@@ -16,6 +16,7 @@ final class SearchViewModel: ObservableObject {
     @Published var isSearchResultKey = false
     @Published var titleNationCategoryMeal: [String] = []
     @Published var listResultSearchMealByName: [TheMealDB] = []
+    @Published var mealDetail: Meal?
     
     // MARK: Calling API Function
     func getAPISearchMealDB(name: String, detailMealCompletion: @escaping (Bool, String) -> Void) {
@@ -106,5 +107,21 @@ final class SearchViewModel: ObservableObject {
         }
     }
     
+    func getAPIDetailMealDB(idMeal: String, detailMealCompletion: @escaping (Bool, String) -> Void) {
+        Networking.shared().getDetailMeal(idMeal: idMeal) { [weak self] (mealDetailResult) in
+            guard let this = self else { return }
+            switch mealDetailResult {
+            case .failure(let error):
+                detailMealCompletion(false, error)
+            case .success(let result):
+                let items = result.meals
+                for item in items{
+                    this.mealDetail = DetailFollowThemeMealDB().setDetailDataForThemeMealDB(themeMealDB: item)
+                    print("Meal Detail \(String(describing: this.mealDetail?.name))")
+                }
+                detailMealCompletion(true, AppFood.String.loadSuccess)
+            }
+        }
+    }
     
 }

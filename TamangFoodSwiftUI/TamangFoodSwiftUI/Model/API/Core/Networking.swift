@@ -158,19 +158,24 @@ final class Networking {
             completion(.failure(AppFood.String.alertFailedAPI))
             return
         }
-        AF.request(url).validate().responseDecodable(of: NationFoodResult.self) { response in
-            DispatchQueue.main.async {
-                switch response.result {
-                case .success(let result):
-                    completion(.success(result))
-                case .failure(_):
-                    if let data = response.data,
-                       let jsonString = String(data: data, encoding: .utf8) {
-                        print("JSON Response: \(jsonString)")
-                    }
-                    completion(.failure(AppFood.String.alertFailedToConnectAPI))
-                }
-            }
+//        AF.request(url).validate().responseDecodable(of: NationFoodResult.self) { response in
+//            DispatchQueue.main.async {
+//                switch response.result {
+//                case .success(let result):
+//                    completion(.success(result))
+//                case .failure(_):
+//                    if let data = response.data,
+//                       let jsonString = String(data: data, encoding: .utf8) {
+//                        print("JSON Response: \(jsonString)")
+//                    }
+//                    completion(.failure(AppFood.String.alertFailedToConnectAPI))
+//                }
+//            }
+//        }
+        AF.request(url)
+            .validate(statusCode: 200..<600)
+            .responseDecodable(of: NationFoodResult.self) { response in
+                self.handleResponse(response, completion: completion)
         }
     }
     
@@ -180,15 +185,10 @@ final class Networking {
             completion(.failure(AppFood.String.alertFailedAPI))
             return
         }
-        AF.request(url).validate().responseDecodable(of: RestaurantResult.self) { response in
-            DispatchQueue.main.async {
-                switch response.result {
-                case .success(let result):
-                    completion(.success(result))
-                case .failure(_):
-                    completion(.failure(AppFood.String.alertFailedToConnectAPI))
-                }
-            }
+        AF.request(url)
+            .validate(statusCode: 200..<600)
+            .responseDecodable(of: RestaurantResult.self) { response in
+                self.handleResponse(response, completion: completion)
         }
     }
     
@@ -198,15 +198,10 @@ final class Networking {
             completion(.failure(AppFood.String.alertFailedAPI))
             return
         }
-        AF.request(url).validate().responseDecodable(of: TheMealDetailResult.self) { response in
-            DispatchQueue.main.async {
-                switch response.result {
-                case .success(let result):
-                    completion(.success(result))
-                case .failure(_):
-                    completion(.failure(AppFood.String.alertFailedToConnectAPI))
-                }
-            }
+        AF.request(url)
+            .validate(statusCode: 200..<600)
+            .responseDecodable(of: TheMealDetailResult.self) { response in
+                self.handleResponse(response, completion: completion)
         }
     }
     
@@ -216,15 +211,10 @@ final class Networking {
             completion(.failure(AppFood.String.alertFailedAPI))
             return
         }
-        AF.request(url).validate().responseDecodable(of: TheMealDetailResult.self) { response in
-            DispatchQueue.main.async {
-                switch response.result {
-                case .success(let result):
-                    completion(.success(result))
-                case .failure(_):
-                    completion(.failure(AppFood.String.alertFailedToConnectAPI))
-                }
-            }
+        AF.request(url)
+            .validate(statusCode: 200..<600)
+            .responseDecodable(of: TheMealDetailResult.self) { response in
+                self.handleResponse(response, completion: completion)
         }
     }
     
@@ -234,34 +224,11 @@ final class Networking {
             completion(.failure(AppFood.String.alertFailedAPI))
             return
         }
-        AF.request(url).validate(statusCode: 200..<600).responseDecodable(of: TheMealDetailResult.self) { response in
-            DispatchQueue.main.async {
-                if let statusCode = response.response?.statusCode {
-                    switch statusCode {
-                    case 200:
-                        switch response.result {
-                        case .success(let result):
-                            completion(.success(result))
-                        case .failure(_):
-                            completion(.failure(AppFood.String.alertFailedToConnectAPI))
-                        }
-                    case 400:
-                        completion(.failure("⚠️ Bad Request (400)"))
-                    case 401:
-                        completion(.failure("🚫 Unauthorized (401)"))
-                    case 403:
-                        completion(.failure("⛔ Forbidden (403)"))
-                    case 404:
-                        completion(.failure("🔍 Not Found (404)"))
-                    case 500:
-                        completion(.failure("💥 Internal Server Error (500)"))
-                        
-                    default:
-                        completion(.failure("ℹ️ Unexpected status code: \(statusCode)"))
-                    }
-                }
+        AF.request(url)
+            .validate(statusCode: 200..<600)
+            .responseDecodable(of: TheMealDetailResult.self) { response in
+                self.handleResponse(response, completion: completion)
             }
-        }
     }
     
     // MARK: - Search Meal By Name
@@ -270,16 +237,11 @@ final class Networking {
             completion(.failure(AppFood.String.alertFailedAPI))
             return
         }
-        AF.request(url).validate().responseDecodable(of: TheMealDetailResult.self) { response in
-            DispatchQueue.main.async {
-                switch response.result {
-                case .success(let result):
-                    completion(.success(result))
-                case .failure(_):
-                    completion(.failure(AppFood.String.alertFailedToConnectAPI))
-                }
+        AF.request(url)
+            .validate(statusCode: 200..<600)
+            .responseDecodable(of: TheMealDetailResult.self) { response in
+                self.handleResponse(response, completion: completion)
             }
-        }
     }
     
     // MARK: - Filter Meal By Nation
@@ -288,15 +250,10 @@ final class Networking {
             completion(.failure(AppFood.String.alertFailedAPI))
             return
         }
-        AF.request(url).validate().responseDecodable(of: TheMealDetailResult.self) { response in
-            DispatchQueue.main.async {
-                switch response.result {
-                case .success(let result):
-                    completion(.success(result))
-                case .failure(_):
-                    completion(.failure(AppFood.String.alertFailedToConnectAPI))
-                }
-            }
+        AF.request(url)
+            .validate(statusCode: 200..<600)
+            .responseDecodable(of: TheMealDetailResult.self) { response in
+                self.handleResponse(response, completion: completion)
         }
     }
     
@@ -306,14 +263,45 @@ final class Networking {
             completion(.failure(AppFood.String.alertFailedAPI))
             return
         }
-        AF.request(url).validate().responseDecodable(of: TheMealDetailResult.self) { response in
-            DispatchQueue.main.async {
+        AF.request(url)
+            .validate(statusCode: 200..<600)
+            .responseDecodable(of: TheMealDetailResult.self) { response in
+                self.handleResponse(response, completion: completion)
+        }
+    }
+    
+    // MARK: - Handle response
+    private func handleResponse<T: Decodable>(
+        _ response: AFDataResponse<T>,
+        completion: @escaping APICompletion<T>
+    ) {
+        DispatchQueue.main.async {
+            guard let statusCode = response.response?.statusCode else {
+                completion(.failure("❌ No status code received"))
+                return
+            }
+            
+            switch statusCode {
+            case 200:
                 switch response.result {
                 case .success(let result):
                     completion(.success(result))
                 case .failure(_):
                     completion(.failure(AppFood.String.alertFailedToConnectAPI))
                 }
+                
+            case 400:
+                completion(.failure("⚠️ Bad Request (400)"))
+            case 401:
+                completion(.failure("🚫 Unauthorized (401)"))
+            case 403:
+                completion(.failure("⛔ Forbidden (403)"))
+            case 404:
+                completion(.failure("🔍 Not Found (404)"))
+            case 500:
+                completion(.failure("💥 Internal Server Error (500)"))
+            default:
+                completion(.failure("ℹ️ Unexpected status code: \(statusCode)"))
             }
         }
     }
