@@ -80,7 +80,7 @@ struct SearchView: View {
                 isSearchMeal = false
                 fetchSearchMealByName(name: mealSearch)
             })
-                .hidden(!isSearchMeal)
+            .hidden(!isSearchMeal)
         }
         .ignoresSafeArea(.keyboard)
         .onTapGesture {
@@ -92,7 +92,13 @@ struct SearchView: View {
     @ViewBuilder
     private func searchResultView(screenSize: ScreenSizeUIKit) -> some View {
         if viewModel.isSearchResultKey {
-            ResultSearchView(viewModel: ResultSearchViewModel(meals: viewModel.listResultSearchMealByName), screenSize: screenSize)
+            ResultSearchView(
+                viewModel: ResultSearchViewModel(
+                    meals: viewModel.listResultSearchMealByName),
+                screenSize: screenSize,
+                action: { idMeal in
+                    loadAPIDetailMeal(idMeal: idMeal)
+                })
         } else {
             VStack {
                 Text(AppFood.String.enterYourMealSearchString)
@@ -165,6 +171,17 @@ struct SearchView: View {
     private func fetchMealByCategory(categoryName: String) {
         viewModel.getAPIMealByCategory(categoryName: categoryName) { success, message in
             print(success ? "Load Data Category Meal Success" : "Failed Loading: \(message)")
+        }
+    }
+    
+    private func loadAPIDetailMeal(idMeal: String) {
+        viewModel.getAPIDetailMealDB(idMeal: idMeal) { (done, msg) in
+            if done {
+                guard let mealDetail = viewModel.mealDetail else { return }
+                router.push(.detail(meal: mealDetail))
+            } else {
+                print("Loading Faild")
+            }
         }
     }
 }

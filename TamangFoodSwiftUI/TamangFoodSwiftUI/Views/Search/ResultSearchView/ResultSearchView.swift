@@ -16,7 +16,10 @@ struct ResultSearchView: View {
         GridItem(.flexible())
     ]
     @ObservedObject var viewModel: ResultSearchViewModel
+    @EnvironmentObject var router: MainNavigationRouter
     let screenSize: ScreenSizeUIKit
+    let action: (String) -> Void
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: columns, spacing: screenSize.scaleWidth(20)) {
@@ -28,13 +31,13 @@ struct ResultSearchView: View {
                     ForEach(viewModel.meals, id: \.idMeal) { item in
                         VStack {
                             Button(action: {
-                                print(item.nameMeal)
+                                action(item.idMeal)
                             }, label: {
-                                //                                AnimatedImage(imageName: item.imageMeal, size: screenSize.scaleWidth(160), isURLImage: true)
-                                WebImage(url: URL(string: item.imageMeal))
-                                    .resizable()
-                                    .frame(width: screenSize.scaleWidth(160), height: screenSize.scaleWidth(160))
-                                    .cornerRadius(8, corners: .allCorners)
+                                AnimatedImage(imageName: item.imageMeal, size: screenSize.scaleWidth(160), isURLImage: true)
+//                                WebImage(url: URL(string: item.imageMeal))
+//                                    .resizable()
+//                                    .frame(width: screenSize.scaleWidth(160), height: screenSize.scaleWidth(160))
+//                                    .cornerRadius(8, corners: .allCorners)
                             })
                             .onAppear {
                                 // Call Back Animation
